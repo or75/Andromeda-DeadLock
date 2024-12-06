@@ -21,7 +21,7 @@ public:
 
 public:
 	CBasePattern CSkeletonInstance_CalcWorldSpaceBones = { VmpStr( "CSkeletonInstance::CalcWorldSpaceBones" ) , VmpStr( "40 55 56 57 41 54 41 55 41 56 41 57 48 81 EC ? ? ? ? 48 8D 6C 24 ? 48 8B F1" ) , CLIENT_DLL , 0 , SEARCH_TYPE_NONE };
-	CBasePattern ScreenTransform = { VmpStr( "ScreenTransform" ) , VmpStr( "48 8B C4 48 89 68 ? 57 48 83 EC 50 48 8B E9" ) , CLIENT_DLL , 0 , SEARCH_TYPE_NONE };
+	CBasePattern ScreenTransform = { VmpStr( "ScreenTransform" ) , VmpStr( "48 89 5C 24 ? 56 48 83 EC 20 48 8B F1 48 8B DA 48 8B 0D" ) , CLIENT_DLL , 0 , SEARCH_TYPE_NONE };
 	CBasePattern CCitadelInput_GetViewAngles = { VmpStr( "CCitadelInput::GetViewAngles" ) , VmpStr( "E8 ? ? ? ? EB ? 48 8B 01 48 8D 54 24 ?" ) , CLIENT_DLL , 0 , SEARCH_TYPE_CALL };
 	CBasePattern CCitadelInput_SetViewAngles = { VmpStr( "CCitadelInput::SetViewAngles" ) , VmpStr( "85 D2 75 3F 48 63 81 ? ? ? ? F2 41 0F 10 00 85 C0 74 1D 48 8B 89 ? ? ? ? 48 69 D0" ) , CLIENT_DLL , 0 , SEARCH_TYPE_NONE };
 	CBasePattern C_BaseEntity_ComputeHitboxSurroundingBox = { VmpStr( "C_BaseEntity::ComputeHitboxSurroundingBox" ) , VmpStr( "48 89 5C 24 10 48 89 6C 24 18 56 57 41 56 B8 ? ? ? ? E8 ? ? ? ? 48 2B E0 48 8B FA" ) , CLIENT_DLL , 0 , SEARCH_TYPE_NONE };
