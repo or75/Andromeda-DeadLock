@@ -3,7 +3,7 @@
 
 #include <ImGui/imgui.h>
 
-#include <DeadLock/SDK/Interface/IGameEvent.hpp>
+#include <GameClient/CEntityCache/CEntityCache.hpp>
 
 static CAndromedaClient g_CAndromedaClient{};
 
@@ -14,7 +14,17 @@ auto CAndromedaClient::OnInit() -> void
 
 auto CAndromedaClient::OnFireEventClientSide( IGameEvent* pGameEvent ) -> void
 {
-	DEV_LOG( "OnFireEventClientSide: %s\n", pGameEvent->GetName() );
+
+}
+
+auto CAndromedaClient::OnAddEntity( CEntityInstance* pInst , CHandle handle ) -> void
+{
+	GetEntityCache()->OnAddEntity( pInst , handle );
+}
+
+auto CAndromedaClient::OnRemoveEntity( CEntityInstance* pInst , CHandle handle ) -> void
+{
+	GetEntityCache()->OnRemoveEntity( pInst , handle );
 }
 
 auto CAndromedaClient::OnRenderMenu() -> void

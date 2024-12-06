@@ -120,6 +120,9 @@ public:
 class C_BaseEntity : public CEntityInstance
 {
 public:
+	auto IsCitadelPlayerController() -> bool;
+
+public:
 	auto GetOrigin() -> const Vector3&;
 
 public:

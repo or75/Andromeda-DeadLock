@@ -94,6 +94,12 @@
     <Filter Include="Andromeda-DeadLock\DeadLock\Protobuf">
       <UniqueIdentifier>{6ff9140f-45bb-4185-9d48-cc2d435bc278}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Andromeda-DeadLock\GameClient">
+      <UniqueIdentifier>{5da44460-eb37-4e28-9a8b-842450a8b43c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Andromeda-DeadLock\GameClient\CEntityCache">
+      <UniqueIdentifier>{442c31f9-50dc-4fe7-bea6-e27ee9e2ddea}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Andromeda-DeadLock\Common\Include\Config.hpp">
@@ -627,6 +633,18 @@
     <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Interface\CInputSystem.hpp">
       <Filter>Andromeda-DeadLock\DeadLock\SDK\Interface</Filter>
     </ClInclude>
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_GetMatricesForView.hpp">
+      <Filter>Andromeda-DeadLock\DeadLock\Hook</Filter>
+    </ClInclude>
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_OnAddEntity.hpp">
+      <Filter>Andromeda-DeadLock\DeadLock\Hook</Filter>
+    </ClInclude>
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_OnRemoveEntity.hpp">
+      <Filter>Andromeda-DeadLock\DeadLock\Hook</Filter>
+    </ClInclude>
+    <ClInclude Include="Andromeda-DeadLock\GameClient\CEntityCache\CEntityCache.hpp">
+      <Filter>Andromeda-DeadLock\GameClient\CEntityCache</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Andromeda-DeadLock\Common\Include\MinHook\hde\hde32.c">
@@ -763,6 +781,18 @@
     </ClCompile>
     <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_MouseInputEnabled.cpp">
       <Filter>Andromeda-DeadLock\DeadLock\Hook</Filter>
+    </ClCompile>
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_GetMatricesForView.cpp">
+      <Filter>Andromeda-DeadLock\DeadLock\Hook</Filter>
+    </ClCompile>
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_OnAddEntity.cpp">
+      <Filter>Andromeda-DeadLock\DeadLock\Hook</Filter>
+    </ClCompile>
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_OnRemoveEntity.cpp">
+      <Filter>Andromeda-DeadLock\DeadLock\Hook</Filter>
+    </ClCompile>
+    <ClCompile Include="Andromeda-DeadLock\GameClient\CEntityCache\CEntityCache.cpp">
+      <Filter>Andromeda-DeadLock\GameClient\CEntityCache</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

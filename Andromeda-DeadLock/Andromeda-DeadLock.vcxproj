@@ -225,8 +225,11 @@
     <ClInclude Include="Andromeda-DeadLock\DeadLock\CSDK_Loader.hpp" />
     <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_CreateSwapChain.hpp" />
     <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_FireEventClientSide.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_GetMatricesForView.hpp" />
     <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_IsRelativeMouseMode.hpp" />
     <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_MouseInputEnabled.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_OnAddEntity.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_OnRemoveEntity.hpp" />
     <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_Present.hpp" />
     <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_ResizeBuffers.hpp" />
     <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\AppFramework\IAppSystem.hpp" />
@@ -265,6 +268,7 @@
     <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Types\TIer0Memory.hpp" />
     <ClInclude Include="Andromeda-DeadLock\DllLauncher.hpp" />
     <ClInclude Include="Andromeda-DeadLock\DllMain.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\GameClient\CEntityCache\CEntityCache.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Andromeda-DeadLock\AndromedaClient\CAndromedaClient.cpp" />
@@ -293,8 +297,11 @@
     <ClCompile Include="Andromeda-DeadLock\DeadLock\CSDK_Loader.cpp" />
     <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_CreateSwapChain.cpp" />
     <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_FireEventClientSide.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_GetMatricesForView.cpp" />
     <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_IsRelativeMouseMode.cpp" />
     <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_MouseInputEnabled.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_OnAddEntity.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_OnRemoveEntity.cpp" />
     <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_Present.cpp" />
     <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_ResizeBuffers.cpp" />
     <ClCompile Include="Andromeda-DeadLock\DeadLock\SDK\CFunctionList.cpp" />
@@ -312,6 +319,7 @@
     <ClCompile Include="Andromeda-DeadLock\DeadLock\SDK\Types\CHandle.cpp" />
     <ClCompile Include="Andromeda-DeadLock\DllLauncher.cpp" />
     <ClCompile Include="Andromeda-DeadLock\DllMain.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\GameClient\CEntityCache\CEntityCache.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

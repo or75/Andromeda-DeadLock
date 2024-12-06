@@ -17,7 +17,7 @@ namespace index
 	namespace CSchemaSystem
 	{
 		constexpr auto GlobalTypeScope = 11;
-		constexpr auto SchemaClassInfo = 38;
+		constexpr auto SchemaClassInfo = 42;
 	}
 }
 

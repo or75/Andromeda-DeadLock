@@ -27,6 +27,16 @@ auto CSkeletonInstance::CalcWorldSpaceBones( unsigned int Mask ) -> void
 	return CSkeletonInstance_CalcWorldSpaceBones( this , Mask );
 }
 
+auto C_BaseEntity::IsCitadelPlayerController() -> bool
+{
+	const auto* pszDesingerName = pEntityIdentity()->DesingerName().String();
+
+	if ( pszDesingerName && strcmp( pszDesingerName , XorStr( "citadel_player_controller" ) ) == 0 )
+		return true;
+
+	return false;
+}
+
 auto C_BaseEntity::GetOrigin() -> const Vector3&
 {
 	auto pGameSceneNode = m_pGameSceneNode();
