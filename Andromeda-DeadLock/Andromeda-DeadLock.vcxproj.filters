@@ -76,6 +76,15 @@
     <Filter Include="Andromeda-DeadLock\DeadLock\SDK\AppFramework">
       <UniqueIdentifier>{00f8c3d0-c0ca-40cf-88e8-8ce6f558d35d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Andromeda-DeadLock\DeadLock\SDK\Math">
+      <UniqueIdentifier>{8640beb8-2ea8-46b1-abc0-d1d41511746f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Andromeda-DeadLock\DeadLock\SDK\Types">
+      <UniqueIdentifier>{508a6132-0dcf-419a-92df-0c001a498616}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Andromeda-DeadLock\DeadLock\SDK\Update">
+      <UniqueIdentifier>{18d017de-b848-4e29-8c5f-00e37eec85ce}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Andromeda-DeadLock\Common\Include\Config.hpp">
@@ -510,6 +519,75 @@
     <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Interface\CShemaSystemSDK.hpp">
       <Filter>Andromeda-DeadLock\DeadLock\SDK\Interface</Filter>
     </ClInclude>
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Math\Math.hpp">
+      <Filter>Andromeda-DeadLock\DeadLock\SDK\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Math\Matrix.hpp">
+      <Filter>Andromeda-DeadLock\DeadLock\SDK\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Math\QAngle.hpp">
+      <Filter>Andromeda-DeadLock\DeadLock\SDK\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Math\Rect_t.hpp">
+      <Filter>Andromeda-DeadLock\DeadLock\SDK\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Math\Vector2.hpp">
+      <Filter>Andromeda-DeadLock\DeadLock\SDK\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Math\Vector3.hpp">
+      <Filter>Andromeda-DeadLock\DeadLock\SDK\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Math\Vector4.hpp">
+      <Filter>Andromeda-DeadLock\DeadLock\SDK\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Types\CBaseTypes.hpp">
+      <Filter>Andromeda-DeadLock\DeadLock\SDK\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Types\CEntityData.hpp">
+      <Filter>Andromeda-DeadLock\DeadLock\SDK\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Types\CHandle.hpp">
+      <Filter>Andromeda-DeadLock\DeadLock\SDK\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Types\Color.hpp">
+      <Filter>Andromeda-DeadLock\DeadLock\SDK\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Types\CStrongHandle.hpp">
+      <Filter>Andromeda-DeadLock\DeadLock\SDK\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Types\CUtlFixedMemory.hpp">
+      <Filter>Andromeda-DeadLock\DeadLock\SDK\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Types\CUtlLinkedList.hpp">
+      <Filter>Andromeda-DeadLock\DeadLock\SDK\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Types\CUtlMap.hpp">
+      <Filter>Andromeda-DeadLock\DeadLock\SDK\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Types\CUtlMemory.hpp">
+      <Filter>Andromeda-DeadLock\DeadLock\SDK\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Types\CUtlString.hpp">
+      <Filter>Andromeda-DeadLock\DeadLock\SDK\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Types\CUtlStringToken.hpp">
+      <Filter>Andromeda-DeadLock\DeadLock\SDK\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Types\CUtlSymbol.hpp">
+      <Filter>Andromeda-DeadLock\DeadLock\SDK\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Types\CUtlSymbolLarge.hpp">
+      <Filter>Andromeda-DeadLock\DeadLock\SDK\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Types\CUtlVector.hpp">
+      <Filter>Andromeda-DeadLock\DeadLock\SDK\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Types\TIer0Memory.hpp">
+      <Filter>Andromeda-DeadLock\DeadLock\SDK\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Interface\CGameEntitySystem.hpp">
+      <Filter>Andromeda-DeadLock\DeadLock\SDK\Interface</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Andromeda-DeadLock\Common\Include\MinHook\hde\hde32.c">
@@ -598,6 +676,27 @@
     </ClCompile>
     <ClCompile Include="Andromeda-DeadLock\DeadLock\SDK\SDL3\SDL3_Functions.cpp">
       <Filter>Andromeda-DeadLock\DeadLock\SDK\SDL3</Filter>
+    </ClCompile>
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\SDK\Math\Math.cpp">
+      <Filter>Andromeda-DeadLock\DeadLock\SDK\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\SDK\Math\Matrix.cpp">
+      <Filter>Andromeda-DeadLock\DeadLock\SDK\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\SDK\Math\QAngle.cpp">
+      <Filter>Andromeda-DeadLock\DeadLock\SDK\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\SDK\Math\Vector3.cpp">
+      <Filter>Andromeda-DeadLock\DeadLock\SDK\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\SDK\Math\Vector4.cpp">
+      <Filter>Andromeda-DeadLock\DeadLock\SDK\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\SDK\Types\CEntityData.cpp">
+      <Filter>Andromeda-DeadLock\DeadLock\SDK\Types</Filter>
+    </ClCompile>
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\SDK\Types\CHandle.cpp">
+      <Filter>Andromeda-DeadLock\DeadLock\SDK\Types</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

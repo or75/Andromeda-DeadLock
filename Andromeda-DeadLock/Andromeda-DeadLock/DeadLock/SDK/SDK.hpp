@@ -4,6 +4,7 @@
 
 class CSchemaSystem;
 class IVEngineToClient;
+class CGameEntitySystem;
 
 #define CLIENT_DLL				"client.dll"
 #define ENGINE2_DLL				"engine2.dll"
@@ -18,9 +19,11 @@ namespace SDK
 	public:
 		static CSchemaSystem* SchemaSystem();
 		static IVEngineToClient* EngineToClient();
+		static CGameEntitySystem* GameEntitySystem();
 
 	private:
 		static CSchemaSystem* g_pSchemaSystem;
 		static IVEngineToClient* g_pEngineToClient;
+		static CGameEntitySystem* g_pGameEntitySystem;
 	};
 }

@@ -4,7 +4,9 @@
 #include <Common/MemoryEngine.hpp>
 
 #include <DeadLock/CBasePattern.hpp>
+
 #include <DeadLock/SDK/SDK.hpp>
+#include <DeadLock/SDK/Types/CBaseTypes.hpp>
 
 #define SCHEMA_SYSTEM_INTERFACE_VERSION "SchemaSystem_001"
 
@@ -27,6 +29,7 @@ namespace GeneratorOffset
 {
 	constexpr auto GetNumSchema = 0x29;
 	constexpr auto GetClassContainer = 0x580; // 49 8D 9E ? ? ? ? 0F 1F 40 00 66 66 66 0F 1F 84 00 00 00 00 00 41 B8 4E 02 00 00 48 8D ? ? ? ? ? 48 8B CB
+	constexpr auto GetEnumContainer = 0x2E10;
 }
 
 #pragma endregion
@@ -34,6 +37,7 @@ namespace GeneratorOffset
 #pragma region CSchemaSystemClasses
 
 class CSchemaClassBinding;
+class CSchemaEnumBinding;
 class CSchemaType;
 class CSchemaSystemTypeScope;
 
@@ -48,6 +52,14 @@ struct SchemaClassFieldDataArray_t
 	int FieldOffset;
 	int FieldUnk;
 	void* unkn0;
+};
+
+struct SchemaEnumFieldDataArray_t
+{
+	char* FieldName;
+	uint64_t FieldData;
+	void* unkn0;
+	void* unkn1;
 };
 
 class CSchemaClassBinding
@@ -78,6 +90,48 @@ public:
 	CSchemaSystemTypeScope* m_TypeScope;
 	CSchemaType* m_Type;
 	unsigned short int m_Flags;
+};
+
+class CSchemaEnumBinding
+{
+public:
+	void* pthis;
+	const char* m_bindingName;
+	char* m_dllName;
+	int8 m_TypeSize;
+	int8 m_TypeAlign;
+	int16 unkn0;
+	int16 size;
+	int16 unkn1;
+	SchemaEnumFieldDataArray_t* m_DataArray;
+	void* unkn2;
+	CSchemaSystemTypeScope* m_TypeScope;
+
+	const char* GenerateTypeStorage()
+	{
+		const char* TypeStorage = nullptr;
+
+		switch ( m_TypeSize )
+		{
+			case 1:
+				TypeStorage = "uint8_t";
+				break;
+			case 2:
+				TypeStorage = "uint16_t";
+				break;
+			case 4:
+				TypeStorage = "uint32_t";
+				break;
+			case 8:
+				TypeStorage = "uint64_t";
+				break;
+			default:
+				TypeStorage = "INVALID_TYPE";;
+				break;
+		}
+
+		return TypeStorage;
+	}
 };
 
 class CSchemaType
@@ -141,6 +195,12 @@ public:
 	CSchemaList<CSchemaClassBinding>* GetClassContainer()
 	{
 		return CUSTOM_OFFSET_RAW( CSchemaList<CSchemaClassBinding> , GeneratorOffset::GetClassContainer );
+	}
+
+public:
+	CSchemaList<CSchemaEnumBinding>* GetEnumContainer()
+	{
+		return CUSTOM_OFFSET_RAW( CSchemaList<CSchemaEnumBinding> , GeneratorOffset::GetEnumContainer );
 	}
 };
 

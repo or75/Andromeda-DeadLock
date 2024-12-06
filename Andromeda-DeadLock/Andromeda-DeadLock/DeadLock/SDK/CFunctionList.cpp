@@ -6,6 +6,14 @@ auto CFunctionList::OnInit() -> bool
 {
 	std::vector<CBasePattern*> vPatterns =
 	{
+		&CSkeletonInstance_CalcWorldSpaceBones,
+		&ScreenTransform,
+		&CCitadelInput_GetViewAngles,
+		&CCitadelInput_SetViewAngles,
+		&C_BaseEntity_ComputeHitboxSurroundingBox,
+		&CGameEntitySystem_GetBaseEntity,
+		&CGameEntitySystem_GetHighestEntityIndex,
+		&CGameEntitySystem_GetLocalCitadelPlayerController,
 	};
 
 	auto Searched = true;

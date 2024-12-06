@@ -106,6 +106,59 @@ auto CShcemaOffset::Init() -> void
 				}
 			}
 		}
+
+#if DUMP_SCHEMA_ALL_OFFSET == 1
+		auto pEnumContainer = Scope->GetEnumContainer();
+
+		if ( pEnumContainer )
+		{
+			int BlockIndex = 0;
+
+			for ( auto& schema_block : pEnumContainer->GetBlockContainers() )
+			{
+				for ( auto Block = schema_block.GetFirstBlock(); Block && BlockIndex < pEnumContainer->GetNumSchema(); Block = Block->Next() , ++BlockIndex )
+				{
+					auto pBinding = Block->GetBinding();
+
+					if ( !pBinding )
+						continue;
+
+					DEV_LOG( "enum %s : %s\n{\n" , pBinding->m_bindingName , pBinding->GenerateTypeStorage() );
+
+					for ( auto idx = 0; idx < pBinding->size; idx++ )
+					{
+						auto enum_data = pBinding->m_DataArray[idx];
+
+						if ( enum_data.FieldName )
+						{
+							switch ( pBinding->m_TypeSize )
+							{
+								case 1:
+									DEV_LOG( "\t%s = 0x%02X ,\n" , enum_data.FieldName , enum_data.FieldData );
+									break;
+								case 2:
+									DEV_LOG( "\t%s = 0x%04X ,\n" , enum_data.FieldName , enum_data.FieldData );
+									break;
+								case 4:
+									DEV_LOG( "\t%s = 0x%08X ,\n" , enum_data.FieldName , enum_data.FieldData );
+									break;
+								case 8:
+									DEV_LOG( "\t%s = 0x%p ,\n" , enum_data.FieldName , enum_data.FieldData );
+									break;
+								default:
+									break;
+							}
+						}
+					}
+
+					DEV_LOG( "};\n\n" );
+
+				}
+			}
+		}
+
+#endif
+
 	}
 }
 
