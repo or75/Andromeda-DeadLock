@@ -10,8 +10,8 @@
 #include <DeadLock/CHook_Loader.hpp>
 #include <DeadLock/SDK/CFunctionList.hpp>
 
-//#include <AndromedaClient/CAndromedaGUI.hpp>
-//#include <AndromedaClient/CAndromedaClient.hpp>
+#include <AndromedaClient/CAndromedaGUI.hpp>
+#include <AndromedaClient/CAndromedaClient.hpp>
 
 static CDllLauncher g_CDllLauncher{};
 
@@ -66,7 +66,7 @@ auto CDllLauncher::OnDestroy() -> void
 	{
 		GetDevLog()->Destroy();
 		GetHook_Loader()->DestroyHooks();
-		//GetAndromedaGUI()->OnDestroy();
+		GetAndromedaGUI()->OnDestroy();
 		GetCrashLog()->DestroyVectorExceptionHandler();
 		
 		m_bDestroyed = true;
@@ -104,12 +104,10 @@ auto WINAPI CDllLauncher::StartCheatTheard( LPVOID lpThreadParameter ) -> DWORD
 		return 0;
 	}
 
-	/*
 	while ( !GetAndromedaGUI()->IsInited() )
 		Sleep( 100 );
 
 	GetAndromedaClient()->OnInit();
-	*/
 
 	return 0;
 }

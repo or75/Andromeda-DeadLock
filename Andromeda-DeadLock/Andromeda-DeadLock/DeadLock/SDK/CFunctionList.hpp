@@ -28,6 +28,8 @@ public:
 	CBasePattern CGameEntitySystem_GetBaseEntity = { VmpStr( "CGameEntitySystem::GetBaseEntity" ) , VmpStr( "81 FA FE 7F 00 00 77 36 8B C2 C1 F8 09 83 F8 3F" ) , CLIENT_DLL };
 	CBasePattern CGameEntitySystem_GetHighestEntityIndex = { VmpStr( "CGameEntitySystem::GetHighestEntityIndex" ) , VmpStr( "E8 ? ? ? ? 8B 08 FF C1 85 C9 0F 8E" ) , CLIENT_DLL , 0 , SEARCH_TYPE_CALL };
 	CBasePattern CGameEntitySystem_GetLocalCitadelPlayerController = { VmpStr( "CGameEntitySystem::GetLocalCitadelPlayerController" ) , VmpStr( "E8 ? ? ? ? 45 8B 4F ? 4C 8D 05" ) , CLIENT_DLL , 0 , SEARCH_TYPE_CALL };
+	CBasePattern IGameEvent_GetName = { VmpStr( "IGameEvent::GetName" ) , VmpStr( "8B 41 14 0F BA E0 1E 73 05 48 8D 41 18 C3" ) , CLIENT_DLL , 0 , SEARCH_TYPE_NONE };
+
 };
 
 auto GetFunctionList() -> CFunctionList*;

@@ -6,6 +6,7 @@
 #include <DeadLock/SDK/Interface/Interface.hpp>
 #include <DeadLock/SDK/Interface/CShemaSystemSDK.hpp>
 #include <DeadLock/SDK/Interface/IEngineToClient.hpp>
+#include <DeadLock/SDK/Interface/CInputSystem.hpp>
 
 #define INCLUDE_DEADLOCK_SEARCH_FUNCTION(Interface,FuncName)\
 if ( !##Interface##_Search::##FuncName##Fn.Search() )\
@@ -16,7 +17,8 @@ namespace SDK
 	CSchemaSystem* Interfaces::g_pSchemaSystem = nullptr;
 	IVEngineToClient* Interfaces::g_pEngineToClient = nullptr;
 	CGameEntitySystem* Interfaces::g_pGameEntitySystem = nullptr;
-	
+	CInputSystem* Interfaces::g_pInputSystem = nullptr;
+
 	CSchemaSystem* Interfaces::SchemaSystem()
 	{
 		if ( !g_pSchemaSystem )
@@ -113,5 +115,16 @@ GetGameEntitySystemPointer:;
 		}
 
 		return g_pGameEntitySystem;
+	}
+
+	CInputSystem* Interfaces::InputSystem()
+	{
+		if ( !g_pInputSystem )
+		{
+			CreateInterfaceFn pfnFactory = CaptureFactory( INPUTSYSTEM_DLL );
+			g_pInputSystem = CaptureInterface<CInputSystem>( pfnFactory , XorStr( INPUT_SYSTEM_INTERFACE_VERSION ) );
+		}
+
+		return g_pInputSystem;
 	}
 }

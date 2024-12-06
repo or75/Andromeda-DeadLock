@@ -5,6 +5,13 @@
 
 #include <DeadLock/SDK/SDK.hpp>
 
+#include <DeadLock/Hook/Hook_Present.hpp>
+#include <DeadLock/Hook/Hook_ResizeBuffers.hpp>
+#include <DeadLock/Hook/Hook_CreateSwapChain.hpp>
+#include <DeadLock/Hook/Hook_FireEventClientSide.hpp>
+#include <DeadLock/Hook/Hook_MouseInputEnabled.hpp>
+#include <DeadLock/Hook/Hook_IsRelativeMouseMode.hpp>
+
 static CHook_Loader g_CHook_Loader{};
 
 auto CHook_Loader::InitalizeMH() -> bool
@@ -16,6 +23,13 @@ auto CHook_Loader::InstallSecondHook() -> bool
 {
 	m_Hooks =
 	{
+		{ { XorStr( "Hook::PresentOverlay" ) , XorStr( "? ? ? ? ? 48 89 6C 24 ? 48 89 74 24 ? 57 41 56 41 57 48 83 EC ? 41 8B E8" ) , GAMEOVERLAYRENDER64_DLL } , &Hook_Present , reinterpret_cast<LPVOID*>( &Present_o ) },
+		{ { XorStr( "Hook::ResizeBuffers" ) , XorStr( "? ? ? ? ? 48 89 6C 24 ? 48 89 74 24 ? 57 41 56 41 57 48 83 EC ? 44 8B FA" ) , GAMEOVERLAYRENDER64_DLL } , &Hook_ResizeBuffers , reinterpret_cast<LPVOID*>( &ResizeBuffers_o ) },
+		{ { XorStr( "Hook::CreateSwapChainOld" ) , XorStr( "48 8D 15 ? ? ? ? E8 ? ? ? ? EB 20 48 8B 4E ? 48 8D 15 ? ? ? ? E8 ? ? ? ? 84 C0 75 0C 48 8D 0D ? ? ? ? E8 ? ? ? ? 48 8B 6C 24 ? 48 8B 0F E8 ? ? ? ? 48 8B 74 24 ? 8B C3 48 8B 5C 24 ? 48 83 C4 ? 5F C3 CC 48 89 5C 24 ? 48 89 74 24 ?" ) , GAMEOVERLAYRENDER64_DLL , 0 , eBasePatternSearchType::SEARCH_TYPE_PTR2 } , &Hook_CreateSwapChain , reinterpret_cast<LPVOID*>( &CreateSwapChain_o ) , true , true } ,
+		{ { XorStr( "Hook::CreateSwapChainNew" ) , XorStr( "48 8D 15 ? ? ? ? E8 ? ? ? ? EB ? 48 8B 4E ? 48 8D 15 ? ? ? ? E8 ? ? ? ? 84 C0 75 ? 48 8D 0D ? ? ? ? E8 ? ? ? ? 48 8B 6C 24 ? 48 8B 0F E8 ? ? ? ? 48 8B 74 24 ? 8B C3 48 8B 5C 24 ? 48 83 C4 ? 5F C3 ? ? ? ? ? ? ? ? ? ? ? ? ? ? 48 89 5C 24 ? 48 89 74 24 ?" ) , GAMEOVERLAYRENDER64_DLL , 0 , eBasePatternSearchType::SEARCH_TYPE_PTR2 } , &Hook_CreateSwapChain , reinterpret_cast<LPVOID*>( &CreateSwapChain_o ) } ,
+		{ { XorStr( "Hook::FireEventClientSide" ) , XorStr( "48 89 5C 24 ? 56 57 41 54 48 83 EC 30 48 8B F2" ) , CLIENT_DLL } , &Hook_FireEventClientSide , reinterpret_cast<LPVOID*>( &FireEventClientSide_o ) },
+		{ { XorStr( "Hook::MouseInputEnabled" ) , XorStr( "48 83 EC 28 E8 ? ? ? ? 84 C0 0F 85" ) , CLIENT_DLL } , &Hook_MouseInputEnabled , reinterpret_cast<LPVOID*>( &MouseInputEnabled_o ) },
+		{ { XorStr( "Hook::IsRelativeMouseMode" ) , XorStr( "48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 56 48 83 EC ? 0F B6 EA" ) , INPUTSYSTEM_DLL } , &Hook_IsRelativeMouseMode , reinterpret_cast<LPVOID*>( &IsRelativeMouseMode_o ) },
 	};
 
 	return InstallHooks();

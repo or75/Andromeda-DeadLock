@@ -37,11 +37,13 @@ auto CSDK_Loader::LoadSDK() -> bool
 	auto pSchemaSystem = SDK::Interfaces::SchemaSystem();
 	auto pEngineToClient = SDK::Interfaces::EngineToClient();
 	auto pGameEntitySystem = SDK::Interfaces::GameEntitySystem();
+	auto pInputSystem = SDK::Interfaces::InputSystem();
 	
 	// Return if error #1
 	RETURN_FALSE_IF_INTERFACE_ERROR( pSchemaSystem );
 	RETURN_FALSE_IF_INTERFACE_ERROR( pEngineToClient );
 	RETURN_FALSE_IF_INTERFACE_ERROR( pGameEntitySystem );
+	RETURN_FALSE_IF_INTERFACE_ERROR( pInputSystem );
 	
 	// Log:
 #if LOG_SDK_INTERFACE == 1
@@ -53,6 +55,7 @@ auto CSDK_Loader::LoadSDK() -> bool
 	DEV_LOG( "[+] pSchemaSystem: %p\n" , pSchemaSystem );
 	DEV_LOG( "[+] pEngineToClient: %p\n" , pEngineToClient );
 	DEV_LOG( "[+] pGameEntitySystem: %p\n" , pGameEntitySystem );
+	DEV_LOG( "[+] pGameEntitySystem: %p\n" , pInputSystem );
 #endif
 
 	DEV_LOG( "\n" );

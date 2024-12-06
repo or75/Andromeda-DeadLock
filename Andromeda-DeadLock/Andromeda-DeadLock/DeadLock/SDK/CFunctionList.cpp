@@ -14,6 +14,7 @@ auto CFunctionList::OnInit() -> bool
 		&CGameEntitySystem_GetBaseEntity,
 		&CGameEntitySystem_GetHighestEntityIndex,
 		&CGameEntitySystem_GetLocalCitadelPlayerController,
+		&IGameEvent_GetName,
 	};
 
 	auto Searched = true;

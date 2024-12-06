@@ -11,6 +11,7 @@ class CCitadelInput;
 class C_BaseEntity;
 class CGameEntitySystem;
 class CCitadelPlayerController;
+class IGameEvent;
 
 DECLARATE_DEADLOCK_FUNCTION_SDK_FASTCALL( void , CSkeletonInstance_CalcWorldSpaceBones , ( CSkeletonInstance* pCSkeletonInstance , unsigned int mask ) , ( CSkeletonInstance* , unsigned int ) , ( pCSkeletonInstance , mask ) );
 DECLARATE_DEADLOCK_FUNCTION_SDK_FASTCALL( bool , ScreenTransform , ( const Vector3& vOrigin , Vector3& vOut ) , ( const Vector3& , Vector3& ) , ( vOrigin , vOut ) );
@@ -20,3 +21,4 @@ DECLARATE_DEADLOCK_FUNCTION_SDK_FASTCALL( bool , C_BaseEntity_ComputeHitboxSurro
 DECLARATE_DEADLOCK_FUNCTION_SDK_FASTCALL( void* , CGameEntitySystem_GetBaseEntity , ( CGameEntitySystem* pGameEntitySystem , int iIndex ) , ( CGameEntitySystem* , int ) , ( pGameEntitySystem , iIndex ) );
 DECLARATE_DEADLOCK_FUNCTION_SDK_FASTCALL( void , CGameEntitySystem_GetHighestEntityIndex , ( CGameEntitySystem* pGameEntitySystem , int& HighestIdx ) , ( CGameEntitySystem* , int& ) , ( pGameEntitySystem , HighestIdx ) );
 DECLARATE_DEADLOCK_FUNCTION_SDK_FASTCALL( CCitadelPlayerController* , CGameEntitySystem_GetLocalCitadelPlayerController , ( int iSlot ) , ( int ) , ( iSlot ) );
+DECLARATE_DEADLOCK_FUNCTION_SDK_FASTCALL( const char* , IGameEvent_GetName , ( IGameEvent* pIGameEvent ) , ( IGameEvent* ) , ( pIGameEvent ) );

@@ -88,6 +88,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Andromeda-DeadLock\AndromedaClient\CAndromedaClient.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\AndromedaClient\CAndromedaGUI.hpp" />
     <ClInclude Include="Andromeda-DeadLock\Common\Base64.h" />
     <ClInclude Include="Andromeda-DeadLock\Common\CDelay.hpp" />
     <ClInclude Include="Andromeda-DeadLock\Common\Common.hpp" />
@@ -221,13 +223,21 @@
     <ClInclude Include="Andromeda-DeadLock\DeadLock\CBasePattern.hpp" />
     <ClInclude Include="Andromeda-DeadLock\DeadLock\CHook_Loader.hpp" />
     <ClInclude Include="Andromeda-DeadLock\DeadLock\CSDK_Loader.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_CreateSwapChain.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_FireEventClientSide.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_IsRelativeMouseMode.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_MouseInputEnabled.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_Present.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_ResizeBuffers.hpp" />
     <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\AppFramework\IAppSystem.hpp" />
     <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\CFunctionList.hpp" />
     <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\CSchemaOffset.hpp" />
     <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\FunctionListSDK.hpp" />
     <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Interface\CGameEntitySystem.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Interface\CInputSystem.hpp" />
     <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Interface\CShemaSystemSDK.hpp" />
     <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Interface\IEngineToClient.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Interface\IGameEvent.hpp" />
     <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Interface\Interface.hpp" />
     <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Math\Math.hpp" />
     <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Math\Matrix.hpp" />
@@ -257,6 +267,8 @@
     <ClInclude Include="Andromeda-DeadLock\DllMain.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Andromeda-DeadLock\AndromedaClient\CAndromedaClient.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\AndromedaClient\CAndromedaGUI.cpp" />
     <ClCompile Include="Andromeda-DeadLock\Common\Base64.cpp" />
     <ClCompile Include="Andromeda-DeadLock\Common\CrashLog.cpp" />
     <ClCompile Include="Andromeda-DeadLock\Common\DevLog.cpp" />
@@ -279,8 +291,15 @@
     <ClCompile Include="Andromeda-DeadLock\DeadLock\CBasePattern.cpp" />
     <ClCompile Include="Andromeda-DeadLock\DeadLock\CHook_Loader.cpp" />
     <ClCompile Include="Andromeda-DeadLock\DeadLock\CSDK_Loader.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_CreateSwapChain.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_FireEventClientSide.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_IsRelativeMouseMode.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_MouseInputEnabled.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_Present.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_ResizeBuffers.cpp" />
     <ClCompile Include="Andromeda-DeadLock\DeadLock\SDK\CFunctionList.cpp" />
     <ClCompile Include="Andromeda-DeadLock\DeadLock\SDK\CSchemaOffset.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\SDK\Interface\IGameEvent.cpp" />
     <ClCompile Include="Andromeda-DeadLock\DeadLock\SDK\Interface\Interface.cpp" />
     <ClCompile Include="Andromeda-DeadLock\DeadLock\SDK\Math\Math.cpp" />
     <ClCompile Include="Andromeda-DeadLock\DeadLock\SDK\Math\Matrix.cpp" />

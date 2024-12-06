@@ -85,6 +85,15 @@
     <Filter Include="Andromeda-DeadLock\DeadLock\SDK\Update">
       <UniqueIdentifier>{18d017de-b848-4e29-8c5f-00e37eec85ce}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Andromeda-DeadLock\DeadLock\Helpers">
+      <UniqueIdentifier>{0da9139b-e9fe-4cad-8390-0b9efa60a264}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Andromeda-DeadLock\DeadLock\Hook">
+      <UniqueIdentifier>{0d9844e8-0b81-4a8d-afe5-ab0c2afc51df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Andromeda-DeadLock\DeadLock\Protobuf">
+      <UniqueIdentifier>{6ff9140f-45bb-4185-9d48-cc2d435bc278}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Andromeda-DeadLock\Common\Include\Config.hpp">
@@ -588,6 +597,36 @@
     <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Interface\CGameEntitySystem.hpp">
       <Filter>Andromeda-DeadLock\DeadLock\SDK\Interface</Filter>
     </ClInclude>
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_CreateSwapChain.hpp">
+      <Filter>Andromeda-DeadLock\DeadLock\Hook</Filter>
+    </ClInclude>
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_FireEventClientSide.hpp">
+      <Filter>Andromeda-DeadLock\DeadLock\Hook</Filter>
+    </ClInclude>
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_Present.hpp">
+      <Filter>Andromeda-DeadLock\DeadLock\Hook</Filter>
+    </ClInclude>
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_ResizeBuffers.hpp">
+      <Filter>Andromeda-DeadLock\DeadLock\Hook</Filter>
+    </ClInclude>
+    <ClInclude Include="Andromeda-DeadLock\AndromedaClient\CAndromedaClient.hpp">
+      <Filter>Andromeda-DeadLock\AndromedaClient</Filter>
+    </ClInclude>
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Interface\IGameEvent.hpp">
+      <Filter>Andromeda-DeadLock\DeadLock\SDK\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="Andromeda-DeadLock\AndromedaClient\CAndromedaGUI.hpp">
+      <Filter>Andromeda-DeadLock\AndromedaClient</Filter>
+    </ClInclude>
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_IsRelativeMouseMode.hpp">
+      <Filter>Andromeda-DeadLock\DeadLock\Hook</Filter>
+    </ClInclude>
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_MouseInputEnabled.hpp">
+      <Filter>Andromeda-DeadLock\DeadLock\Hook</Filter>
+    </ClInclude>
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Interface\CInputSystem.hpp">
+      <Filter>Andromeda-DeadLock\DeadLock\SDK\Interface</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Andromeda-DeadLock\Common\Include\MinHook\hde\hde32.c">
@@ -697,6 +736,33 @@
     </ClCompile>
     <ClCompile Include="Andromeda-DeadLock\DeadLock\SDK\Types\CHandle.cpp">
       <Filter>Andromeda-DeadLock\DeadLock\SDK\Types</Filter>
+    </ClCompile>
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_CreateSwapChain.cpp">
+      <Filter>Andromeda-DeadLock\DeadLock\Hook</Filter>
+    </ClCompile>
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_FireEventClientSide.cpp">
+      <Filter>Andromeda-DeadLock\DeadLock\Hook</Filter>
+    </ClCompile>
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_Present.cpp">
+      <Filter>Andromeda-DeadLock\DeadLock\Hook</Filter>
+    </ClCompile>
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_ResizeBuffers.cpp">
+      <Filter>Andromeda-DeadLock\DeadLock\Hook</Filter>
+    </ClCompile>
+    <ClCompile Include="Andromeda-DeadLock\AndromedaClient\CAndromedaClient.cpp">
+      <Filter>Andromeda-DeadLock\AndromedaClient</Filter>
+    </ClCompile>
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\SDK\Interface\IGameEvent.cpp">
+      <Filter>Andromeda-DeadLock\DeadLock\SDK\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="Andromeda-DeadLock\AndromedaClient\CAndromedaGUI.cpp">
+      <Filter>Andromeda-DeadLock\AndromedaClient</Filter>
+    </ClCompile>
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_IsRelativeMouseMode.cpp">
+      <Filter>Andromeda-DeadLock\DeadLock\Hook</Filter>
+    </ClCompile>
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_MouseInputEnabled.cpp">
+      <Filter>Andromeda-DeadLock\DeadLock\Hook</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
