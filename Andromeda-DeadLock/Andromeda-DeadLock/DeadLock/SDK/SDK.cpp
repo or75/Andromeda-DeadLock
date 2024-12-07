@@ -7,6 +7,7 @@
 #include <DeadLock/SDK/Interface/CShemaSystemSDK.hpp>
 #include <DeadLock/SDK/Interface/IEngineToClient.hpp>
 #include <DeadLock/SDK/Interface/CInputSystem.hpp>
+#include <DeadLock/SDK/Interface/CSoundOpSystem.hpp>
 
 #define INCLUDE_DEADLOCK_SEARCH_FUNCTION(Interface,FuncName)\
 if ( !##Interface##_Search::##FuncName##Fn.Search() )\
@@ -18,6 +19,7 @@ namespace SDK
 	IVEngineToClient* Interfaces::g_pEngineToClient = nullptr;
 	CGameEntitySystem* Interfaces::g_pGameEntitySystem = nullptr;
 	CInputSystem* Interfaces::g_pInputSystem = nullptr;
+	CSoundOpSystem* Interfaces::g_pSoundOpSystem = nullptr;
 
 	CUserCmd** Pointers::g_ppCUserCmd = nullptr;
 
@@ -128,6 +130,17 @@ GetGameEntitySystemPointer:;
 		}
 
 		return g_pInputSystem;
+	}
+
+	auto Interfaces::SoundOpSystem() -> CSoundOpSystem*
+	{
+		if ( !g_pSoundOpSystem )
+		{
+			CreateInterfaceFn pfnFactory = CaptureFactory( SOUNDSYSTEM_DLL );
+			g_pSoundOpSystem = CaptureInterface<CSoundOpSystem>( pfnFactory , XorStr( INTERFACE_SOUNDOPSYSTEM ) );
+		}
+
+		return g_pSoundOpSystem;
 	}
 
 	/*

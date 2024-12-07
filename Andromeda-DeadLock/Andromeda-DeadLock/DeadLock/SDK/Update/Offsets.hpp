@@ -10,3 +10,4 @@
 */
 // 44 8B B8 ? ? ? ? 41 8B D7 E8 ? ? ? ? 48 8B ? ? ? ? ? 45 33 E4 48 89 45
 static constexpr auto g_OFFSET_CUserCmdArray_m_nSequenceNumber = 0x6570;
+static constexpr auto g_OFFSET_CDemoRecorder_ParseMessage_pProtobuf = 0x28;

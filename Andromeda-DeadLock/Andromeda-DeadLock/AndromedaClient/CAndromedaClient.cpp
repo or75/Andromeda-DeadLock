@@ -3,6 +3,7 @@
 
 #include <ImGui/imgui.h>
 
+#include <DeadLock/SDK/Update/CUserCmd.hpp>
 #include <GameClient/CEntityCache/CEntityCache.hpp>
 
 static CAndromedaClient g_CAndromedaClient{};
@@ -25,6 +26,17 @@ auto CAndromedaClient::OnAddEntity( CEntityInstance* pInst , CHandle handle ) ->
 auto CAndromedaClient::OnRemoveEntity( CEntityInstance* pInst , CHandle handle ) -> void
 {
 	GetEntityCache()->OnRemoveEntity( pInst , handle );
+}
+
+auto CAndromedaClient::OnStartSound( const Vector3& Pos , const int SourceEntityIndex , const char* szSoundName ) -> void
+{
+	// Footstep
+	DEV_LOG( "%s\n" , szSoundName );
+}
+
+auto CAndromedaClient::OnCreateMove( CCitadelInput* pCitadelInput , CUserCmd* pUserCmd ) -> void
+{
+	DEV_LOG( "%s\n" , pUserCmd->cmd.DebugString().c_str() );
 }
 
 auto CAndromedaClient::OnRenderMenu() -> void

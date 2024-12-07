@@ -1,7 +1,10 @@
 #include "Hook_CreateMove.hpp"
 
 #include <DeadLock/SDK/Update/CCitadelInput.hpp>
+
 #include <GameClient/CL_CitadelPlayerController.hpp>
+
+#include <AndromedaClient/CAndromedaClient.hpp>
 
 auto Hook_CreateMove( CCitadelInput* pCitadelInput , uint32_t split_screen_index , char a3 ) -> void
 {
@@ -9,9 +12,9 @@ auto Hook_CreateMove( CCitadelInput* pCitadelInput , uint32_t split_screen_index
 
 	if ( auto* pLocalCitadelPlayerController = GetCL_CitadelPlayerController()->GetLocal(); pLocalCitadelPlayerController )
 	{
-		if ( auto* pCUserCmd = pCitadelInput->GetUserCmd( pLocalCitadelPlayerController ); pCUserCmd )
+		if ( auto* pUserCmd = pCitadelInput->GetUserCmd( pLocalCitadelPlayerController ); pUserCmd )
 		{
-			DEV_LOG( "%s\n" , pCUserCmd->cmd.DebugString().c_str() );
+			GetAndromedaClient()->OnCreateMove( pCitadelInput , pUserCmd );
 		}
 	}
 }

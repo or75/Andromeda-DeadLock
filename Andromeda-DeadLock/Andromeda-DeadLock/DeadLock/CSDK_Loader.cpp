@@ -38,6 +38,7 @@ auto CSDK_Loader::LoadSDK() -> bool
 	auto pEngineToClient = SDK::Interfaces::EngineToClient();
 	auto pGameEntitySystem = SDK::Interfaces::GameEntitySystem();
 	auto pInputSystem = SDK::Interfaces::InputSystem();
+	auto pSoundOpSystem = SDK::Interfaces::SoundOpSystem();
 
 	// Pointers:
 	auto pCUserCmdArray = SDK::Pointers::GetFirstCUserCmdArray();
@@ -47,6 +48,7 @@ auto CSDK_Loader::LoadSDK() -> bool
 	RETURN_FALSE_IF_INTERFACE_ERROR( pEngineToClient );
 	RETURN_FALSE_IF_INTERFACE_ERROR( pGameEntitySystem );
 	RETURN_FALSE_IF_INTERFACE_ERROR( pInputSystem );
+	RETURN_FALSE_IF_INTERFACE_ERROR( pSoundOpSystem );
 
 	// Return false if pointer error
 	RETURN_FALSE_IF_POINTER_ERROR( pCUserCmdArray );
@@ -64,6 +66,7 @@ auto CSDK_Loader::LoadSDK() -> bool
 	DEV_LOG( "[+] pEngineToClient: %p\n" , pEngineToClient );
 	DEV_LOG( "[+] pGameEntitySystem: %p\n" , pGameEntitySystem );
 	DEV_LOG( "[+] pGameEntitySystem: %p\n" , pInputSystem );
+	DEV_LOG( "[+] pSoundOpSystem: %p\n" , pSoundOpSystem );
 
 	// Pointers:
 	DEV_LOG( "[+] pCUserCmdArray: %p\n" , pCUserCmdArray );

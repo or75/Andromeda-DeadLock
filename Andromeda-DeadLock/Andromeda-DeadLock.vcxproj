@@ -231,6 +231,7 @@
     <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_MouseInputEnabled.hpp" />
     <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_OnAddEntity.hpp" />
     <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_OnRemoveEntity.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_ParseMessage.hpp" />
     <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_Present.hpp" />
     <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_ResizeBuffers.hpp" />
     <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\base_gcmessages.pb.h" />
@@ -286,6 +287,7 @@
     <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Interface\CGameEntitySystem.hpp" />
     <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Interface\CInputSystem.hpp" />
     <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Interface\CShemaSystemSDK.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Interface\CSoundOpSystem.hpp" />
     <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Interface\IEngineToClient.hpp" />
     <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Interface\IGameEvent.hpp" />
     <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Interface\Interface.hpp" />
@@ -296,6 +298,7 @@
     <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Math\Vector2.hpp" />
     <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Math\Vector3.hpp" />
     <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Math\Vector4.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Network\CNetworkMessages.hpp" />
     <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\SDK.hpp" />
     <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\SDL3\SDL3_Functions.hpp" />
     <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Types\CBaseTypes.hpp" />
@@ -354,6 +357,7 @@
     <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_MouseInputEnabled.cpp" />
     <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_OnAddEntity.cpp" />
     <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_OnRemoveEntity.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_ParseMessage.cpp" />
     <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_Present.cpp" />
     <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_ResizeBuffers.cpp" />
     <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\base_gcmessages.pb.cc" />
