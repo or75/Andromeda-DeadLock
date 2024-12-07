@@ -35,7 +35,7 @@ auto CBasePattern::Search( bool SkipError ) -> bool
 	else if ( m_Type == eBasePatternSearchType::SEARCH_TYPE_PROC )
 		pFunction = GetProcAddress( GetModuleHandleA( Dll ) , Pattern );
 
-#if LOG_SDK_INTERFACE_FUNC == 1
+#if LOG_SDK_PATTERN == 1
 	DEV_LOG( "[+] CBasePattern: %s -> %p\n" , PatternName , pFunction );
 #endif
 

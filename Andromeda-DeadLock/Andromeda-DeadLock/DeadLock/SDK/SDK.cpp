@@ -19,7 +19,9 @@ namespace SDK
 	CGameEntitySystem* Interfaces::g_pGameEntitySystem = nullptr;
 	CInputSystem* Interfaces::g_pInputSystem = nullptr;
 
-	CSchemaSystem* Interfaces::SchemaSystem()
+	CUserCmd** Pointers::g_ppCUserCmd = nullptr;
+
+	auto Interfaces::SchemaSystem() -> CSchemaSystem*
 	{
 		if ( !g_pSchemaSystem )
 		{
@@ -37,7 +39,7 @@ namespace SDK
 		return g_pSchemaSystem;
 	}
 
-	IVEngineToClient* Interfaces::EngineToClient()
+	auto Interfaces::EngineToClient() -> IVEngineToClient*
 	{
 		if ( !g_pEngineToClient )
 		{
@@ -56,7 +58,7 @@ namespace SDK
 		return g_pEngineToClient;
 	}
 
-	CGameEntitySystem* Interfaces::GameEntitySystem()
+	auto Interfaces::GameEntitySystem() -> CGameEntitySystem*
 	{
 		if ( !g_pGameEntitySystem )
 		{
@@ -117,7 +119,7 @@ GetGameEntitySystemPointer:;
 		return g_pGameEntitySystem;
 	}
 
-	CInputSystem* Interfaces::InputSystem()
+	auto Interfaces::InputSystem() -> CInputSystem*
 	{
 		if ( !g_pInputSystem )
 		{
@@ -126,5 +128,30 @@ GetGameEntitySystemPointer:;
 		}
 
 		return g_pInputSystem;
+	}
+
+	/*
+	00007FFB8C03CA8 | 48:8B0D 1D102001               | mov rcx,qword ptr ds:[0x7FFB8D23DAB0]            | CUserCmd**
+	00007FFB8C03CA9 | E8 080AE2FF                    | call client.7FFB8BE5D4A0                         | GetCUserCmdArray
+	00007FFB8C03CA9 | 48:8BCF                        | mov rcx,rdi                                      |
+	00007FFB8C03CA9 | 4C:8BE8                        | mov r13,rax                                      |
+	00007FFB8C03CA9 | 44:8BB8 70650000               | mov r15d,dword ptr ds:[rax+0x6570]               | offset SequenceNumber
+	00007FFB8C03CAA | 41:8BD7                        | mov edx,r15d                                     |
+	00007FFB8C03CAA | E8 2307E2FF                    | call client.7FFB8BE5D1D0                         | GetUserCmdBySequenceNumber
+	*/
+	// 48 8B ? ? ? ? ? E8 ? ? ? ? 48 8B CF 4C 8B E8 44 8B B8 ? ? ? ? 41 8B D7 E8
+	auto Pointers::GetFirstCUserCmdArray() -> CUserCmd**
+	{
+		if ( !g_ppCUserCmd )
+		{
+			auto ppCUserCmd = reinterpret_cast<uintptr_t>( FindPattern( CLIENT_DLL , XorStr( "48 8B ? ? ? ? ? E8 ? ? ? ? 48 8B CF 4C 8B E8 44 8B B8 ? ? ? ? 41 8B D7 E8 ? ? ? ? 48 8B ? ? ? ? ? 45 33 E4" ) ) );
+
+			if ( !ppCUserCmd )
+				return nullptr;
+
+			g_ppCUserCmd = *GetPtrAddress<CUserCmd***>( ppCUserCmd );
+		}
+
+		return g_ppCUserCmd;
 	}
 }

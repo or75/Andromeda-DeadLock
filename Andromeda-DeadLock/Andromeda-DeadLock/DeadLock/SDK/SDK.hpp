@@ -6,6 +6,7 @@ class CSchemaSystem;
 class IVEngineToClient;
 class CGameEntitySystem;
 class CInputSystem;
+class CUserCmd;
 
 #define CLIENT_DLL				"client.dll"
 #define ENGINE2_DLL				"engine2.dll"
@@ -19,15 +20,24 @@ namespace SDK
 	class Interfaces
 	{
 	public:
-		static CSchemaSystem* SchemaSystem();
-		static IVEngineToClient* EngineToClient();
-		static CGameEntitySystem* GameEntitySystem();
-		static CInputSystem* InputSystem();
+		static auto SchemaSystem() -> CSchemaSystem*;
+		static auto EngineToClient() -> IVEngineToClient*;
+		static auto GameEntitySystem() -> CGameEntitySystem*;
+		static auto InputSystem() -> CInputSystem*;
 
 	private:
 		static CSchemaSystem* g_pSchemaSystem;
 		static IVEngineToClient* g_pEngineToClient;
 		static CGameEntitySystem* g_pGameEntitySystem;
 		static CInputSystem* g_pInputSystem;
+	};
+
+	class Pointers
+	{
+	public:
+		static auto GetFirstCUserCmdArray() -> CUserCmd**;
+
+	private:
+		static CUserCmd** g_ppCUserCmd;
 	};
 }

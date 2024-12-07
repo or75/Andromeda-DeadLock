@@ -17,8 +17,8 @@
 #define ENABLE_MANUAL_MAP			0
 #define ENABLE_CPP_EH_EXCEPTION		0
 
-#define LOG_SDK_INTERFACE			1
-#define LOG_SDK_INTERFACE_FUNC		1
+#define LOG_SDK						1
+#define LOG_SDK_PATTERN				1
 #define LOG_SDK_FUNCTION_LIST		0
 
 #define ENABLE_XOR_STR				0

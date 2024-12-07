@@ -12,6 +12,8 @@ class C_BaseEntity;
 class CGameEntitySystem;
 class CCitadelPlayerController;
 class IGameEvent;
+class CUserCmdArray;
+class CUserCmd;
 
 DECLARATE_DEADLOCK_FUNCTION_SDK_FASTCALL( void , CSkeletonInstance_CalcWorldSpaceBones , ( CSkeletonInstance* pCSkeletonInstance , unsigned int mask ) , ( CSkeletonInstance* , unsigned int ) , ( pCSkeletonInstance , mask ) );
 DECLARATE_DEADLOCK_FUNCTION_SDK_FASTCALL( bool , ScreenTransform , ( const Vector3& vOrigin , Vector3& vOut ) , ( const Vector3& , Vector3& ) , ( vOrigin , vOut ) );
@@ -22,3 +24,6 @@ DECLARATE_DEADLOCK_FUNCTION_SDK_FASTCALL( void* , CGameEntitySystem_GetBaseEntit
 DECLARATE_DEADLOCK_FUNCTION_SDK_FASTCALL( void , CGameEntitySystem_GetHighestEntityIndex , ( CGameEntitySystem* pGameEntitySystem , int& HighestIdx ) , ( CGameEntitySystem* , int& ) , ( pGameEntitySystem , HighestIdx ) );
 DECLARATE_DEADLOCK_FUNCTION_SDK_FASTCALL( CCitadelPlayerController* , CGameEntitySystem_GetLocalCitadelPlayerController , ( int iSlot ) , ( int ) , ( iSlot ) );
 DECLARATE_DEADLOCK_FUNCTION_SDK_FASTCALL( const char* , IGameEvent_GetName , ( IGameEvent* pIGameEvent ) , ( IGameEvent* ) , ( pIGameEvent ) );
+DECLARATE_DEADLOCK_FUNCTION_SDK_FASTCALL( void , GetCUserCmdTick , ( CCitadelPlayerController* pCitadelPlayerController , int32_t* pOutputTick ) , ( CCitadelPlayerController* , int32_t* ) , ( pCitadelPlayerController , pOutputTick ) );
+DECLARATE_DEADLOCK_FUNCTION_SDK_FASTCALL( CUserCmdArray* , GetCUserCmdArray , ( CUserCmd** ppCUserCmd , int Tick ) , ( CUserCmd** , int ) , ( ppCUserCmd , Tick ) );
+DECLARATE_DEADLOCK_FUNCTION_SDK_FASTCALL( CUserCmd* , GetCUserCmdBySequenceNumber , ( CCitadelPlayerController* pCitadelPlayerController , uint32_t SequenceNumber ) , ( CCitadelPlayerController* , uint32_t ) , ( pCitadelPlayerController , SequenceNumber ) );

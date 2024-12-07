@@ -29,7 +29,9 @@ public:
 	CBasePattern CGameEntitySystem_GetHighestEntityIndex = { VmpStr( "CGameEntitySystem::GetHighestEntityIndex" ) , VmpStr( "E8 ? ? ? ? 8B 08 FF C1 85 C9 0F 8E" ) , CLIENT_DLL , 0 , SEARCH_TYPE_CALL };
 	CBasePattern CGameEntitySystem_GetLocalCitadelPlayerController = { VmpStr( "CGameEntitySystem::GetLocalCitadelPlayerController" ) , VmpStr( "E8 ? ? ? ? 45 8B 4F ? 4C 8D 05" ) , CLIENT_DLL , 0 , SEARCH_TYPE_CALL };
 	CBasePattern IGameEvent_GetName = { VmpStr( "IGameEvent::GetName" ) , VmpStr( "8B 41 14 0F BA E0 1E 73 05 48 8D 41 18 C3" ) , CLIENT_DLL , 0 , SEARCH_TYPE_NONE };
-
+	CBasePattern GetCUserCmdTick = { VmpStr( "GetCUserCmdTick" ) , VmpStr( "40 53 48 83 EC 20 4C 8B 41 ? 48 8B DA 48 8B 0D" ) , CLIENT_DLL , 0 , SEARCH_TYPE_NONE };
+	CBasePattern GetCUserCmdArray = { VmpStr( "GetCUserCmdArray" ) , VmpStr( "48 89 4C 24 ? 41 54 41 57" ) , CLIENT_DLL , 0 , SEARCH_TYPE_NONE };
+	CBasePattern GetCUserCmdBySequenceNumber = { VmpStr( "GetÑUserCmdBySequenceNumber" ) , VmpStr( "40 53 48 83 EC 20 8B DA 85 D2 78" ) , CLIENT_DLL , 0 , SEARCH_TYPE_NONE };
 };
 
 auto GetFunctionList() -> CFunctionList*;

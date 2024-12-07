@@ -29,8 +29,8 @@ auto CSDK_Loader::LoadSDK() -> bool
 		return false;
 
 	// Log SDK:
-#if LOG_SDK_INTERFACE == 1
-	DEV_LOG( "[+] CSDK_Loader::LoadSDK:\n\n" );
+#if LOG_SDK == 1
+	DEV_LOG( "\n[+] CSDK_Loader::LoadSDK:\n\n" );
 #endif
 
 	// Interfaces:
@@ -38,29 +38,41 @@ auto CSDK_Loader::LoadSDK() -> bool
 	auto pEngineToClient = SDK::Interfaces::EngineToClient();
 	auto pGameEntitySystem = SDK::Interfaces::GameEntitySystem();
 	auto pInputSystem = SDK::Interfaces::InputSystem();
+
+	// Pointers:
+	auto pCUserCmdArray = SDK::Pointers::GetFirstCUserCmdArray();
 	
-	// Return if error #1
+	// Return false if interface error
 	RETURN_FALSE_IF_INTERFACE_ERROR( pSchemaSystem );
 	RETURN_FALSE_IF_INTERFACE_ERROR( pEngineToClient );
 	RETURN_FALSE_IF_INTERFACE_ERROR( pGameEntitySystem );
 	RETURN_FALSE_IF_INTERFACE_ERROR( pInputSystem );
+
+	// Return false if pointer error
+	RETURN_FALSE_IF_POINTER_ERROR( pCUserCmdArray );
 	
 	// Log:
-#if LOG_SDK_INTERFACE == 1
+#if LOG_SDK == 1
 	DEV_LOG( "\n" );
 #endif
 
 	// Log:
-#if LOG_SDK_INTERFACE == 1
+#if LOG_SDK == 1
+
+	// Interfaces:
 	DEV_LOG( "[+] pSchemaSystem: %p\n" , pSchemaSystem );
 	DEV_LOG( "[+] pEngineToClient: %p\n" , pEngineToClient );
 	DEV_LOG( "[+] pGameEntitySystem: %p\n" , pGameEntitySystem );
 	DEV_LOG( "[+] pGameEntitySystem: %p\n" , pInputSystem );
+
+	// Pointers:
+	DEV_LOG( "[+] pCUserCmdArray: %p\n" , pCUserCmdArray );
+
 #endif
 
+#if LOG_SDK == 1
 	DEV_LOG( "\n" );
-
-	// TEST SDK END
+#endif
 
 	if ( !GetSDL3Functions()->OnInit() )
 		return false;
