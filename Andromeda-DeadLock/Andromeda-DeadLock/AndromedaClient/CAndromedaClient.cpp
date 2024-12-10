@@ -93,7 +93,7 @@ auto CAndromedaClient::OnClientOutput() -> void
 				constexpr static auto SoundSize = 20.f;
 				auto Radius = std::lerp( SoundSize , 0.f , Ratio );
 
-				GetRenderStackSystem()->DrawCircle3D( Sound.Pos , Radius , ImColor( 255 , 255 , 0 ) );
+				GetRenderStackSystem()->DrawCircle3D( Sound.Pos , Radius , ImColor( 1.f , 1.f , 0.f , Alpha ) );
 			}
 		}
 	}
