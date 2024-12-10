@@ -121,6 +121,7 @@ class C_BaseEntity : public CEntityInstance
 {
 public:
 	auto IsCitadelPlayerController() -> bool;
+	auto IsCitadelPlayerPawn() -> bool;
 
 public:
 	auto GetOrigin() -> const Vector3&;
@@ -136,4 +137,51 @@ public:
 	SCHEMA_OFFSET( "C_BaseEntity" , "m_fFlags" , m_fFlags , uint32 );
 	SCHEMA_OFFSET( "C_BaseEntity" , "m_MoveType" , m_MoveType , MoveType_t );
 	SCHEMA_OFFSET( "C_BaseEntity" , "m_nActualMoveType" , m_nActualMoveType , MoveType_t );
+};
+
+class C_BaseModelEntity : public C_BaseEntity
+{
+public:
+};
+
+class CBaseAnimGraph : public C_BaseModelEntity
+{
+public:
+};
+
+class C_BaseFlex : public CBaseAnimGraph
+{
+public:
+};
+
+class C_BaseCombatCharacter : public C_BaseFlex
+{
+public:
+};
+
+class C_BasePlayerPawn : public C_BaseCombatCharacter
+{
+public:
+};
+
+class CCitadelPlayerPawnBase : public C_BasePlayerPawn
+{
+public:
+};
+
+class C_CitadelPlayerPawn : public CCitadelPlayerPawnBase
+{
+public:
+};
+
+class CBasePlayerController : public C_BaseEntity
+{
+public:
+	SCHEMA_OFFSET( "CBasePlayerController" , "m_hPawn" , m_hPawn , CHandle ); // C_BasePlayerPawn
+};
+
+class CCitadelPlayerController : public CBasePlayerController
+{
+public:
+	SCHEMA_OFFSET( "CCitadelPlayerController" , "m_hHeroPawn" , m_hHeroPawn , CHandle ); // C_CitadelPlayerPawn
 };

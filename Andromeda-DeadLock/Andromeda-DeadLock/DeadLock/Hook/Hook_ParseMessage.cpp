@@ -26,15 +26,17 @@ auto Hook_ParseMessage( CDemoRecorder* pDemoRecorder , CNetworkSerializerPB* pSe
 			if ( pMessage->has_source_entity_index() )
 				SourceEntityIndex = pMessage->source_entity_index();
 
-			if ( pMessage->has_packed_params() && pMessage->packed_params().size() >= 19 && pMessage->packed_params().data() )
-				SoundPos = *(Vector3*)( pMessage->packed_params().data() + 7 );
+			if ( pMessage->has_packed_params() && pMessage->packed_params().data() )
+			{
+				SoundPos = *(Vector3*)( (PBYTE)pMessage->packed_params().data() + 18 );
 
-			const char* szSoundEventName = SDK::Interfaces::SoundOpSystem()->GetCSoundEventManager()->GetSoundEventName( pMessage->soundevent_hash() );
+				const char* szSoundEventName = SDK::Interfaces::SoundOpSystem()->GetCSoundEventManager()->GetSoundEventName( pMessage->soundevent_hash() );
 
-			if ( szSoundEventName )
-				SoundName = szSoundEventName;
+				if ( szSoundEventName )
+					SoundName = szSoundEventName;
 
-			GetAndromedaClient()->OnStartSound( SoundPos , SourceEntityIndex , SoundName.c_str() );
+				GetAndromedaClient()->OnStartSound( SoundPos , SourceEntityIndex , SoundName.c_str() );
+			}
 		}
 	}
 

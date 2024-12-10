@@ -37,6 +37,16 @@ auto C_BaseEntity::IsCitadelPlayerController() -> bool
 	return false;
 }
 
+auto C_BaseEntity::IsCitadelPlayerPawn() -> bool
+{
+	const auto* pszDesingerName = pEntityIdentity()->DesingerName().String();
+
+	if ( pszDesingerName && strcmp( pszDesingerName , XorStr( "player" ) ) == 0 )
+		return true;
+
+	return false;
+}
+
 auto C_BaseEntity::GetOrigin() -> const Vector3&
 {
 	auto pGameSceneNode = m_pGameSceneNode();
