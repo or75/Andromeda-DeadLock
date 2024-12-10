@@ -3,8 +3,14 @@
 
 #include <ImGui/imgui.h>
 
+#include <DeadLock/SDK/SDK.hpp>
+#include <DeadLock/SDK/Interface/IEngineToClient.hpp>
 #include <DeadLock/SDK/Update/CUserCmd.hpp>
+
 #include <GameClient/CEntityCache/CEntityCache.hpp>
+
+#include "Fonts/CFontManager.hpp"
+#include "Render/CRenderStackSystem.hpp"
 
 static CAndromedaClient g_CAndromedaClient{};
 
@@ -21,6 +27,8 @@ auto CAndromedaClient::OnFireEventClientSide( IGameEvent* pGameEvent ) -> void
 auto CAndromedaClient::OnAddEntity( CEntityInstance* pInst , CHandle handle ) -> void
 {
 	GetEntityCache()->OnAddEntity( pInst , handle );
+
+	DEV_LOG( "%s\n" , pInst->GetSchemaClassBinding()->m_bindingName );
 }
 
 auto CAndromedaClient::OnRemoveEntity( CEntityInstance* pInst , CHandle handle ) -> void
@@ -39,7 +47,15 @@ auto CAndromedaClient::OnCreateMove( CCitadelInput* pCitadelInput , CUserCmd* pU
 	DEV_LOG( "%s\n" , pUserCmd->cmd.DebugString().c_str() );
 }
 
-auto CAndromedaClient::OnRenderMenu() -> void
+auto CAndromedaClient::OnClientOutput() -> void
+{
+	if ( SDK::Interfaces::EngineToClient()->IsInGame() )
+	{
+		// TODO: Visual Render
+	}
+}
+
+auto CAndromedaClient::OnRender() -> void
 {
 	if ( GetAndromedaGUI()->IsVisible() )
 	{
@@ -52,6 +68,11 @@ auto CAndromedaClient::OnRenderMenu() -> void
 
 		ImGui::End();
 	}
+
+	GetFontManager()->FirstInitFonts();
+	GetFontManager()->m_VerdanaFont.DrawString( 1 , 1 , ImColor( 1.f , 1.f , 1.f ) , FW1_LEFT , XorStr( CHEAT_NAME ) );
+
+	GetRenderStackSystem()->OnRenderStack();
 }
 
 auto GetAndromedaClient() -> CAndromedaClient*

@@ -22,11 +22,21 @@ IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler( HWND hwnd , UINT msg , WP
 
 auto CAndromedaGUI::OnInit( IDXGISwapChain* pSwapChain ) -> void
 {
-	pSwapChain->GetDevice( IID_PPV_ARGS( &m_pDevice ) );
+	DXGI_SWAP_CHAIN_DESC SwapChainDesc;
+
+	if ( FAILED( pSwapChain->GetDevice( IID_PPV_ARGS( &m_pDevice ) ) ) )
+	{
+		DEV_LOG( "[error] CAndromedaGUI::OnInit: #1\n" );
+		return;
+	}
+
 	m_pDevice->GetImmediateContext( &m_pDeviceContext );
 
-	DXGI_SWAP_CHAIN_DESC SwapChainDesc;
-	pSwapChain->GetDesc( &SwapChainDesc );
+	if ( FAILED( pSwapChain->GetDesc( &SwapChainDesc ) ) )
+	{
+		DEV_LOG( "[error] CAndromedaGUI::OnInit: #2\n" );
+		return;
+	}
 
 	m_hDeadLockWindow = SwapChainDesc.OutputWindow;
 
@@ -322,7 +332,11 @@ void CAndromedaGUI::OnRender( IDXGISwapChain* pSwapChain )
 		{
 			ID3D11Texture2D* pBackBuffer = nullptr;
 
-			pSwapChain->GetBuffer( 0 , IID_PPV_ARGS( &pBackBuffer ) );
+			if ( FAILED( pSwapChain->GetBuffer( 0 , IID_PPV_ARGS( &pBackBuffer ) ) ) )
+			{
+				DEV_LOG( "[error] CAndromedaGUI::OnRender: #1\n" );
+				return;
+			}
 
 			D3D11_RENDER_TARGET_VIEW_DESC RenderTargetDesc;
 
@@ -348,7 +362,7 @@ void CAndromedaGUI::OnRender( IDXGISwapChain* pSwapChain )
 
 		ImGui::NewFrame();
 
-		GetAndromedaClient()->OnRenderMenu();
+		GetAndromedaClient()->OnRender();
 
 		ImGui::EndFrame();
 		ImGui::Render();

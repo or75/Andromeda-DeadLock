@@ -90,6 +90,10 @@
   <ItemGroup>
     <ClInclude Include="Andromeda-DeadLock\AndromedaClient\CAndromedaClient.hpp" />
     <ClInclude Include="Andromeda-DeadLock\AndromedaClient\CAndromedaGUI.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\AndromedaClient\Fonts\CFont.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\AndromedaClient\Fonts\CFontManager.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\AndromedaClient\Render\CRender.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\AndromedaClient\Render\CRenderStackSystem.hpp" />
     <ClInclude Include="Andromeda-DeadLock\Common\Base64.h" />
     <ClInclude Include="Andromeda-DeadLock\Common\CDelay.hpp" />
     <ClInclude Include="Andromeda-DeadLock\Common\Common.hpp" />
@@ -230,6 +234,7 @@
     <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_IsRelativeMouseMode.hpp" />
     <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_MouseInputEnabled.hpp" />
     <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_OnAddEntity.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_OnClientOutput.hpp" />
     <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_OnRemoveEntity.hpp" />
     <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_ParseMessage.hpp" />
     <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_Present.hpp" />
@@ -327,6 +332,10 @@
   <ItemGroup>
     <ClCompile Include="Andromeda-DeadLock\AndromedaClient\CAndromedaClient.cpp" />
     <ClCompile Include="Andromeda-DeadLock\AndromedaClient\CAndromedaGUI.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\AndromedaClient\Fonts\CFont.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\AndromedaClient\Fonts\CFontManager.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\AndromedaClient\Render\CRender.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\AndromedaClient\Render\CRenderStackSystem.cpp" />
     <ClCompile Include="Andromeda-DeadLock\Common\Base64.cpp" />
     <ClCompile Include="Andromeda-DeadLock\Common\CrashLog.cpp" />
     <ClCompile Include="Andromeda-DeadLock\Common\DevLog.cpp" />
@@ -356,6 +365,7 @@
     <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_IsRelativeMouseMode.cpp" />
     <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_MouseInputEnabled.cpp" />
     <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_OnAddEntity.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_OnClientOutput.cpp" />
     <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_OnRemoveEntity.cpp" />
     <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_ParseMessage.cpp" />
     <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_Present.cpp" />
