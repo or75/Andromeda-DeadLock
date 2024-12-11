@@ -8,12 +8,6 @@ class IGameEvent;
 class CCitadelInput;
 class CUserCmd;
 
-struct SoundData_t
-{
-	ULONGLONG dwTime = 0;
-	Vector3 Pos;
-};
-
 class IAndromedaClient
 {
 public:
@@ -30,9 +24,6 @@ public:
 
 class CAndromedaClient final : public IAndromedaClient
 {
-	using SoundListVecType_t = std::vector<SoundData_t>;
-	using Lock_t = std::mutex;
-
 public:
 	auto OnInit() -> void;
 
@@ -46,13 +37,6 @@ public:
 
 public:
 	virtual void OnRender() override;
-
-private:
-	SoundListVecType_t m_SoundList;
-	Lock_t m_SoundLock;
-
-private:
-	constexpr static auto g_SoundShowTime = 1000;
 };
 
 auto GetAndromedaClient() -> CAndromedaClient*;

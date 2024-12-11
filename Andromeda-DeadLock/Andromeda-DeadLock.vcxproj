@@ -90,6 +90,7 @@
   <ItemGroup>
     <ClInclude Include="Andromeda-DeadLock\AndromedaClient\CAndromedaClient.hpp" />
     <ClInclude Include="Andromeda-DeadLock\AndromedaClient\CAndromedaGUI.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\AndromedaClient\Features\CVisual\CVisual.hpp" />
     <ClInclude Include="Andromeda-DeadLock\AndromedaClient\Fonts\CFont.hpp" />
     <ClInclude Include="Andromeda-DeadLock\AndromedaClient\Fonts\CFontManager.hpp" />
     <ClInclude Include="Andromeda-DeadLock\AndromedaClient\Render\CRender.hpp" />
@@ -332,6 +333,7 @@
   <ItemGroup>
     <ClCompile Include="Andromeda-DeadLock\AndromedaClient\CAndromedaClient.cpp" />
     <ClCompile Include="Andromeda-DeadLock\AndromedaClient\CAndromedaGUI.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\AndromedaClient\Features\CVisual\CVisual.cpp" />
     <ClCompile Include="Andromeda-DeadLock\AndromedaClient\Fonts\CFont.cpp" />
     <ClCompile Include="Andromeda-DeadLock\AndromedaClient\Fonts\CFontManager.cpp" />
     <ClCompile Include="Andromeda-DeadLock\AndromedaClient\Render\CRender.cpp" />

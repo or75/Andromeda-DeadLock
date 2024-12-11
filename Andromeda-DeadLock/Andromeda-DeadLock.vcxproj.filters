@@ -109,6 +109,12 @@
     <Filter Include="Andromeda-DeadLock\AndromedaClient\Render">
       <UniqueIdentifier>{5bca2cd7-a1aa-47e6-be7f-3c4a1d4e9fa4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Andromeda-DeadLock\AndromedaClient\Features">
+      <UniqueIdentifier>{53f9676c-b08e-450d-8a7e-40f8c5bd9a35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Andromeda-DeadLock\AndromedaClient\Features\CVisual">
+      <UniqueIdentifier>{f806415b-a98e-4abd-9fc2-63ea1eb460f8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Andromeda-DeadLock\Common\Include\Config.hpp">
@@ -831,6 +837,9 @@
     <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_OnClientOutput.hpp">
       <Filter>Andromeda-DeadLock\DeadLock\Hook</Filter>
     </ClInclude>
+    <ClInclude Include="Andromeda-DeadLock\AndromedaClient\Features\CVisual\CVisual.hpp">
+      <Filter>Andromeda-DeadLock\AndromedaClient\Features\CVisual</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Andromeda-DeadLock\Common\Include\MinHook\hde\hde32.c">
@@ -1141,6 +1150,9 @@
     </ClCompile>
     <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_OnClientOutput.cpp">
       <Filter>Andromeda-DeadLock\DeadLock\Hook</Filter>
+    </ClCompile>
+    <ClCompile Include="Andromeda-DeadLock\AndromedaClient\Features\CVisual\CVisual.cpp">
+      <Filter>Andromeda-DeadLock\AndromedaClient\Features\CVisual</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
