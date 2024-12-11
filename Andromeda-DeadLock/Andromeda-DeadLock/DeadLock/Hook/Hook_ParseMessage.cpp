@@ -28,7 +28,7 @@ auto Hook_ParseMessage( CDemoRecorder* pDemoRecorder , CNetworkSerializerPB* pSe
 
 			if ( pMessage->has_packed_params() && pMessage->packed_params().data() )
 			{
-				SoundPos = *(Vector3*)( pMessage->packed_params().data() + 18 );
+				SoundPos = *(Vector3*)( pMessage->packed_params().data() + g_OFFSET_CMsgSosStartSoundEvent_SoundPos );
 
 				const char* szSoundEventName = SDK::Interfaces::SoundOpSystem()->GetCSoundEventManager()->GetSoundEventName( pMessage->soundevent_hash() );
 
