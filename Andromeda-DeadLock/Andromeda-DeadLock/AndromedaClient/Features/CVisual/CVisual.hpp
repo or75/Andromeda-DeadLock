@@ -6,6 +6,9 @@
 #include <ImGui/imgui.h>
 
 #include <DeadLock/SDK/Math/Vector3.hpp>
+#include <DeadLock/SDK/Math/Rect_t.hpp>
+
+class CCitadelPlayerController;
 
 struct SoundData_t
 {
@@ -33,6 +36,7 @@ public:
 
 private:
 	auto OnRenderSound() -> void;
+	auto OnRenderPlayerEsp( CCitadelPlayerController* pCCitadelPlayerController , const Rect_t& Box ) -> void;
 
 private:
 	SoundListVecType_t m_SoundList;

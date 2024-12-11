@@ -10,7 +10,6 @@ auto CFunctionList::OnInit() -> bool
 		&ScreenTransform,
 		&CCitadelInput_GetViewAngles,
 		&CCitadelInput_SetViewAngles,
-		&C_BaseEntity_ComputeHitboxSurroundingBox,
 		&CGameEntitySystem_GetBaseEntity,
 		&CGameEntitySystem_GetHighestEntityIndex,
 		&CGameEntitySystem_GetLocalCitadelPlayerController,

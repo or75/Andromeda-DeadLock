@@ -13,7 +13,6 @@
 #include <DeadLock/Hook/Hook_IsRelativeMouseMode.hpp>
 #include <DeadLock/Hook/Hook_OnAddEntity.hpp>
 #include <DeadLock/Hook/Hook_OnRemoveEntity.hpp>
-#include <DeadLock/Hook/Hook_GetMatricesForView.hpp>
 #include <DeadLock/Hook/Hook_CreateMove.hpp>
 #include <DeadLock/Hook/Hook_ParseMessage.hpp>
 #include <DeadLock/Hook/Hook_OnClientOutput.hpp>
@@ -38,7 +37,6 @@ auto CHook_Loader::InstallSecondHook() -> bool
 		{ { XorStr( "Hook::IsRelativeMouseMode" ) , XorStr( "48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 56 48 83 EC ? 0F B6 EA" ) , INPUTSYSTEM_DLL } , &Hook_IsRelativeMouseMode , reinterpret_cast<LPVOID*>( &IsRelativeMouseMode_o ) },
 		{ { XorStr( "Hook::OnAddEntity" ) , XorStr( "48 89 74 24 10 57 48 83 EC 20 48 8B F9 41 8B C0 B9 FF 7F 00 00 48 8B F2 23 C1 41 83 F8 FF 0F 45 C8 81 F9 00 40 00 00" ) , CLIENT_DLL } , &Hook_OnAddEntity , reinterpret_cast<LPVOID*>( &OnAddEntity_o ) },
 		{ { XorStr( "Hook::OnRemoveEntity" ) , XorStr( "48 89 74 24 10 57 48 83 EC 20 48 8B F9 41 8B C0 25 FF 7F 00 00 B9 FF 7F 00 00 41 83 F8 FF 48 8B F2 0F 45 C8 81 F9 00 40 00 00" ) , CLIENT_DLL } , &Hook_OnRemoveEntity , reinterpret_cast<LPVOID*>( &OnRemoveEntity_o ) },
-		{ { XorStr( "Hook::GetMatricesForView" ) , XorStr( "40 53 48 81 EC ? ? ? ? 49 8B C1" ) , CLIENT_DLL } , &Hook_GetMatricesForView , reinterpret_cast<LPVOID*>( &GetMatricesForView_o ) },
 		{ { XorStr( "Hook::CreateMove" ) , XorStr( "85 D2 0F 85 ? ? ? ? 48 8B C4 44 88 40 18" ) , CLIENT_DLL } , &Hook_CreateMove , reinterpret_cast<LPVOID*>( &CreateMove_o ) },
 		{ { XorStr( "Hook::ParseMessage" ) , XorStr( "40 56 57 41 57 48 83 EC ? 4C 8B F9" ) , ENGINE2_DLL } , &Hook_ParseMessage , reinterpret_cast<LPVOID*>( &ParseMessage_o ) },
 		{ { XorStr( "Hook::OnClientOutput" ) , XorStr( "48 89 5C 24 10 48 89 6C 24 18 48 89 74 24 20 57 41 56 41 57 48 83 EC ? 4C 8B F2" ) , ENGINE2_DLL } , &Hook_OnClientOutput , reinterpret_cast<LPVOID*>( &OnClientOutput_o ) },

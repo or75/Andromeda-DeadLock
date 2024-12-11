@@ -58,6 +58,14 @@ struct ResourceBindingBase_t
 	void* data;
 };
 
+enum TeamNum_t : int32_t
+{
+    TEAM_UNKNOWN ,
+    TEAM_SPECTATOR ,
+    TEAM_DIER = 2 ,
+    TEAM_RADIANT = 3 ,
+};
+
 enum MoveType_t : uint8_t
 {
     MOVETYPE_NONE = 0x00 ,

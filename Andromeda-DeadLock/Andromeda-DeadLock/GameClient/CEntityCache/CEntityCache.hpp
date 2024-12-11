@@ -13,14 +13,12 @@ struct CachedEntity_t
     {
         UNKNOWN = 0 ,
         CITADEL_PLAYER_CONTROLLER ,
+        CITADEL_PLAYER_PAWN ,
     };
 
     CHandle m_Handle = { INVALID_EHANDLE_INDEX };
     Type m_Type = UNKNOWN;
 
-    Rect_t m_Bbox = { 0.f , 0.f , 0.f , 0.f };
-
-    bool m_bDraw = false;
     bool m_bVisible = false;
 };
 

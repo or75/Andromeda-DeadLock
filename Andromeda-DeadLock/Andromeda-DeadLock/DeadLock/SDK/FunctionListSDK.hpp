@@ -20,7 +20,6 @@ DECLARATE_DEADLOCK_FUNCTION_SDK_FASTCALL( void , CSkeletonInstance_CalcWorldSpac
 DECLARATE_DEADLOCK_FUNCTION_SDK_FASTCALL( bool , ScreenTransform , ( const Vector3& vOrigin , Vector3& vOut ) , ( const Vector3& , Vector3& ) , ( vOrigin , vOut ) );
 DECLARATE_DEADLOCK_FUNCTION_SDK_FASTCALL( QAngle* , CCitadelInput_GetViewAngles , ( CCitadelInput* pCCitadelInput , int32_t slot ) , ( CCitadelInput* , int32_t ) , ( pCCitadelInput , slot ) );
 DECLARATE_DEADLOCK_FUNCTION_SDK_FASTCALL( void , CCitadelInput_SetViewAngles , ( CCitadelInput* pCCitadelInput , int32_t slot , QAngle& Angles ) , ( CCitadelInput* , int32_t , QAngle& ) , ( pCCitadelInput , slot , Angles ) );
-DECLARATE_DEADLOCK_FUNCTION_SDK_FASTCALL( bool , C_BaseEntity_ComputeHitboxSurroundingBox , ( C_BaseEntity* pBaseEntity , Vector3& mins , Vector3& maxs ) , ( C_BaseEntity* , Vector3& , Vector3& ) , ( pBaseEntity , mins , maxs ) );
 DECLARATE_DEADLOCK_FUNCTION_SDK_FASTCALL( void* , CGameEntitySystem_GetBaseEntity , ( CGameEntitySystem* pGameEntitySystem , int iIndex ) , ( CGameEntitySystem* , int ) , ( pGameEntitySystem , iIndex ) );
 DECLARATE_DEADLOCK_FUNCTION_SDK_FASTCALL( void , CGameEntitySystem_GetHighestEntityIndex , ( CGameEntitySystem* pGameEntitySystem , int& HighestIdx ) , ( CGameEntitySystem* , int& ) , ( pGameEntitySystem , HighestIdx ) );
 DECLARATE_DEADLOCK_FUNCTION_SDK_FASTCALL( CCitadelPlayerController* , CGameEntitySystem_GetLocalCitadelPlayerController , ( int iSlot ) , ( int ) , ( iSlot ) );

@@ -19,14 +19,6 @@
 #include <DeadLock/SDK/Interface/CShemaSystemSDK.hpp>
 #include <DeadLock/SDK/Math/Rect_t.hpp>
 
-namespace index
-{
-	namespace CGameSceneNode
-	{
-		constexpr auto GetSkeletonInstance = 8;
-	}
-}
-
 class CSkeletonInstance;
 class InfoForResourceTypeCModel {};
 
@@ -35,6 +27,36 @@ struct alignas( 16 ) CBoneData
 	Vector3 position;
 	float scale;
 	Vector3 rotation;
+};
+
+class HeroID_t
+{
+public:
+	uint32 m_Value;
+};
+
+class CModelState
+{
+private:
+	PAD( 0x80 );
+
+public:
+	CBoneData* m_pBones;
+
+public:
+	SCHEMA_OFFSET( "CModelState" , "m_hModel" , m_hModel , CStrongHandle<InfoForResourceTypeCModel> );
+	SCHEMA_OFFSET( "CModelState" , "m_ModelName" , m_ModelName , CUtlSymbolLarge );
+};
+
+class PlayerDataGlobal_t
+{
+public:
+	SCHEMA_OFFSET( "PlayerDataGlobal_t" , "m_iLevel" , m_iLevel , int32 );
+	SCHEMA_OFFSET( "PlayerDataGlobal_t" , "m_iHealthMax" , m_iHealthMax , int32 );
+	SCHEMA_OFFSET( "PlayerDataGlobal_t" , "m_flHealthRegen" , m_flHealthRegen , float32 );
+	SCHEMA_OFFSET( "PlayerDataGlobal_t" , "m_nHeroID" , m_nHeroID , HeroID_t );
+	SCHEMA_OFFSET( "PlayerDataGlobal_t" , "m_iHealth" , m_iHealth , int32 );
+	SCHEMA_OFFSET( "PlayerDataGlobal_t" , "m_bAlive" , m_bAlive , bool );
 };
 
 class CPlayerPawnComponent
@@ -74,36 +96,18 @@ public:
 
 public:
 	SCHEMA_OFFSET( "CEntityInstance" , "m_pEntity" , pEntityIdentity , CEntityIdentity* );
-	SCHEMA_OFFSET( "CEntityInstance" , "m_bVisibleinPVS" , m_bVisibleinPVS , bool );
 };
 
 class CGameSceneNode
 {
-public:
-	SCHEMA_OFFSET( "CGameSceneNode" , "m_vecAbsOrigin" , m_vecAbsOrigin , Vector3 );
-
 public:
 	auto GetBonePosition( int32 BoneIndex , Vector3& BonePos ) -> bool;
 
 public:
 	auto GetSkeletonInstance() -> CSkeletonInstance*
 	{
-		VirtualFn( CSkeletonInstance* )( CGameSceneNode* );
-		return vget< Fn >( this , index::CGameSceneNode::GetSkeletonInstance )( this );
+		return reinterpret_cast<CSkeletonInstance*>( this );
 	}
-};
-
-class CModelState
-{
-private:
-	PAD( 0x80 );
-
-public:
-	CBoneData* m_pBones;
-
-public:
-	SCHEMA_OFFSET( "CModelState" , "m_hModel" , m_hModel , CStrongHandle<InfoForResourceTypeCModel> );
-	SCHEMA_OFFSET( "CModelState" , "m_ModelName" , m_ModelName , CUtlSymbolLarge );
 };
 
 class CSkeletonInstance : public CGameSceneNode
@@ -115,13 +119,6 @@ public:
 	auto CalcWorldSpaceBones( unsigned int Mask ) -> void;
 };
 
-class CCollisionProperty
-{
-public:
-	SCHEMA_OFFSET( "CCollisionProperty" , "m_vecMins" , m_vecMins , Vector3 );
-	SCHEMA_OFFSET( "CCollisionProperty" , "m_vecMaxs" , m_vecMaxs , Vector3 );
-};
-
 class C_BaseEntity : public CEntityInstance
 {
 public:
@@ -129,15 +126,7 @@ public:
 	auto IsCitadelPlayerPawn() -> bool;
 
 public:
-	auto GetOrigin() -> const Vector3&;
-
-public:
-	auto GetBoundingBox( Rect_t& out , bool computeSurroundingBox = false ) -> bool;
-	auto ComputeHitboxSurroundingBox( Vector3& mins , Vector3& maxs ) -> bool;
-
-public:
 	SCHEMA_OFFSET( "C_BaseEntity" , "m_pGameSceneNode" , m_pGameSceneNode , CGameSceneNode* );
-	SCHEMA_OFFSET( "C_BaseEntity" , "m_pCollision" , m_pCollision , CCollisionProperty* );
 	SCHEMA_OFFSET( "C_BaseEntity" , "m_iTeamNum" , m_iTeamNum , uint8 );
 	SCHEMA_OFFSET( "C_BaseEntity" , "m_fFlags" , m_fFlags , uint32 );
 	SCHEMA_OFFSET( "C_BaseEntity" , "m_MoveType" , m_MoveType , MoveType_t );
@@ -192,6 +181,7 @@ class C_BasePlayerPawn : public C_BaseCombatCharacter
 {
 public:
 	SCHEMA_OFFSET( "C_BasePlayerPawn" , "m_pCameraServices" , m_pCameraServices , CPlayer_CameraServices* );
+	SCHEMA_OFFSET( "C_BasePlayerPawn" , "m_vOldOrigin" , m_vOldOrigin , Vector3 );
 };
 
 class CCitadelPlayerPawnBase : public C_BasePlayerPawn
@@ -214,6 +204,7 @@ class CCitadelPlayerController : public CBasePlayerController
 {
 public:
 	SCHEMA_OFFSET( "CCitadelPlayerController" , "m_hHeroPawn" , m_hHeroPawn , CHandle ); // C_CitadelPlayerPawn
+	SCHEMA_OFFSET( "CCitadelPlayerController" , "m_PlayerDataGlobal" , m_PlayerDataGlobal , PlayerDataGlobal_t );
 };
 
 class C_EnvSky : public C_BaseModelEntity

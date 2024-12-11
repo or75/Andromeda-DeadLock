@@ -239,7 +239,6 @@
     <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_CreateMove.hpp" />
     <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_CreateSwapChain.hpp" />
     <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_FireEventClientSide.hpp" />
-    <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_GetMatricesForView.hpp" />
     <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_IsRelativeMouseMode.hpp" />
     <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_MouseInputEnabled.hpp" />
     <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_OnAddEntity.hpp" />
@@ -376,7 +375,6 @@
     <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_CreateMove.cpp" />
     <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_CreateSwapChain.cpp" />
     <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_FireEventClientSide.cpp" />
-    <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_GetMatricesForView.cpp" />
     <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_IsRelativeMouseMode.cpp" />
     <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_MouseInputEnabled.cpp" />
     <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_OnAddEntity.cpp" />

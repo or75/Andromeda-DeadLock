@@ -46,7 +46,6 @@ void CEntityCache::OnRemoveEntity( CEntityInstance* pInst , CHandle handle )
 
 	if ( it != m_CachedEntity.end() )
 	{
-		it->m_bDraw = false;
 		it->m_Type = CachedEntity_t::UNKNOWN;
 
 		auto NewEnd = std::remove_if( m_CachedEntity.begin() , m_CachedEntity.end() , []( const CachedEntity_t& i )
@@ -62,6 +61,8 @@ auto CEntityCache::GetEntityType( C_BaseEntity* pBaseEntity ) -> CachedEntity_t:
 {
 	if ( pBaseEntity->IsCitadelPlayerController() )
 		return CachedEntity_t::CITADEL_PLAYER_CONTROLLER;
+	else if ( pBaseEntity->IsCitadelPlayerPawn() )
+		return CachedEntity_t::CITADEL_PLAYER_PAWN;
 
 	return CachedEntity_t::UNKNOWN;
 }

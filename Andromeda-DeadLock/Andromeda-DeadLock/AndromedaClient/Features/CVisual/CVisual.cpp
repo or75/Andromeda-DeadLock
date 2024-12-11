@@ -5,8 +5,11 @@
 #include <DeadLock/SDK/SDK.hpp>
 #include <DeadLock/SDK/Math/Math.hpp>
 #include <DeadLock/SDK/Types/CEntityData.hpp>
-#include <DeadLock/SDK/Interface/CGameEntitySystem.hpp>
 
+#include <DeadLock/SDK/Interface/CGameEntitySystem.hpp>
+#include <DeadLock/SDK/Interface/IEngineToClient.hpp>
+
+#include <GameClient/CEntityCache/CEntityCache.hpp>
 #include <GameClient/CL_CitadelPlayerController.hpp>
 
 #include <AndromedaClient/Settings/Settings.hpp>
@@ -18,6 +21,43 @@ auto CVisual::OnRender() -> void
 {
 	if ( !Settings::Visual::Active )
 		return;
+
+	const auto Lock = GetEntityCache()->GetLock();
+	const auto CachedVec = GetEntityCache()->GetCachedEntity();
+
+	Lock->lock();
+
+	for ( const auto& CachedEntity : *CachedVec )
+	{
+		auto pEntity = CachedEntity.m_Handle.Get();
+
+		if ( !pEntity )
+			continue;
+
+		auto hEntity = pEntity->pEntityIdentity()->Handle();
+
+		if ( hEntity != CachedEntity.m_Handle )
+			continue;
+
+		switch ( CachedEntity.m_Type )
+		{
+			case CachedEntity_t::CITADEL_PLAYER_CONTROLLER:
+			{
+				auto* pCCitadelPlayerController = reinterpret_cast<CCitadelPlayerController*>( pEntity );
+
+				if ( pCCitadelPlayerController != GetCL_CitadelPlayerController()->GetLocal() )
+				{
+					DEV_LOG( "m_pGameSceneNode: %p\n" , pCCitadelPlayerController->m_hHeroPawn().Get()->m_pGameSceneNode() );
+
+					//Rect_t Box;
+					//OnRenderPlayerEsp( pCCitadelPlayerController , Box );
+				}
+			}
+			break;
+		}
+	}
+
+	Lock->unlock();
 
 	if ( Settings::Visual::SoundStepEsp )
 		OnRenderSound();
@@ -76,6 +116,28 @@ auto CVisual::OnRenderSound() -> void
 			GetRenderStackSystem()->DrawCircle3D( Sound.Pos , Radius , ImColor( 1.f , 1.f , 0.f , Alpha ) );
 		}
 	}
+}
+
+auto CVisual::OnRenderPlayerEsp( CCitadelPlayerController* pCCitadelPlayerController , const Rect_t& Box ) -> void
+{
+	if ( !pCCitadelPlayerController->m_PlayerDataGlobal().m_bAlive() )
+		return;
+
+	const ImVec2 min = { Box.x, Box.y };
+	const ImVec2 max = { Box.w, Box.h };
+
+	auto PlayerColor = ImColor( 255 , 255 , 255 );
+
+	if ( pCCitadelPlayerController->m_iTeamNum() == TEAM_DIER )
+	{
+		PlayerColor = ImColor( 255 , 0 , 0 );
+	}
+	else if ( pCCitadelPlayerController->m_iTeamNum() == TEAM_RADIANT )
+	{
+		PlayerColor = ImColor( 0 , 0 , 255 );
+	}
+
+	GetRenderStackSystem()->DrawOutlineCoalBox( min , max , PlayerColor );
 }
 
 auto GetVisual() -> CVisual*
