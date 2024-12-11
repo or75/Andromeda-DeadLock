@@ -2,17 +2,150 @@
 #include "DllLauncher.hpp"
 
 #include <filesystem>
+#include <fstream>
+
+#include <AndromedaClient/Settings/Settings.hpp>
 
 static CSettingsJson g_CSettingsJson{};
 
 auto CSettingsJson::LoadConfig( const std::string& JsonFile ) -> void
 {
+	auto ConfigLoadedIndex = 0u;
+	const auto ConfigFilePath = GetDllDir() + JsonFile;
 
+	for ( const auto& Config : m_vecConfigList )
+	{
+		if ( Config == JsonFile )
+		{
+			m_nConfigLoadedIndex = ConfigLoadedIndex;
+			break;
+		}
+
+		ConfigLoadedIndex++;
+	}
+
+	std::ifstream ConfigFile( ConfigFilePath );
+
+	rapidjson::IStreamWrapper StreamWrapper( ConfigFile );
+	rapidjson::Document DocumentConfig;
+
+	DocumentConfig.ParseStream( StreamWrapper );
+
+	if ( !DocumentConfig.HasParseError() )
+	{
+		const auto& SettingsVisual = DocumentConfig[XorStr( "Settings" )][XorStr( "Visual" )];
+
+		if ( !SettingsVisual.IsNull() )
+		{
+			GetBoolJson( SettingsVisual , XorStr( "Active" ) , Settings::Visual::Active );
+
+			GetBoolJson( SettingsVisual , XorStr( "SoundStepEsp" ) , Settings::Visual::SoundStepEsp );
+		}
+
+		const auto& SettingsMisc = DocumentConfig[XorStr( "Settings" )][XorStr( "Misc" )];
+
+		if ( !SettingsMisc.IsNull() )
+		{
+			GetBoolJson( SettingsMisc , XorStr( "SkyColorChanger" ) , Settings::Misc::SkyColorChanger );
+			GetBoolJson( SettingsMisc , XorStr( "NightMode" ) , Settings::Misc::NightMode );
+
+			GetIntJson( SettingsMisc , XorStr( "MenuAlpha" ) , Settings::Misc::MenuAlpha , 100 , 255 );
+			GetIntJson( SettingsMisc , XorStr( "MenuStyle" ) , Settings::Misc::MenuStyle , 0 , 1 );
+			GetBoolJson( SettingsMisc , XorStr( "MenuSounds" ) , Settings::Misc::MenuSounds );
+		}
+
+		const auto& SettingsColors = DocumentConfig[XorStr( "Settings" )][XorStr( "Colors" )];
+
+		if ( !SettingsColors.IsNull() )
+		{
+			GetColorJson( SettingsColors , XorStr( "SoundStepEsp" ) , Settings::Colors::Visual::SoundStepEsp );
+			GetColorJson( SettingsColors , XorStr( "SkyColor" ) , Settings::Colors::Misc::SkyColor );
+		}
+	}
+	else
+	{
+		DEV_LOG( "[error] LoadConfig: %s -> %s , %i\n" , ConfigFilePath.c_str() , rapidjson::GetParseError_En( DocumentConfig.GetParseError() ) , DocumentConfig.GetErrorOffset() );
+	}
+
+	DocumentConfig.Clear();
+	ConfigFile.close();
 }
 
 auto CSettingsJson::SaveConfig( const std::string& JsonFile ) -> void
 {
+	const auto ConfigFilePath = GetDllDir() + JsonFile;
 
+	std::ofstream ConfigFile( ConfigFilePath );
+
+	rapidjson::OStreamWrapper StreamWrapper( ConfigFile );
+	rapidjson::PrettyWriter<rapidjson::OStreamWrapper> ConfigWriter( StreamWrapper );
+
+	ConfigWriter.SetIndent( '\t' , 1 );
+	ConfigWriter.SetFormatOptions( rapidjson::PrettyFormatOptions::kFormatSingleLineArray );
+	ConfigWriter.SetMaxDecimalPlaces( 2 );
+
+	ConfigWriter.StartObject();
+	{
+		ConfigWriter.String( XorStr( "Settings" ) );
+		{
+			ConfigWriter.StartObject();
+			{
+				ConfigWriter.String( XorStr( "Visual" ) );
+				{
+					ConfigWriter.StartObject();
+					{
+						AddBoolJson( ConfigWriter , XorStr( "Active" ) , Settings::Visual::Active );
+
+						AddBoolJson( ConfigWriter , XorStr( "SoundStepEsp" ) , Settings::Visual::SoundStepEsp );
+					}
+					ConfigWriter.EndObject();
+				}
+
+				ConfigWriter.String( XorStr( "Misc" ) );
+				{
+					ConfigWriter.StartObject();
+					{
+						AddBoolJson( ConfigWriter , XorStr( "SkyColorChanger" ) , Settings::Misc::SkyColorChanger );
+						AddBoolJson( ConfigWriter , XorStr( "NightMode" ) , Settings::Misc::NightMode );
+
+						AddIntJson( ConfigWriter , XorStr( "MenuAlpha" ) , Settings::Misc::MenuAlpha );
+						AddIntJson( ConfigWriter , XorStr( "MenuStyle" ) , Settings::Misc::MenuStyle );
+						AddBoolJson( ConfigWriter , XorStr( "MenuSounds" ) , Settings::Misc::MenuSounds );
+					}
+					ConfigWriter.EndObject();
+				}
+
+				ConfigWriter.String( XorStr( "Colors" ) );
+				{
+					ConfigWriter.StartObject();
+					{
+						ConfigWriter.String( XorStr( "Visual" ) );
+						{
+							ConfigWriter.StartObject();
+							{
+								AddColorJson( ConfigWriter , XorStr( "SoundStepEsp" ) , Settings::Colors::Visual::SoundStepEsp );
+							}
+							ConfigWriter.EndObject();
+						}
+
+						ConfigWriter.String( XorStr( "Misc" ) );
+						{
+							ConfigWriter.StartObject();
+							{
+								AddColorJson( ConfigWriter , XorStr( "SkyColor" ) , Settings::Colors::Misc::SkyColor );
+							}
+							ConfigWriter.EndObject();
+						}
+					}
+					ConfigWriter.EndObject();
+				}
+			}
+			ConfigWriter.EndObject();
+		}
+	}
+	ConfigWriter.EndObject();
+
+	ConfigFile.close();
 }
 
 auto CSettingsJson::DeleteConfig( const std::string& JsonFile ) -> void
