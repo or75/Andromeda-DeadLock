@@ -882,6 +882,9 @@
     <ClInclude Include="Andromeda-DeadLock\AndromedaClient\Features\CMisc\CMisc.hpp">
       <Filter>Andromeda-DeadLock\AndromedaClient\Features\CMisc</Filter>
     </ClInclude>
+    <ClInclude Include="Andromeda-DeadLock\GameClient\CL_CitadelPlayerPawn.hpp">
+      <Filter>Andromeda-DeadLock\GameClient</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Andromeda-DeadLock\Common\Include\MinHook\hde\hde32.c">
@@ -1207,6 +1210,9 @@
     </ClCompile>
     <ClCompile Include="Andromeda-DeadLock\AndromedaClient\Features\CMisc\CMisc.cpp">
       <Filter>Andromeda-DeadLock\AndromedaClient\Features\CMisc</Filter>
+    </ClCompile>
+    <ClCompile Include="Andromeda-DeadLock\GameClient\CL_CitadelPlayerPawn.cpp">
+      <Filter>Andromeda-DeadLock\GameClient</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

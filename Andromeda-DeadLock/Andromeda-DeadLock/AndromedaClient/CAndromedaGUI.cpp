@@ -404,6 +404,9 @@ auto CAndromedaGUI::OnReopenGUI() -> void
 
 	if ( m_bVisible )
 	{
+		if ( m_vecMousePosSave.x == 0.f && m_vecMousePosSave.y == 0.f )
+			m_vecMousePosSave = ImGui::GetIO().DisplaySize / 2.f;
+
 		ImGui::GetIO().MousePos = m_vecMousePosSave;
 
 		if ( SDK::Interfaces::EngineToClient()->IsInGame() )

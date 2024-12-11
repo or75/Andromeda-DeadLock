@@ -37,6 +37,11 @@ struct alignas( 16 ) CBoneData
 	Vector3 rotation;
 };
 
+class CPlayerPawnComponent
+{
+public:
+};
+
 class IHandleEntity
 {
 public:
@@ -159,9 +164,34 @@ class C_BaseCombatCharacter : public C_BaseFlex
 public:
 };
 
+class C_BaseToggle : public C_BaseModelEntity
+{
+public:
+};
+
+class C_BaseTrigger : public C_BaseToggle
+{
+public:
+};
+
+class C_PostProcessingVolume : public C_BaseTrigger
+{
+public:
+	SCHEMA_OFFSET( "C_PostProcessingVolume" , "m_flMinExposure" , m_flMinExposure , float32 );
+	SCHEMA_OFFSET( "C_PostProcessingVolume" , "m_flMaxExposure" , m_flMaxExposure , float32 );
+	SCHEMA_OFFSET( "C_PostProcessingVolume" , "m_bExposureControl" , m_bExposureControl , bool );
+};
+
+class CPlayer_CameraServices : public CPlayerPawnComponent
+{
+public:
+	SCHEMA_OFFSET( "CPlayer_CameraServices" , "m_hActivePostProcessingVolume" , m_hActivePostProcessingVolume , CHandle ); // C_PostProcessingVolume
+};
+
 class C_BasePlayerPawn : public C_BaseCombatCharacter
 {
 public:
+	SCHEMA_OFFSET( "C_BasePlayerPawn" , "m_pCameraServices" , m_pCameraServices , CPlayer_CameraServices* );
 };
 
 class CCitadelPlayerPawnBase : public C_BasePlayerPawn

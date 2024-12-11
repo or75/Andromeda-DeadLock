@@ -337,6 +337,7 @@
     <ClInclude Include="Andromeda-DeadLock\DllMain.hpp" />
     <ClInclude Include="Andromeda-DeadLock\GameClient\CEntityCache\CEntityCache.hpp" />
     <ClInclude Include="Andromeda-DeadLock\GameClient\CL_CitadelPlayerController.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\GameClient\CL_CitadelPlayerPawn.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Andromeda-DeadLock\AndromedaClient\CAndromedaClient.cpp" />
@@ -447,6 +448,7 @@
     <ClCompile Include="Andromeda-DeadLock\DllMain.cpp" />
     <ClCompile Include="Andromeda-DeadLock\GameClient\CEntityCache\CEntityCache.cpp" />
     <ClCompile Include="Andromeda-DeadLock\GameClient\CL_CitadelPlayerController.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\GameClient\CL_CitadelPlayerPawn.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
