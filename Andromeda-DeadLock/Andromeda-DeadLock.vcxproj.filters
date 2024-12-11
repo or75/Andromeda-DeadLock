@@ -115,6 +115,9 @@
     <Filter Include="Andromeda-DeadLock\AndromedaClient\Features\CVisual">
       <UniqueIdentifier>{f806415b-a98e-4abd-9fc2-63ea1eb460f8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Andromeda-DeadLock\AndromedaClient\Settings">
+      <UniqueIdentifier>{c7f75051-5e69-48e1-8813-56da17749f55}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Andromeda-DeadLock\Common\Include\Config.hpp">
