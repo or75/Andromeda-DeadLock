@@ -9,13 +9,23 @@
 #include <GameClient/CEntityCache/CEntityCache.hpp>
 
 #include <AndromedaClient/Features/CVisual/CVisual.hpp>
-#include <AndromedaClient/Render/CRenderStackSystem.hpp>
+#include <AndromedaClient/Features/CMisc/CMisc.hpp>
+
+#include <AndromedaClient/GUI/CAndromedaMenu.hpp>
+#include <AndromedaClient/Settings/CSettingsJson.hpp>
+#include <AndromedaClient/Render/CRenderStackSystem.hpp>\
 
 static CAndromedaClient g_CAndromedaClient{};
 
 auto CAndromedaClient::OnInit() -> void
 {
+	GetSettingsJson()->UpdateConfigList();
+	GetSettingsJson()->LoadConfig( CONFIG_FILE );
 
+	GetAndromedaMenu()->InitColors();
+	GetAndromedaMenu()->SetConfigSelected( GetSettingsJson()->GetConfigLoadedIndex() );
+
+	GetAndromedaGUI()->UpdateStyle();
 }
 
 auto CAndromedaClient::OnFireEventClientSide( IGameEvent* pGameEvent ) -> void
@@ -40,7 +50,7 @@ auto CAndromedaClient::OnStartSound( const Vector3& Pos , const int SourceEntity
 
 auto CAndromedaClient::OnCreateMove( CCitadelInput* pCitadelInput , CUserCmd* pUserCmd ) -> void
 {
-
+	GetMisc()->OnCreateMove( pCitadelInput , pUserCmd );
 }
 
 auto CAndromedaClient::OnClientOutput() -> void
@@ -52,19 +62,10 @@ auto CAndromedaClient::OnClientOutput() -> void
 auto CAndromedaClient::OnRender() -> void
 {
 	if ( GetAndromedaGUI()->IsVisible() )
-	{
-		ImGui::SetNextWindowSize( ImVec2( 460.f , 490.f ) , ImGuiCond_FirstUseEver );
-
-		if ( ImGui::Begin( XorStr( CHEAT_NAME ) , 0 , ImGuiWindowFlags_NoResize ) )
-		{
-
-		}
-
-		ImGui::End();
-	}
+		GetAndromedaMenu()->OnRenderMenu();
 
 	GetFontManager()->FirstInitFonts();
-	GetFontManager()->m_VerdanaFont.DrawString( 1 , 1 , ImColor( 1.f , 1.f , 1.f ) , FW1_LEFT , XorStr( CHEAT_NAME ) );
+	GetFontManager()->m_VerdanaFont.DrawString( 1 , 1 , ImColor( 1.f , 1.f , 0.f ) , FW1_LEFT , XorStr( CHEAT_NAME ) );
 
 	GetRenderStackSystem()->OnRenderStack();
 }

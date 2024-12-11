@@ -2,6 +2,7 @@
 
 #include "Common/Common.hpp"
 
+#pragma comment(lib,"winmm")
 #pragma comment(lib,"freetype")
 #pragma comment(lib,"steam_api64")
 

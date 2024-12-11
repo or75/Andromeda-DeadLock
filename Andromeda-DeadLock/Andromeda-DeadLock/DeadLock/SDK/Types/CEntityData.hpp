@@ -185,3 +185,10 @@ class CCitadelPlayerController : public CBasePlayerController
 public:
 	SCHEMA_OFFSET( "CCitadelPlayerController" , "m_hHeroPawn" , m_hHeroPawn , CHandle ); // C_CitadelPlayerPawn
 };
+
+class C_EnvSky : public C_BaseModelEntity
+{
+public:
+	SCHEMA_OFFSET( "C_EnvSky" , "m_vTintColor" , m_vTintColor , Color );
+	SCHEMA_OFFSET( "C_EnvSky" , "m_vTintColorLightingOnly" , m_vTintColorLightingOnly , Color );
+};

@@ -18,6 +18,7 @@ auto CFunctionList::OnInit() -> bool
 		&GetCUserCmdTick,
 		&GetCUserCmdArray,
 		&GetCUserCmdBySequenceNumber,
+		&C_EnvSky_Update,
 	};
 
 	auto Searched = true;

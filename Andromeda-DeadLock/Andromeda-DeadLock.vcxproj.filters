@@ -118,6 +118,21 @@
     <Filter Include="Andromeda-DeadLock\AndromedaClient\Settings">
       <UniqueIdentifier>{c7f75051-5e69-48e1-8813-56da17749f55}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Andromeda-DeadLock\AndromedaClient\GUI">
+      <UniqueIdentifier>{3321a827-1837-474d-8835-3f9349c91f1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Andromeda-DeadLock\AndromedaClient\Resources">
+      <UniqueIdentifier>{9851bbe9-76dd-43fe-82c4-9ad36d374320}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Andromeda-DeadLock\AndromedaClient\Resources\UI_Sounds">
+      <UniqueIdentifier>{3bf93ab9-8ffd-40c3-8e21-21156c3a1f22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Andromeda-DeadLock\AndromedaClient\Helpers">
+      <UniqueIdentifier>{139c7d41-0e35-48a4-92f6-05418db6e7d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Andromeda-DeadLock\AndromedaClient\Features\CMisc">
+      <UniqueIdentifier>{8674feac-588a-44a0-b43b-285e69ce0c59}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Andromeda-DeadLock\Common\Include\Config.hpp">
@@ -843,6 +858,30 @@
     <ClInclude Include="Andromeda-DeadLock\AndromedaClient\Features\CVisual\CVisual.hpp">
       <Filter>Andromeda-DeadLock\AndromedaClient\Features\CVisual</Filter>
     </ClInclude>
+    <ClInclude Include="Andromeda-DeadLock\AndromedaClient\Settings\Settings.hpp">
+      <Filter>Andromeda-DeadLock\AndromedaClient\Settings</Filter>
+    </ClInclude>
+    <ClInclude Include="Andromeda-DeadLock\AndromedaClient\GUI\CAndromedaMenu.hpp">
+      <Filter>Andromeda-DeadLock\AndromedaClient\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Andromeda-DeadLock\AndromedaClient\Fonts\FontAwesomeIcon.hpp">
+      <Filter>Andromeda-DeadLock\AndromedaClient\Fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="Andromeda-DeadLock\AndromedaClient\Resources\UI_Sounds\UI_Click.hpp">
+      <Filter>Andromeda-DeadLock\AndromedaClient\Resources\UI_Sounds</Filter>
+    </ClInclude>
+    <ClInclude Include="Andromeda-DeadLock\AndromedaClient\Resources\UI_Sounds\UI_Hover.hpp">
+      <Filter>Andromeda-DeadLock\AndromedaClient\Resources\UI_Sounds</Filter>
+    </ClInclude>
+    <ClInclude Include="Andromeda-DeadLock\AndromedaClient\Helpers\CPlayUISound.hpp">
+      <Filter>Andromeda-DeadLock\AndromedaClient\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="Andromeda-DeadLock\AndromedaClient\Settings\CSettingsJson.hpp">
+      <Filter>Andromeda-DeadLock\AndromedaClient\Settings</Filter>
+    </ClInclude>
+    <ClInclude Include="Andromeda-DeadLock\AndromedaClient\Features\CMisc\CMisc.hpp">
+      <Filter>Andromeda-DeadLock\AndromedaClient\Features\CMisc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Andromeda-DeadLock\Common\Include\MinHook\hde\hde32.c">
@@ -1156,6 +1195,18 @@
     </ClCompile>
     <ClCompile Include="Andromeda-DeadLock\AndromedaClient\Features\CVisual\CVisual.cpp">
       <Filter>Andromeda-DeadLock\AndromedaClient\Features\CVisual</Filter>
+    </ClCompile>
+    <ClCompile Include="Andromeda-DeadLock\AndromedaClient\GUI\CAndromedaMenu.cpp">
+      <Filter>Andromeda-DeadLock\AndromedaClient\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Andromeda-DeadLock\AndromedaClient\Helpers\CPlayUISound.cpp">
+      <Filter>Andromeda-DeadLock\AndromedaClient\Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="Andromeda-DeadLock\AndromedaClient\Settings\CSettingsJson.cpp">
+      <Filter>Andromeda-DeadLock\AndromedaClient\Settings</Filter>
+    </ClCompile>
+    <ClCompile Include="Andromeda-DeadLock\AndromedaClient\Features\CMisc\CMisc.cpp">
+      <Filter>Andromeda-DeadLock\AndromedaClient\Features\CMisc</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

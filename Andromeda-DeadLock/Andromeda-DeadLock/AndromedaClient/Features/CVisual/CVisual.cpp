@@ -9,13 +9,18 @@
 
 #include <GameClient/CL_CitadelPlayerController.hpp>
 
+#include <AndromedaClient/Settings/Settings.hpp>
 #include <AndromedaClient/Render/CRenderStackSystem.hpp>
 
 static CVisual g_CVisual{};
 
 auto CVisual::OnRender() -> void
 {
+	if ( !Settings::Visual::Active )
+		return;
 
+	if ( Settings::Visual::SoundStepEsp )
+		OnRenderSound();
 }
 
 auto CVisual::OnStartSound( const Vector3& Pos , const int SourceEntityIndex , const char* szSoundName ) -> void

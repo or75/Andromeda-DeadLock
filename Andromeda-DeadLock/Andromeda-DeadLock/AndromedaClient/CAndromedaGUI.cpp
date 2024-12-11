@@ -15,6 +15,8 @@
 #include <DeadLock/Hook/Hook_IsRelativeMouseMode.hpp>
 
 #include <AndromedaClient/CAndromedaClient.hpp>
+#include <AndromedaClient/Fonts/FontAwesomeIcon.hpp>
+#include <AndromedaClient/Settings/Settings.hpp>
 
 static CAndromedaGUI g_CAndromedaGUI{};
 
@@ -93,11 +95,19 @@ auto CAndromedaGUI::InitFont() -> void
 	ImGuiIO& io = ImGui::GetIO();
 
 	ImFontConfig TahomaFontConfig;
+	ImFontConfig FontAwesomeIconConfig;
 
 	static const ImWchar TahomaRanges[] =
 	{
 		0x0020, 0xFFFC,
 		0,
+	};
+
+	static const ImWchar AwesomeIconRanges[] =
+	{
+		0x002D, 0x007A,
+		ICON_MIN_FA, ICON_MAX_FA,
+		0
 	};
 
 	wchar_t* szWindowsFontPath = nullptr;
@@ -107,6 +117,8 @@ auto CAndromedaGUI::InitFont() -> void
 		std::wstring TahomaFont = std::wstring( szWindowsFontPath ) + L"\\tahoma.ttf";
 		io.Fonts->AddFontFromFileTTF( unicode_to_utf8( TahomaFont ).c_str() , 15.f , &TahomaFontConfig , TahomaRanges );
 	}
+
+	m_pFontAwesomeIcons = io.Fonts->AddFontFromMemoryCompressedTTF( FontAwesomeIcon_compressed_data , FontAwesomeIcon_compressed_size , 25.f , &FontAwesomeIconConfig , AwesomeIconRanges );
 
 	CoTaskMemFree( szWindowsFontPath );
 }
@@ -306,6 +318,14 @@ auto CAndromedaGUI::InitVermillionStyle() -> void
 	colors[ImGuiCol_WindowShadow] = ImVec4( 1.f , 0.f , 0.f , 1.f );
 }
 
+auto CAndromedaGUI::UpdateStyle() -> void
+{
+	if ( Settings::Misc::MenuStyle == EAndromedaGuiStyle::INDIGO )
+		InitIndigoStyle();
+	else if ( Settings::Misc::MenuStyle == EAndromedaGuiStyle::VERMILLION )
+		InitVermillionStyle();
+}
+
 void CAndromedaGUI::OnPresent( IDXGISwapChain* pSwapChain )
 {
 	if ( !m_bInit )
@@ -377,17 +397,17 @@ auto CAndromedaGUI::OnReopenGUI() -> void
 {
 	m_bVisible = !m_bVisible;
 
+	ImGui::GetIO().MouseDrawCursor = m_bVisible;
+	ShowCursor( !m_bVisible );
+
 	IsRelativeMouseMode_o( SDK::Interfaces::InputSystem() , m_bVisible ? false : m_bMainActive );
 
 	if ( m_bVisible )
 	{
-		const ImVec2 vecScreenCenter = ImGui::GetIO().DisplaySize / 2.f;
-
-		if ( m_vecMousePosSave.x == 0.f && m_vecMousePosSave.x == 0.f )
-			m_vecMousePosSave = vecScreenCenter;
+		ImGui::GetIO().MousePos = m_vecMousePosSave;
 
 		if ( SDK::Interfaces::EngineToClient()->IsInGame() )
-			GetSDL3Functions()->SDL_WarpMouseInWindow_o( nullptr , m_vecMousePosSave.x , m_vecMousePosSave.y );
+			GetSDL3Functions()->SDL_WarpMouseInWindow_o( nullptr , ImGui::GetIO().MousePos.x , ImGui::GetIO().MousePos.y );
 	}
 	else
 	{

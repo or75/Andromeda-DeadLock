@@ -90,11 +90,19 @@
   <ItemGroup>
     <ClInclude Include="Andromeda-DeadLock\AndromedaClient\CAndromedaClient.hpp" />
     <ClInclude Include="Andromeda-DeadLock\AndromedaClient\CAndromedaGUI.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\AndromedaClient\Features\CMisc\CMisc.hpp" />
     <ClInclude Include="Andromeda-DeadLock\AndromedaClient\Features\CVisual\CVisual.hpp" />
     <ClInclude Include="Andromeda-DeadLock\AndromedaClient\Fonts\CFont.hpp" />
     <ClInclude Include="Andromeda-DeadLock\AndromedaClient\Fonts\CFontManager.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\AndromedaClient\Fonts\FontAwesomeIcon.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\AndromedaClient\GUI\CAndromedaMenu.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\AndromedaClient\Helpers\CPlayUISound.hpp" />
     <ClInclude Include="Andromeda-DeadLock\AndromedaClient\Render\CRender.hpp" />
     <ClInclude Include="Andromeda-DeadLock\AndromedaClient\Render\CRenderStackSystem.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\AndromedaClient\Resources\UI_Sounds\UI_Click.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\AndromedaClient\Resources\UI_Sounds\UI_Hover.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\AndromedaClient\Settings\CSettingsJson.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\AndromedaClient\Settings\Settings.hpp" />
     <ClInclude Include="Andromeda-DeadLock\Common\Base64.h" />
     <ClInclude Include="Andromeda-DeadLock\Common\CDelay.hpp" />
     <ClInclude Include="Andromeda-DeadLock\Common\Common.hpp" />
@@ -333,11 +341,15 @@
   <ItemGroup>
     <ClCompile Include="Andromeda-DeadLock\AndromedaClient\CAndromedaClient.cpp" />
     <ClCompile Include="Andromeda-DeadLock\AndromedaClient\CAndromedaGUI.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\AndromedaClient\Features\CMisc\CMisc.cpp" />
     <ClCompile Include="Andromeda-DeadLock\AndromedaClient\Features\CVisual\CVisual.cpp" />
     <ClCompile Include="Andromeda-DeadLock\AndromedaClient\Fonts\CFont.cpp" />
     <ClCompile Include="Andromeda-DeadLock\AndromedaClient\Fonts\CFontManager.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\AndromedaClient\GUI\CAndromedaMenu.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\AndromedaClient\Helpers\CPlayUISound.cpp" />
     <ClCompile Include="Andromeda-DeadLock\AndromedaClient\Render\CRender.cpp" />
     <ClCompile Include="Andromeda-DeadLock\AndromedaClient\Render\CRenderStackSystem.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\AndromedaClient\Settings\CSettingsJson.cpp" />
     <ClCompile Include="Andromeda-DeadLock\Common\Base64.cpp" />
     <ClCompile Include="Andromeda-DeadLock\Common\CrashLog.cpp" />
     <ClCompile Include="Andromeda-DeadLock\Common\DevLog.cpp" />

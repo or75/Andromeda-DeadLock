@@ -6,7 +6,7 @@
 #define GUI_FILE					"gui.ini"
 #define CONFIG_FILE					"config.json"
 
-#define CHEAT_NAME					"Andromeda DeadLock"
+#define CHEAT_NAME					"Vermillion DeadLock"
 #define CHEAT_VERSION				"1.0.0"
 
 // Project Buid Config:

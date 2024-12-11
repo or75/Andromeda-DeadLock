@@ -38,6 +38,9 @@ private:
 	};
 
 public:
+	auto UpdateStyle() -> void;
+
+public:
 	virtual bool IsVisible() override
 	{
 		return m_bVisible;
@@ -89,6 +92,9 @@ public:
 
 private:
 	ImVec2 m_vecMousePosSave;
+
+public:
+	ImFont* m_pFontAwesomeIcons = nullptr;
 
 private:
 	struct FreeTypeBuild
