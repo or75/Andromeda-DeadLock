@@ -48,8 +48,6 @@ auto CAndromedaClient::OnStartSound( const Vector3& Pos , const int SourceEntity
 	GetVisual()->OnStartSound( Pos , SourceEntityIndex , szSoundName );
 }
 
-#include <GameClient/CL_CitadelPlayerPawn.hpp>
-
 auto CAndromedaClient::OnCreateMove( CCitadelInput* pCitadelInput , CUserCmd* pUserCmd ) -> void
 {
 	GetMisc()->OnCreateMove( pCitadelInput , pUserCmd );
