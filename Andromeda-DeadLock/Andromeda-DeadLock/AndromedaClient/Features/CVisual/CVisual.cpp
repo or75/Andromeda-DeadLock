@@ -45,12 +45,35 @@ auto CVisual::OnRender() -> void
 			{
 				auto* pCCitadelPlayerController = reinterpret_cast<CCitadelPlayerController*>( pEntity );
 
-				if ( pCCitadelPlayerController != GetCL_CitadelPlayerController()->GetLocal() )
-				{
-					DEV_LOG( "m_pGameSceneNode: %p\n" , pCCitadelPlayerController->m_hHeroPawn().Get()->m_pGameSceneNode() );
+				auto* pCitadelPlayerPawn = pCCitadelPlayerController->m_hHeroPawn().Get<C_CitadelPlayerPawn>();
 
-					//Rect_t Box;
-					//OnRenderPlayerEsp( pCCitadelPlayerController , Box );
+				if ( pCitadelPlayerPawn )
+				{
+					const auto vOrigin = pCitadelPlayerPawn->m_vOldOrigin();
+					Vector3 vHeadPos;
+					
+					if ( pCitadelPlayerPawn->m_pGameSceneNode()->GetBonePosition( pCitadelPlayerPawn->GetBoneIdByName( XorStr( "head" ) ) , vHeadPos ) )
+					{
+						if ( !vOrigin.IsZero() && !vHeadPos.IsZero() )
+						{
+							ImVec2 OriginScreen , HeadScreen;
+
+							if ( Math::WorldToScreen( vOrigin , OriginScreen ) && Math::WorldToScreen( vHeadPos , HeadScreen ) )
+							{
+								const auto BoxHeight = floor( OriginScreen.y - HeadScreen.y );
+								const auto BoxWidth = floor( BoxHeight / 2.f );
+
+								Rect_t Rect;
+
+								Rect.x = floor( HeadScreen.x - BoxWidth / 2.f );
+								Rect.y = floor( HeadScreen.y );
+								Rect.w = floor( HeadScreen.x + BoxWidth / 2.f );
+								Rect.h = floor( OriginScreen.y );
+
+								OnRenderPlayerEsp( pCCitadelPlayerController , Rect );
+							}
+						}
+					}
 				}
 			}
 			break;

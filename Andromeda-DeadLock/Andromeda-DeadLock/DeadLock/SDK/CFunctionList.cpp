@@ -18,6 +18,7 @@ auto CFunctionList::OnInit() -> bool
 		&GetCUserCmdArray,
 		&GetCUserCmdBySequenceNumber,
 		&C_EnvSky_Update,
+		&C_CitadelPlayerPawn_GetBoneIdByName,
 	};
 
 	auto Searched = true;
@@ -26,12 +27,6 @@ auto CFunctionList::OnInit() -> bool
 	{
 		if ( !Pattern->Search() )
 			Searched = false;
-#if LOG_SDK_FUNCTION_LIST == 1
-		else
-		{
-			DEV_LOG( "%s -> %p\n" , Pattern->GetPatternName() , Pattern->GetFunction() );
-		}
-#endif
 	}
 
 	return Searched;

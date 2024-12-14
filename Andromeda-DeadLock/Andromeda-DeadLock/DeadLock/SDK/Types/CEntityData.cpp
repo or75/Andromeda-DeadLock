@@ -46,3 +46,8 @@ auto C_BaseEntity::IsCitadelPlayerPawn() -> bool
 
 	return false;
 }
+
+auto C_CitadelPlayerPawn::GetBoneIdByName( const char* szName ) -> int
+{
+	return C_CitadelPlayerPawn_GetBoneIdByName( this , szName );
+}

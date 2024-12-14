@@ -15,6 +15,7 @@ class IGameEvent;
 class CUserCmdArray;
 class CUserCmd;
 class C_EnvSky;
+class C_CitadelPlayerPawn;
 
 DECLARATE_DEADLOCK_FUNCTION_SDK_FASTCALL( void , CSkeletonInstance_CalcWorldSpaceBones , ( CSkeletonInstance* pCSkeletonInstance , unsigned int mask ) , ( CSkeletonInstance* , unsigned int ) , ( pCSkeletonInstance , mask ) );
 DECLARATE_DEADLOCK_FUNCTION_SDK_FASTCALL( bool , ScreenTransform , ( const Vector3& vOrigin , Vector3& vOut ) , ( const Vector3& , Vector3& ) , ( vOrigin , vOut ) );
@@ -28,3 +29,4 @@ DECLARATE_DEADLOCK_FUNCTION_SDK_FASTCALL( void , GetCUserCmdTick , ( CCitadelPla
 DECLARATE_DEADLOCK_FUNCTION_SDK_FASTCALL( CUserCmdArray* , GetCUserCmdArray , ( CUserCmd** ppCUserCmd , int Tick ) , ( CUserCmd** , int ) , ( ppCUserCmd , Tick ) );
 DECLARATE_DEADLOCK_FUNCTION_SDK_FASTCALL( CUserCmd* , GetCUserCmdBySequenceNumber , ( CCitadelPlayerController* pCitadelPlayerController , uint32_t SequenceNumber ) , ( CCitadelPlayerController* , uint32_t ) , ( pCitadelPlayerController , SequenceNumber ) );
 DECLARATE_DEADLOCK_FUNCTION_SDK_FASTCALL( void* , C_EnvSky_Update , ( C_EnvSky* pC_EnvSky ) , ( C_EnvSky* ) , ( pC_EnvSky ) );
+DECLARATE_DEADLOCK_FUNCTION_SDK_FASTCALL( int , C_CitadelPlayerPawn_GetBoneIdByName , ( C_CitadelPlayerPawn* pC_CitadelPlayerPawn , const char* szName ) , ( C_CitadelPlayerPawn* , const char* ) , ( pC_CitadelPlayerPawn , szName ) );

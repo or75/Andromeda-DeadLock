@@ -32,6 +32,7 @@ public:
 	CBasePattern GetCUserCmdArray = { VmpStr( "GetCUserCmdArray" ) , VmpStr( "48 89 4C 24 ? 41 54 41 57" ) , CLIENT_DLL , 0 , SEARCH_TYPE_NONE };
 	CBasePattern GetCUserCmdBySequenceNumber = { VmpStr( "Get—UserCmdBySequenceNumber" ) , VmpStr( "40 53 48 83 EC 20 8B DA 85 D2 78" ) , CLIENT_DLL , 0 , SEARCH_TYPE_NONE };
 	CBasePattern C_EnvSky_Update = { VmpStr( "C_EnvSky::Update" ) , VmpStr( "40 53 48 83 EC 30 48 8B D9 E8 ? ? ? ? 48 8B 43" ) , CLIENT_DLL , 0 , SEARCH_TYPE_NONE };
+	CBasePattern C_CitadelPlayerPawn_GetBoneIdByName = { VmpStr( "C_CitadelPlayerPawn::GetBoneIdByName" ) , VmpStr( "40 53 48 83 EC 20 48 8B 89 ? ? ? ? 48 8B DA 48 8B 01 FF 50 ? 48 8B C8" ) , CLIENT_DLL , 0 , SEARCH_TYPE_NONE };
 
 };
 

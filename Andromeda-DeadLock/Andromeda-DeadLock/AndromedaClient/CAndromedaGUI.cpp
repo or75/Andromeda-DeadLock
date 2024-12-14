@@ -148,9 +148,9 @@ auto CAndromedaGUI::InitIndigoStyle() -> void
 	style.ScrollbarSize = 12.0f;
 	style.ScrollbarRounding = roundness;
 
-	style.AntiAliasedFill = true;
-	style.AntiAliasedLines = true;
-	style.AntiAliasedLinesUseTex = true;
+	style.AntiAliasedFill = false;
+	style.AntiAliasedLines = false;
+	style.AntiAliasedLinesUseTex = false;
 
 	colors[ImGuiCol_Text] = ImVec4( 1.00f , 1.00f , 1.00f , 1.00f );
 	colors[ImGuiCol_TextDisabled] = ImVec4( 0.50f , 0.50f , 0.50f , 1.00f );
@@ -246,9 +246,9 @@ auto CAndromedaGUI::InitVermillionStyle() -> void
 	style.ScrollbarSize = 12.0f;
 	style.ScrollbarRounding = roundness;
 
-	style.AntiAliasedFill = true;
-	style.AntiAliasedLines = true;
-	style.AntiAliasedLinesUseTex = true;
+	style.AntiAliasedFill = false;
+	style.AntiAliasedLines = false;
+	style.AntiAliasedLinesUseTex = false;
 
 	colors[ImGuiCol_Text] = ImVec4( 1.00f , 1.00f , 1.00f , 0.75f );
 	colors[ImGuiCol_TextDisabled] = ImVec4( 1.00f , 0.18f , 0.29f , 0.78f );

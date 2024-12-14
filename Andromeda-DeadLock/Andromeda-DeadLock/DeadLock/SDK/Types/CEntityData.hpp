@@ -17,10 +17,8 @@
 
 #include <DeadLock/SDK/CSchemaOffset.hpp>
 #include <DeadLock/SDK/Interface/CShemaSystemSDK.hpp>
-#include <DeadLock/SDK/Math/Rect_t.hpp>
 
 class CSkeletonInstance;
-class InfoForResourceTypeCModel {};
 
 struct alignas( 16 ) CBoneData
 {
@@ -35,6 +33,15 @@ public:
 	uint32 m_Value;
 };
 
+class CModel
+{
+private:
+	PAD( 0x130 + 0x38 );
+public:
+	const char** m_szBoneNames;
+	uint32 m_nBoneCount;
+};
+
 class CModelState
 {
 private:
@@ -44,7 +51,7 @@ public:
 	CBoneData* m_pBones;
 
 public:
-	SCHEMA_OFFSET( "CModelState" , "m_hModel" , m_hModel , CStrongHandle<InfoForResourceTypeCModel> );
+	SCHEMA_OFFSET( "CModelState" , "m_hModel" , m_hModel , CStrongHandle<CModel> );
 	SCHEMA_OFFSET( "CModelState" , "m_ModelName" , m_ModelName , CUtlSymbolLarge );
 };
 
@@ -130,7 +137,6 @@ public:
 	SCHEMA_OFFSET( "C_BaseEntity" , "m_iTeamNum" , m_iTeamNum , uint8 );
 	SCHEMA_OFFSET( "C_BaseEntity" , "m_fFlags" , m_fFlags , uint32 );
 	SCHEMA_OFFSET( "C_BaseEntity" , "m_MoveType" , m_MoveType , MoveType_t );
-	SCHEMA_OFFSET( "C_BaseEntity" , "m_nActualMoveType" , m_nActualMoveType , MoveType_t );
 };
 
 class C_BaseModelEntity : public C_BaseEntity
@@ -192,6 +198,7 @@ public:
 class C_CitadelPlayerPawn : public CCitadelPlayerPawnBase
 {
 public:
+	auto GetBoneIdByName( const char* szName ) -> int;
 };
 
 class CBasePlayerController : public C_BaseEntity

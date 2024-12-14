@@ -19,7 +19,6 @@
 
 #define LOG_SDK						1
 #define LOG_SDK_PATTERN				1
-#define LOG_SDK_FUNCTION_LIST		0
 
 #define ENABLE_XOR_STR				0
 #define ENABLE_XOR_VMP_STR			0
