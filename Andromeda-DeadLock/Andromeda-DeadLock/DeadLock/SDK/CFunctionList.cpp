@@ -18,7 +18,7 @@ auto CFunctionList::OnInit() -> bool
 		&GetCUserCmdArray,
 		&GetCUserCmdBySequenceNumber,
 		&C_EnvSky_Update,
-		&C_CitadelPlayerPawn_GetBoneIdByName,
+		&C_BaseEntity_GetBoneIdByName,
 	};
 
 	auto Searched = true;

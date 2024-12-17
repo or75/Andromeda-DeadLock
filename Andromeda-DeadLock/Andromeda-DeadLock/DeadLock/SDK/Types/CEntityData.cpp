@@ -47,7 +47,17 @@ auto C_BaseEntity::IsCitadelPlayerPawn() -> bool
 	return false;
 }
 
-auto C_CitadelPlayerPawn::GetBoneIdByName( const char* szName ) -> int
+auto C_BaseEntity::IsNpcTrooper() -> bool
 {
-	return C_CitadelPlayerPawn_GetBoneIdByName( this , szName );
+	const auto* pszDesingerName = pEntityIdentity()->DesingerName().String();
+
+	if ( pszDesingerName && strcmp( pszDesingerName , XorStr( "npc_trooper" ) ) == 0 )
+		return true;
+
+	return false;
+}
+
+auto C_BaseEntity::GetBoneIdByName( const char* szName ) -> int
+{
+	return C_BaseEntity_GetBoneIdByName( this , szName );
 }

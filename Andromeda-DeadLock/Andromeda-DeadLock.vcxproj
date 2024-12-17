@@ -335,6 +335,7 @@
     <ClInclude Include="Andromeda-DeadLock\DllLauncher.hpp" />
     <ClInclude Include="Andromeda-DeadLock\DllMain.hpp" />
     <ClInclude Include="Andromeda-DeadLock\GameClient\CEntityCache\CEntityCache.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\GameClient\CL_Bones.hpp" />
     <ClInclude Include="Andromeda-DeadLock\GameClient\CL_CitadelPlayerController.hpp" />
     <ClInclude Include="Andromeda-DeadLock\GameClient\CL_CitadelPlayerPawn.hpp" />
   </ItemGroup>
@@ -445,6 +446,7 @@
     <ClCompile Include="Andromeda-DeadLock\DllLauncher.cpp" />
     <ClCompile Include="Andromeda-DeadLock\DllMain.cpp" />
     <ClCompile Include="Andromeda-DeadLock\GameClient\CEntityCache\CEntityCache.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\GameClient\CL_Bones.cpp" />
     <ClCompile Include="Andromeda-DeadLock\GameClient\CL_CitadelPlayerController.cpp" />
     <ClCompile Include="Andromeda-DeadLock\GameClient\CL_CitadelPlayerPawn.cpp" />
   </ItemGroup>

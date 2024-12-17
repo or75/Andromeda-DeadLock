@@ -14,6 +14,7 @@ struct CachedEntity_t
         UNKNOWN = 0 ,
         CITADEL_PLAYER_CONTROLLER ,
         CITADEL_PLAYER_PAWN ,
+        NPC_TROOPER,
     };
 
     CHandle m_Handle = { INVALID_EHANDLE_INDEX };

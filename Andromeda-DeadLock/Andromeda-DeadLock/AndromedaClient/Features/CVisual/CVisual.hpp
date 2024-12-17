@@ -9,6 +9,7 @@
 #include <DeadLock/SDK/Math/Rect_t.hpp>
 
 class CCitadelPlayerController;
+class C_CitadelPlayerPawn;
 
 struct SoundData_t
 {
@@ -37,6 +38,7 @@ public:
 private:
 	auto OnRenderSound() -> void;
 	auto OnRenderPlayerEsp( CCitadelPlayerController* pCCitadelPlayerController , const Rect_t& Box ) -> void;
+	auto OnRenderSkeleton( C_CitadelPlayerPawn* pC_CitadelPlayerPawn ) -> void;
 
 private:
 	SoundListVecType_t m_SoundList;

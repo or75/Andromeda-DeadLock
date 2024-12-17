@@ -131,12 +131,16 @@ class C_BaseEntity : public CEntityInstance
 public:
 	auto IsCitadelPlayerController() -> bool;
 	auto IsCitadelPlayerPawn() -> bool;
+	auto IsNpcTrooper() -> bool;
 
 public:
 	SCHEMA_OFFSET( "C_BaseEntity" , "m_pGameSceneNode" , m_pGameSceneNode , CGameSceneNode* );
 	SCHEMA_OFFSET( "C_BaseEntity" , "m_iTeamNum" , m_iTeamNum , uint8 );
 	SCHEMA_OFFSET( "C_BaseEntity" , "m_fFlags" , m_fFlags , uint32 );
 	SCHEMA_OFFSET( "C_BaseEntity" , "m_MoveType" , m_MoveType , MoveType_t );
+
+public:
+	auto GetBoneIdByName( const char* szName ) -> int;
 };
 
 class C_BaseModelEntity : public C_BaseEntity
@@ -198,7 +202,6 @@ public:
 class C_CitadelPlayerPawn : public CCitadelPlayerPawnBase
 {
 public:
-	auto GetBoneIdByName( const char* szName ) -> int;
 };
 
 class CBasePlayerController : public C_BaseEntity
@@ -212,6 +215,23 @@ class CCitadelPlayerController : public CBasePlayerController
 public:
 	SCHEMA_OFFSET( "CCitadelPlayerController" , "m_hHeroPawn" , m_hHeroPawn , CHandle ); // C_CitadelPlayerPawn
 	SCHEMA_OFFSET( "CCitadelPlayerController" , "m_PlayerDataGlobal" , m_PlayerDataGlobal , PlayerDataGlobal_t );
+};
+
+class C_AI_BaseNPC : public C_BaseCombatCharacter
+{
+public:
+	SCHEMA_OFFSET( "C_AI_BaseNPC" , "m_NPCState" , m_NPCState , NPC_STATE );
+};
+
+class C_AI_CitadelNPC : public C_AI_BaseNPC
+{
+public:
+
+};
+
+class C_NPC_Trooper : public C_AI_CitadelNPC
+{
+public:
 };
 
 class C_EnvSky : public C_BaseModelEntity

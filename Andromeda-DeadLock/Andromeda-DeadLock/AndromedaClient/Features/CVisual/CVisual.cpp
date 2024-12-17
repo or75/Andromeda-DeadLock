@@ -10,9 +10,13 @@
 #include <DeadLock/SDK/Interface/IEngineToClient.hpp>
 
 #include <GameClient/CEntityCache/CEntityCache.hpp>
+
+#include <GameClient/CL_CitadelPlayerPawn.hpp>
 #include <GameClient/CL_CitadelPlayerController.hpp>
+#include <GameClient/CL_Bones.hpp>
 
 #include <AndromedaClient/Settings/Settings.hpp>
+#include <AndromedaClient/Fonts/CFontManager.hpp>
 #include <AndromedaClient/Render/CRenderStackSystem.hpp>
 
 static CVisual g_CVisual{};
@@ -44,15 +48,34 @@ auto CVisual::OnRender() -> void
 			case CachedEntity_t::CITADEL_PLAYER_CONTROLLER:
 			{
 				auto* pCCitadelPlayerController = reinterpret_cast<CCitadelPlayerController*>( pEntity );
+				auto* pC_CitadelPlayerPawn = pCCitadelPlayerController->m_hHeroPawn().Get<C_CitadelPlayerPawn>();
 
-				auto* pCitadelPlayerPawn = pCCitadelPlayerController->m_hHeroPawn().Get<C_CitadelPlayerPawn>();
-
-				if ( pCitadelPlayerPawn )
+				if ( pC_CitadelPlayerPawn )
 				{
-					const auto vOrigin = pCitadelPlayerPawn->m_vOldOrigin();
+					const auto vOrigin = pC_CitadelPlayerPawn->m_vOldOrigin();
 					Vector3 vHeadPos;
+
+					/*static bool DumpBones = true;
+
+					if ( DumpBones )
+					{
+						if ( auto pLocalCitadelPlayerPawn = GetCL_CitadelPlayerPawn()->GetLocal(); pLocalCitadelPlayerPawn )
+						{
+							auto& hModel = pLocalCitadelPlayerPawn->m_pGameSceneNode()->GetSkeletonInstance()->m_modelState().m_hModel();
+
+							if ( hModel.is_valid() )
+							{
+								for ( auto BoneIndex = 0u; BoneIndex < hModel->m_nBoneCount; BoneIndex++ )
+								{
+									DEV_LOG( "%i -> %s\n" , BoneIndex , hModel->m_szBoneNames[BoneIndex] );
+								}
+
+								DumpBones = false;
+							}
+						}
+					}*/
 					
-					if ( pCitadelPlayerPawn->m_pGameSceneNode()->GetBonePosition( pCitadelPlayerPawn->GetBoneIdByName( XorStr( "head" ) ) , vHeadPos ) )
+					if ( pC_CitadelPlayerPawn->m_pGameSceneNode()->GetBonePosition( pC_CitadelPlayerPawn->GetBoneIdByName( XorStr( "head" ) ) , vHeadPos ) )
 					{
 						if ( !vOrigin.IsZero() && !vHeadPos.IsZero() )
 						{
@@ -72,6 +95,28 @@ auto CVisual::OnRender() -> void
 
 								OnRenderPlayerEsp( pCCitadelPlayerController , Rect );
 							}
+						}
+					}
+				}
+			}
+			break;
+			case CachedEntity_t::NPC_TROOPER:
+			{
+				auto* pC_NPC_Trooper = reinterpret_cast<C_NPC_Trooper*>( pEntity );
+
+				if ( pC_NPC_Trooper->m_NPCState() == NPC_STATE_INIT ||
+					pC_NPC_Trooper->m_NPCState() == NPC_STATE_IDLE ||
+					pC_NPC_Trooper->m_NPCState() == NPC_STATE_COMBAT )
+				{
+					Vector3 root_motion;
+
+					if ( pC_NPC_Trooper->m_pGameSceneNode()->GetBonePosition( pC_NPC_Trooper->GetBoneIdByName( XorStr( "root_motion" ) ) , root_motion ) )
+					{
+						ImVec2 Screen;
+
+						if ( Math::WorldToScreen( root_motion , Screen ) )
+						{
+							GetRenderStackSystem()->DrawString( &GetFontManager()->m_VerdanaFont , static_cast<int>( Screen.x ) , static_cast<int>( Screen.y ) , FW1_CENTER , ImColor( 255 , 255 , 255 ) , "root_motion" );
 						}
 					}
 				}
@@ -111,6 +156,29 @@ auto CVisual::OnStartSound( const Vector3& Pos , const int SourceEntityIndex , c
 auto CVisual::OnClientOutput() -> void
 {
 	OnRender();
+
+	FOR_EACH_ENTITY( idx )
+	{
+		auto pBaseEntity = SDK::Interfaces::GameEntitySystem()->GetBaseEntity( idx );
+
+		if ( pBaseEntity && pBaseEntity->IsCitadelPlayerController() )
+		{
+			auto* pCCitadelPlayerController = reinterpret_cast<CCitadelPlayerController*>( pBaseEntity );
+
+			if ( pCCitadelPlayerController == GetCL_CitadelPlayerController()->GetLocal() )
+				continue;
+
+			if ( !pCCitadelPlayerController->m_PlayerDataGlobal().m_bAlive() )
+				continue;
+
+			auto* pPawn = pCCitadelPlayerController->m_hHeroPawn().Get<C_CitadelPlayerPawn>();
+
+			if ( !pPawn || !pPawn->IsCitadelPlayerPawn() )
+				continue;
+			
+			OnRenderSkeleton( pPawn );
+		}
+	}
 }
 
 auto CVisual::OnRenderSound() -> void
@@ -161,6 +229,33 @@ auto CVisual::OnRenderPlayerEsp( CCitadelPlayerController* pCCitadelPlayerContro
 	}
 
 	GetRenderStackSystem()->DrawOutlineCoalBox( min , max , PlayerColor );
+}
+
+auto CVisual::OnRenderSkeleton( C_CitadelPlayerPawn* pC_CitadelPlayerPawn ) -> void
+{
+	Vector3 BonePosStart , BonePosEnd;
+
+	for ( const auto& Bones : g_AllSkeletonPairBones )
+	{
+		const auto& [Start , End] = Bones;
+
+		BonePosStart = GetCL_Bones()->GetBonePositionByName( pC_CitadelPlayerPawn , Start.c_str() );
+		BonePosEnd = GetCL_Bones()->GetBonePositionByName( pC_CitadelPlayerPawn , End.c_str() );
+
+		ImVec2 ScreenStart , ScreenEnd;
+
+		if ( !BonePosStart.IsZero() && !BonePosEnd.IsZero() &&
+			 Math::WorldToScreen( BonePosStart , ScreenStart ) &&
+			 Math::WorldToScreen( BonePosEnd , ScreenEnd ) )
+		{
+			if ( !BonePosStart.IsZero() && !BonePosEnd.IsZero() )
+			{
+				GetRenderStackSystem()->DrawLine( ScreenStart , ScreenEnd ,
+												  ImColor( 255 , 255 , 255 ) ,
+												  2.f );
+			}
+		}
+	}
 }
 
 auto GetVisual() -> CVisual*

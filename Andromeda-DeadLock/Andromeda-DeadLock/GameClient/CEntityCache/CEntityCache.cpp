@@ -63,6 +63,8 @@ auto CEntityCache::GetEntityType( C_BaseEntity* pBaseEntity ) -> CachedEntity_t:
 		return CachedEntity_t::CITADEL_PLAYER_CONTROLLER;
 	else if ( pBaseEntity->IsCitadelPlayerPawn() )
 		return CachedEntity_t::CITADEL_PLAYER_PAWN;
+	else if ( pBaseEntity->IsNpcTrooper() )
+		return CachedEntity_t::NPC_TROOPER;
 
 	return CachedEntity_t::UNKNOWN;
 }
