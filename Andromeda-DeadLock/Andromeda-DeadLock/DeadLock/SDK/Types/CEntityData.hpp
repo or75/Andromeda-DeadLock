@@ -15,6 +15,7 @@
 #include "CStrongHandle.hpp"
 #include "CUtlStringToken.hpp"
 
+#include <DeadLock/SDK/Math/Rect_t.hpp>
 #include <DeadLock/SDK/CSchemaOffset.hpp>
 #include <DeadLock/SDK/Interface/CShemaSystemSDK.hpp>
 
@@ -27,19 +28,30 @@ struct alignas( 16 ) CBoneData
 	Vector3 rotation;
 };
 
-class HeroID_t
-{
-public:
-	uint32 m_Value;
-};
-
 class CModel
 {
 private:
 	PAD( 0x130 + 0x38 );
+
 public:
 	const char** m_szBoneNames;
 	uint32 m_nBoneCount;
+};
+
+class CHitBox
+{
+private:
+	PAD( 0x70 );
+
+public:
+	SCHEMA_OFFSET( "CHitBox" , "m_name" , m_name , CUtlString );
+	SCHEMA_OFFSET( "CHitBox" , "m_sBoneName" , m_sBoneName , CUtlString );
+};
+
+class CHitBoxSet
+{
+public:
+	SCHEMA_OFFSET( "CHitBoxSet" , "m_HitBoxes" , m_HitBoxes , CUtlVector< CHitBox > );
 };
 
 class CModelState
@@ -64,6 +76,13 @@ public:
 	SCHEMA_OFFSET( "PlayerDataGlobal_t" , "m_nHeroID" , m_nHeroID , HeroID_t );
 	SCHEMA_OFFSET( "PlayerDataGlobal_t" , "m_iHealth" , m_iHealth , int32 );
 	SCHEMA_OFFSET( "PlayerDataGlobal_t" , "m_bAlive" , m_bAlive , bool );
+};
+
+class CCollisionProperty
+{
+public:
+	SCHEMA_OFFSET( "CCollisionProperty" , "m_vecMins" , m_vecMins , Vector3 );
+	SCHEMA_OFFSET( "CCollisionProperty" , "m_vecMaxs" , m_vecMaxs , Vector3 );
 };
 
 class CPlayerPawnComponent
@@ -108,6 +127,9 @@ public:
 class CGameSceneNode
 {
 public:
+	SCHEMA_OFFSET( "CGameSceneNode" , "m_vecAbsOrigin" , m_vecAbsOrigin , Vector3 );
+
+public:
 	auto GetBonePosition( int32 BoneIndex , Vector3& BonePos ) -> bool;
 
 public:
@@ -134,6 +156,9 @@ public:
 	auto IsNpcTrooper() -> bool;
 
 public:
+	auto GetOrigin() -> const Vector3&;
+
+public:
 	SCHEMA_OFFSET( "C_BaseEntity" , "m_pGameSceneNode" , m_pGameSceneNode , CGameSceneNode* );
 	SCHEMA_OFFSET( "C_BaseEntity" , "m_iTeamNum" , m_iTeamNum , uint8 );
 	SCHEMA_OFFSET( "C_BaseEntity" , "m_fFlags" , m_fFlags , uint32 );
@@ -141,11 +166,16 @@ public:
 
 public:
 	auto GetBoneIdByName( const char* szName ) -> int;
+	auto GetHitBoxSet() -> CHitBoxSet*;
 };
 
 class C_BaseModelEntity : public C_BaseEntity
 {
 public:
+	auto GetBoundingBox( Rect_t& out ) -> bool;
+
+public:
+	SCHEMA_OFFSET( "C_BaseModelEntity" , "m_Collision" , m_Collision , CCollisionProperty );
 };
 
 class CBaseAnimGraph : public C_BaseModelEntity

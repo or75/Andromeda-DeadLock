@@ -33,6 +33,7 @@ public:
 	CBasePattern GetCUserCmdBySequenceNumber = { VmpStr( "Get—UserCmdBySequenceNumber" ) , VmpStr( "40 53 48 83 EC 20 8B DA 85 D2 78" ) , CLIENT_DLL , 0 , SEARCH_TYPE_NONE };
 	CBasePattern C_EnvSky_Update = { VmpStr( "C_EnvSky::Update" ) , VmpStr( "40 53 48 83 EC 30 48 8B D9 E8 ? ? ? ? 48 8B 43" ) , CLIENT_DLL , 0 , SEARCH_TYPE_NONE };
 	CBasePattern C_BaseEntity_GetBoneIdByName = { VmpStr( "C_BaseEntity::GetBoneIdByName" ) , VmpStr( "40 53 48 83 EC 20 48 8B 89 ? ? ? ? 48 8B DA 48 8B 01 FF 50 ? 48 8B C8" ) , CLIENT_DLL , 0 , SEARCH_TYPE_NONE };
+	CBasePattern C_BaseEntity_GetHitBoxSet = { VmpStr( "C_BaseEntity::GetHitBoxSet" ) , VmpStr( "48 89 5C 24 ? 48 89 74 24 ? 57 48 81 EC 40 01 00 00 8B DA" ) , CLIENT_DLL , 0 , SEARCH_TYPE_NONE };
 
 };
 

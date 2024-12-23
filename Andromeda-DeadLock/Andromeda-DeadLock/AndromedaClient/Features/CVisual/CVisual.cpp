@@ -26,10 +26,9 @@ auto CVisual::OnRender() -> void
 	if ( !Settings::Visual::Active )
 		return;
 
-	const auto Lock = GetEntityCache()->GetLock();
 	const auto CachedVec = GetEntityCache()->GetCachedEntity();
 
-	Lock->lock();
+	std::scoped_lock Lock( GetEntityCache()->GetLock() );
 
 	for ( const auto& CachedEntity : *CachedVec )
 	{
@@ -52,8 +51,27 @@ auto CVisual::OnRender() -> void
 
 				if ( pC_CitadelPlayerPawn )
 				{
-					const auto vOrigin = pC_CitadelPlayerPawn->m_vOldOrigin();
-					Vector3 vHeadPos;
+					/*static bool DumpHitBox = true;
+
+					if ( DumpHitBox )
+					{
+						if ( auto pLocalCitadelPlayerPawn = GetCL_CitadelPlayerPawn()->GetLocal(); pLocalCitadelPlayerPawn )
+						{
+							auto* pHitBoxSet = pLocalCitadelPlayerPawn->GetHitBoxSet();
+
+							if ( pHitBoxSet )
+							{
+								for ( auto HitBoxIndex = 0; HitBoxIndex < pHitBoxSet->m_HitBoxes().Count(); HitBoxIndex++ )
+								{
+									DEV_LOG( "%i , %s -> %s\n" , HitBoxIndex ,
+											 pHitBoxSet->m_HitBoxes()[HitBoxIndex].m_name().Get() ,
+											 pHitBoxSet->m_HitBoxes()[HitBoxIndex].m_sBoneName().Get() );
+								}
+
+								DumpHitBox = false;
+							}
+						}
+					}*/
 
 					/*static bool DumpBones = true;
 
@@ -74,6 +92,9 @@ auto CVisual::OnRender() -> void
 							}
 						}
 					}*/
+
+					const auto vOrigin = pC_CitadelPlayerPawn->m_vOldOrigin();
+					Vector3 vHeadPos;
 					
 					if ( pC_CitadelPlayerPawn->m_pGameSceneNode()->GetBonePosition( pC_CitadelPlayerPawn->GetBoneIdByName( XorStr( "head" ) ) , vHeadPos ) )
 					{
@@ -106,26 +127,37 @@ auto CVisual::OnRender() -> void
 
 				if ( pC_NPC_Trooper->m_NPCState() == NPC_STATE_INIT ||
 					pC_NPC_Trooper->m_NPCState() == NPC_STATE_IDLE ||
-					pC_NPC_Trooper->m_NPCState() == NPC_STATE_COMBAT )
+					pC_NPC_Trooper->m_NPCState() == NPC_STATE_ALERT ||
+					 pC_NPC_Trooper->m_NPCState() == NPC_STATE_COMBAT )
 				{
 					Vector3 root_motion;
 
 					if ( pC_NPC_Trooper->m_pGameSceneNode()->GetBonePosition( pC_NPC_Trooper->GetBoneIdByName( XorStr( "root_motion" ) ) , root_motion ) )
 					{
+						root_motion.m_z += 30.f;
+
 						ImVec2 Screen;
 
 						if ( Math::WorldToScreen( root_motion , Screen ) )
 						{
-							GetRenderStackSystem()->DrawString( &GetFontManager()->m_VerdanaFont , static_cast<int>( Screen.x ) , static_cast<int>( Screen.y ) , FW1_CENTER , ImColor( 255 , 255 , 255 ) , "root_motion" );
+							GetRenderStackSystem()->DrawString( &GetFontManager()->m_VerdanaFont , static_cast<int>( Screen.x ) , static_cast<int>( Screen.y ) , FW1_CENTER , ImColor( 255 , 255 , 255 ) , "X" );
 						}
+					}
+
+					if ( CachedEntity.m_bDraw )
+					{
+						const auto bBox = CachedEntity.m_Bbox;
+
+						const ImVec2 min = { bBox.x, bBox.y };
+						const ImVec2 max = { bBox.w, bBox.h };
+
+						GetRenderStackSystem()->DrawBox( min , max , ImColor( 255 , 255 , 255 ) );
 					}
 				}
 			}
 			break;
 		}
 	}
-
-	Lock->unlock();
 
 	if ( Settings::Visual::SoundStepEsp )
 		OnRenderSound();
@@ -254,6 +286,37 @@ auto CVisual::OnRenderSkeleton( C_CitadelPlayerPawn* pC_CitadelPlayerPawn ) -> v
 												  ImColor( 255 , 255 , 255 ) ,
 												  2.f );
 			}
+		}
+	}
+}
+
+auto CVisual::CalculateBoundingBoxes() -> void
+{
+	if ( !SDK::Interfaces::EngineToClient()->IsInGame() )
+		return;
+
+	const auto& CachedVec = GetEntityCache()->GetCachedEntity();
+
+	std::scoped_lock Lock( GetEntityCache()->GetLock() );
+
+	for ( auto& it : *CachedVec )
+	{
+		auto pEntity = it.m_Handle.Get();
+
+		if ( !pEntity )
+			continue;
+
+		auto hEntity = pEntity->pEntityIdentity()->Handle();
+
+		if ( hEntity != it.m_Handle )
+			continue;
+
+		switch ( it.m_Type )
+		{
+			case CachedEntity_t::NPC_TROOPER:
+				auto pC_NPC_Trooper = reinterpret_cast<C_NPC_Trooper*>( pEntity );
+				it.m_bDraw = pC_NPC_Trooper->GetBoundingBox( it.m_Bbox );
+				break;
 		}
 	}
 }

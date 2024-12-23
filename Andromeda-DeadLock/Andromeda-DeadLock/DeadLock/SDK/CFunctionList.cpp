@@ -19,6 +19,7 @@ auto CFunctionList::OnInit() -> bool
 		&GetCUserCmdBySequenceNumber,
 		&C_EnvSky_Update,
 		&C_BaseEntity_GetBoneIdByName,
+		&C_BaseEntity_GetHitBoxSet,
 	};
 
 	auto Searched = true;

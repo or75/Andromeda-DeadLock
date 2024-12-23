@@ -5,9 +5,6 @@
 struct Rect_t
 {
 public:
-	constexpr Rect_t() = default;
-
-public:
 	inline auto Center() const -> Vector2
 	{
 		return Vector2( x + w / 2.f , y + h / 2.f );

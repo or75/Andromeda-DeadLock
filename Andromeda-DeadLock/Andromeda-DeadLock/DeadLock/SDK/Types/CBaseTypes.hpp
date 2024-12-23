@@ -58,6 +58,12 @@ struct ResourceBindingBase_t
 	void* data;
 };
 
+class HeroID_t
+{
+public:
+    uint32 m_Value;
+};
+
 enum TeamNum_t : int32_t
 {
     TEAM_UNKNOWN ,

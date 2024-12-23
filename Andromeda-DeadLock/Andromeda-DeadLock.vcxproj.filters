@@ -885,6 +885,9 @@
     <ClInclude Include="Andromeda-DeadLock\GameClient\CL_Bones.hpp">
       <Filter>Andromeda-DeadLock\GameClient</Filter>
     </ClInclude>
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_GetMatricesForView.hpp">
+      <Filter>Andromeda-DeadLock\DeadLock\Hook</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Andromeda-DeadLock\Common\Include\MinHook\hde\hde32.c">
@@ -1213,6 +1216,9 @@
     </ClCompile>
     <ClCompile Include="Andromeda-DeadLock\GameClient\CL_Bones.cpp">
       <Filter>Andromeda-DeadLock\GameClient</Filter>
+    </ClCompile>
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_GetMatricesForView.cpp">
+      <Filter>Andromeda-DeadLock\DeadLock\Hook</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -16,6 +16,7 @@
 #include <DeadLock/Hook/Hook_CreateMove.hpp>
 #include <DeadLock/Hook/Hook_ParseMessage.hpp>
 #include <DeadLock/Hook/Hook_OnClientOutput.hpp>
+#include <DeadLock/Hook/Hook_GetMatricesForView.hpp>
 
 static CHook_Loader g_CHook_Loader{};
 
@@ -40,6 +41,7 @@ auto CHook_Loader::InstallSecondHook() -> bool
 		{ { XorStr( "Hook::CreateMove" ) , XorStr( "85 D2 0F 85 ? ? ? ? 48 8B C4 44 88 40 18" ) , CLIENT_DLL } , &Hook_CreateMove , reinterpret_cast<LPVOID*>( &CreateMove_o ) },
 		{ { XorStr( "Hook::ParseMessage" ) , XorStr( "40 56 57 41 57 48 83 EC ? 4C 8B F9" ) , ENGINE2_DLL } , &Hook_ParseMessage , reinterpret_cast<LPVOID*>( &ParseMessage_o ) },
 		{ { XorStr( "Hook::OnClientOutput" ) , XorStr( "48 89 5C 24 10 48 89 6C 24 18 48 89 74 24 20 57 41 56 41 57 48 83 EC ? 4C 8B F2" ) , ENGINE2_DLL } , &Hook_OnClientOutput , reinterpret_cast<LPVOID*>( &OnClientOutput_o ) },
+		{ { XorStr( "Hook::GetMatricesForView" ) , XorStr( "40 53 48 81 EC ? ? ? ? 49 8B C1" ) , CLIENT_DLL } , &Hook_GetMatricesForView , reinterpret_cast<LPVOID*>( &GetMatricesForView_o ) },
 	};
 
 	return InstallHooks();

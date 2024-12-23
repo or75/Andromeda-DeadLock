@@ -20,7 +20,10 @@ struct CachedEntity_t
     CHandle m_Handle = { INVALID_EHANDLE_INDEX };
     Type m_Type = UNKNOWN;
 
-    bool m_bVisible = false;
+    Rect_t m_Bbox = { 0.f , 0.f , 0.f , 0.f };
+
+    bool m_bDraw = false;
+    bool m_bVisible = false; // for only players
 };
 
 class IEntityCache
@@ -49,9 +52,9 @@ public:
         return &m_CachedEntity;
     }
 
-    inline auto GetLock() -> Lock_t*
+    inline auto GetLock() -> Lock_t&
     {
-        return &m_Lock;
+        return m_Lock;
     }
 
 private:

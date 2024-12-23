@@ -4,7 +4,7 @@ static CEntityCache g_CEntityCache{};
 
 void CEntityCache::OnAddEntity( CEntityInstance* pInst , CHandle handle )
 {
-	m_Lock.lock();
+	std::scoped_lock lock( m_Lock );
 
 	auto pBaseEntity = pInst->pEntityIdentity()->pBaseEntity();
 
@@ -31,8 +31,6 @@ void CEntityCache::OnAddEntity( CEntityInstance* pInst , CHandle handle )
 			it->m_Type = GetEntityType( pBaseEntity );
 		}
 	}
-
-	m_Lock.unlock();
 }
 
 void CEntityCache::OnRemoveEntity( CEntityInstance* pInst , CHandle handle )

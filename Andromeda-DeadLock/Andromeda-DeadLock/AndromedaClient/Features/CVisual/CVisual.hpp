@@ -40,6 +40,9 @@ private:
 	auto OnRenderPlayerEsp( CCitadelPlayerController* pCCitadelPlayerController , const Rect_t& Box ) -> void;
 	auto OnRenderSkeleton( C_CitadelPlayerPawn* pC_CitadelPlayerPawn ) -> void;
 
+public:
+	auto CalculateBoundingBoxes() -> void;
+
 private:
 	SoundListVecType_t m_SoundList;
 	Lock_t m_SoundLock;

@@ -15,6 +15,7 @@ class IGameEvent;
 class CUserCmdArray;
 class CUserCmd;
 class C_EnvSky;
+class CHitBoxSet;
 
 DECLARATE_DEADLOCK_FUNCTION_SDK_FASTCALL( void , CSkeletonInstance_CalcWorldSpaceBones , ( CSkeletonInstance* pCSkeletonInstance , unsigned int mask ) , ( CSkeletonInstance* , unsigned int ) , ( pCSkeletonInstance , mask ) );
 DECLARATE_DEADLOCK_FUNCTION_SDK_FASTCALL( bool , ScreenTransform , ( const Vector3& vOrigin , Vector3& vOut ) , ( const Vector3& , Vector3& ) , ( vOrigin , vOut ) );
@@ -29,3 +30,4 @@ DECLARATE_DEADLOCK_FUNCTION_SDK_FASTCALL( CUserCmdArray* , GetCUserCmdArray , ( 
 DECLARATE_DEADLOCK_FUNCTION_SDK_FASTCALL( CUserCmd* , GetCUserCmdBySequenceNumber , ( CCitadelPlayerController* pCitadelPlayerController , uint32_t SequenceNumber ) , ( CCitadelPlayerController* , uint32_t ) , ( pCitadelPlayerController , SequenceNumber ) );
 DECLARATE_DEADLOCK_FUNCTION_SDK_FASTCALL( void* , C_EnvSky_Update , ( C_EnvSky* pC_EnvSky ) , ( C_EnvSky* ) , ( pC_EnvSky ) );
 DECLARATE_DEADLOCK_FUNCTION_SDK_FASTCALL( int , C_BaseEntity_GetBoneIdByName , ( C_BaseEntity* pC_BaseEntity , const char* szName ) , ( C_BaseEntity* , const char* ) , ( pC_BaseEntity , szName ) );
+DECLARATE_DEADLOCK_FUNCTION_SDK_FASTCALL( CHitBoxSet* , C_BaseEntity_GetHitBoxSet , ( C_BaseEntity* pC_BaseEntity , uint32_t Index = 0 ) , ( C_BaseEntity* , uint32_t ) , ( pC_BaseEntity , Index ) );
