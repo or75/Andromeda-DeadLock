@@ -336,9 +336,6 @@ auto CAndromedaMenu::ButtonIcon( const char8_t* szIcon , const char* szText , Im
 
 	InternalPlaySoundHoveredItem( szText );
 
-	if ( Ret )
-		PlayClick();
-
 	return Ret;
 }
 
