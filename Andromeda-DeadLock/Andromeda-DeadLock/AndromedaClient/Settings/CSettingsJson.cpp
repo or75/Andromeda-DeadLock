@@ -50,7 +50,7 @@ auto CSettingsJson::LoadConfig( const std::string& JsonFile ) -> void
 			GetBoolJson( SettingsMisc , XorStr( "NightMode" ) , Settings::Misc::NightMode );
 
 			GetIntJson( SettingsMisc , XorStr( "MenuAlpha" ) , Settings::Misc::MenuAlpha , 100 , 255 );
-			GetIntJson( SettingsMisc , XorStr( "MenuStyle" ) , Settings::Misc::MenuStyle , 0 , 1 );
+			GetIntJson( SettingsMisc , XorStr( "MenuStyle" ) , Settings::Misc::MenuStyle , 0 , 2 );
 			GetBoolJson( SettingsMisc , XorStr( "MenuSounds" ) , Settings::Misc::MenuSounds );
 		}
 

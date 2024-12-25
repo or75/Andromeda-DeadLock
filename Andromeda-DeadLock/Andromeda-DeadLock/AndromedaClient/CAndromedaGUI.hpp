@@ -30,11 +30,13 @@ public:
 private:
 	auto InitIndigoStyle() -> void;
 	auto InitVermillionStyle() -> void;
+	auto InitClassicSteamStyle() -> void;
 
 	enum EAndromedaGuiStyle
 	{
 		INDIGO ,
-		VERMILLION
+		VERMILLION ,
+		CLASSIC_STEAM
 	};
 
 public:

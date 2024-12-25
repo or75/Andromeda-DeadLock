@@ -73,6 +73,9 @@ auto CAndromedaMenu::OnRenderMenu() -> void
 	OnRenderColors();
 
 	ImGui::PopStyleVar();
+
+	if ( ImGui::IsMouseClicked( ImGuiMouseButton_Left ) )
+		PlayClick();
 }
 
 auto CAndromedaMenu::RenderLeftChild() -> void
@@ -108,10 +111,7 @@ auto CAndromedaMenu::RenderLeftChild() -> void
 		ImGui::PushStyleColor( ImGuiCol_Text , ConfigColor.operator ImVec4() );
 
 		if ( ImGui::Button( ConfigName.c_str() , ImVec2( -1.f , 0.f ) ) )
-		{
 			m_nConfigSelected = idx;
-			PlayClick();
-		}
 
 		InternalPlaySoundHoveredItem( XorStr( "Config##" ) + std::to_string( idx ) );
 
@@ -239,7 +239,8 @@ auto CAndromedaMenu::OnRenderMisc() -> void
 			const char* szMenuStyle[] =
 			{
 				"Indigo",
-				"Vermillion"
+				"Vermillion",
+				"Classic Steam"
 			};
 
 			RenderSliderInt( XorStr( "Menu Alpha" ) , XorStr( "##Settings.Misc.MenuAlpha" ) , Settings::Misc::MenuAlpha , 100 , 255 , 150.f );
