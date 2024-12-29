@@ -19,13 +19,8 @@ static CAndromedaClient g_CAndromedaClient{};
 
 auto CAndromedaClient::OnInit() -> void
 {
-	GetSettingsJson()->UpdateConfigList();
-	GetSettingsJson()->LoadConfig( CONFIG_FILE );
-
 	GetAndromedaMenu()->InitColors();
 	GetAndromedaMenu()->SetConfigSelected( GetSettingsJson()->GetConfigLoadedIndex() );
-
-	GetAndromedaGUI()->UpdateStyle();
 }
 
 auto CAndromedaClient::OnFireEventClientSide( IGameEvent* pGameEvent ) -> void

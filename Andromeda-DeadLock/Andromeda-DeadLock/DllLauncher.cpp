@@ -13,6 +13,8 @@
 #include <AndromedaClient/CAndromedaGUI.hpp>
 #include <AndromedaClient/CAndromedaClient.hpp>
 
+#include <AndromedaClient/Settings/CSettingsJson.hpp>
+
 static CDllLauncher g_CDllLauncher{};
 
 auto CDllLauncher::OnDllMain( LPVOID lpReserved , HINSTANCE hInstace ) -> void
@@ -103,6 +105,9 @@ auto WINAPI CDllLauncher::StartCheatTheard( LPVOID lpThreadParameter ) -> DWORD
 		DEV_LOG( "[error] Hook_Loader::InstallSecondHook\n" );
 		return 0;
 	}
+
+	GetSettingsJson()->UpdateConfigList();
+	GetSettingsJson()->LoadConfig( CONFIG_FILE );
 
 	while ( !GetAndromedaGUI()->IsInited() )
 		Sleep( 100 );
