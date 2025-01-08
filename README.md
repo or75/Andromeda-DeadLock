@@ -11,7 +11,8 @@
 5. Base CreateMove Hook and Get CUserCmd with protobuf
 6. Pattern Info for find CUserCmd offsets m_nSequenceNumber
 7. Dump Bones and HitBoxes (uncomment for test)
-8. Very good code
+8. Auto Schema Offsets
+9. Very good code
 
 # TODO:
 1. Base AimBot and best code CVisial.cpp and support custom settings colors
@@ -29,7 +30,8 @@
 5. CreateMove хук и получение CUserCmd с протобафами
 6. Информация и патерн для получения оффсета m_nSequenceNumber
 7. Дамп костей и хитбоксов (расскоментите и всё заработает)
-8. Очень читабельный код с использованием почти последних С++
+8. Авто поиск оффсетов schema
+9. Очень читабельный код с использованием почти последних С++
 
 # Будущие ннововедения
 1. Базовый аимбот с улучшеным кодом визуалов и с поддержкой настройкой цветов
