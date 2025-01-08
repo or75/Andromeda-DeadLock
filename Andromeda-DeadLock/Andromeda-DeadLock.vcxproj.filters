@@ -133,6 +133,9 @@
     <Filter Include="Andromeda-DeadLock\AndromedaClient\Features\CMisc">
       <UniqueIdentifier>{8674feac-588a-44a0-b43b-285e69ce0c59}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Git">
+      <UniqueIdentifier>{311846bd-9437-4af2-87d3-9a9b32ceb109}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Andromeda-DeadLock\Common\Include\Config.hpp">
@@ -1220,5 +1223,16 @@
     <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_GetMatricesForView.cpp">
       <Filter>Andromeda-DeadLock\DeadLock\Hook</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\.gitattributes">
+      <Filter>Git</Filter>
+    </None>
+    <None Include="..\.gitignore">
+      <Filter>Git</Filter>
+    </None>
+    <None Include="..\README.md">
+      <Filter>Git</Filter>
+    </None>
   </ItemGroup>
 </Project>

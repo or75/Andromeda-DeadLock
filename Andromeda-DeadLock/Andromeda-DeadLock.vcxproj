@@ -452,6 +452,11 @@
     <ClCompile Include="Andromeda-DeadLock\GameClient\CL_CitadelPlayerController.cpp" />
     <ClCompile Include="Andromeda-DeadLock\GameClient\CL_CitadelPlayerPawn.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\.gitattributes" />
+    <None Include="..\.gitignore" />
+    <None Include="..\README.md" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
