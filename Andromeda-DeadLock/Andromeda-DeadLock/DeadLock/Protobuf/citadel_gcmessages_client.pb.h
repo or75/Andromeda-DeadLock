@@ -13883,7 +13883,6 @@ class CMsgClientToGCSpectateUser final :
 
   enum : int {
     kSpectateAccountIdFieldNumber = 1,
-    kRegionModeFieldNumber = 2,
     kClientVersionFieldNumber = 3,
     kClientPlatformFieldNumber = 4,
   };
@@ -13898,19 +13897,6 @@ class CMsgClientToGCSpectateUser final :
   private:
   uint32_t _internal_spectate_account_id() const;
   void _internal_set_spectate_account_id(uint32_t value);
-  public:
-
-  // optional .ECitadelRegionMode region_mode = 2 [default = k_ECitadelRegionMode_ROW];
-  bool has_region_mode() const;
-  private:
-  bool _internal_has_region_mode() const;
-  public:
-  void clear_region_mode();
-  ::ECitadelRegionMode region_mode() const;
-  void set_region_mode(::ECitadelRegionMode value);
-  private:
-  ::ECitadelRegionMode _internal_region_mode() const;
-  void _internal_set_region_mode(::ECitadelRegionMode value);
   public:
 
   // optional uint32 client_version = 3;
@@ -13950,7 +13936,6 @@ class CMsgClientToGCSpectateUser final :
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint32_t spectate_account_id_;
-    int region_mode_;
     uint32_t client_version_;
     int client_platform_;
   };
@@ -14400,10 +14385,9 @@ class CMsgClientToGCSpectateLobby final :
 
   enum : int {
     kLobbyIdFieldNumber = 1,
-    kRegionModeFieldNumber = 2,
     kClientVersionFieldNumber = 3,
-    kMatchIdFieldNumber = 5,
     kClientPlatformFieldNumber = 4,
+    kMatchIdFieldNumber = 5,
   };
   // optional uint64 lobby_id = 1;
   bool has_lobby_id() const;
@@ -14416,19 +14400,6 @@ class CMsgClientToGCSpectateLobby final :
   private:
   uint64_t _internal_lobby_id() const;
   void _internal_set_lobby_id(uint64_t value);
-  public:
-
-  // optional .ECitadelRegionMode region_mode = 2 [default = k_ECitadelRegionMode_ROW];
-  bool has_region_mode() const;
-  private:
-  bool _internal_has_region_mode() const;
-  public:
-  void clear_region_mode();
-  ::ECitadelRegionMode region_mode() const;
-  void set_region_mode(::ECitadelRegionMode value);
-  private:
-  ::ECitadelRegionMode _internal_region_mode() const;
-  void _internal_set_region_mode(::ECitadelRegionMode value);
   public:
 
   // optional uint32 client_version = 3;
@@ -14444,19 +14415,6 @@ class CMsgClientToGCSpectateLobby final :
   void _internal_set_client_version(uint32_t value);
   public:
 
-  // optional uint64 match_id = 5;
-  bool has_match_id() const;
-  private:
-  bool _internal_has_match_id() const;
-  public:
-  void clear_match_id();
-  uint64_t match_id() const;
-  void set_match_id(uint64_t value);
-  private:
-  uint64_t _internal_match_id() const;
-  void _internal_set_match_id(uint64_t value);
-  public:
-
   // optional .EGCPlatform client_platform = 4 [default = k_eGCPlatform_None];
   bool has_client_platform() const;
   private:
@@ -14470,6 +14428,19 @@ class CMsgClientToGCSpectateLobby final :
   void _internal_set_client_platform(::EGCPlatform value);
   public:
 
+  // optional uint64 match_id = 5;
+  bool has_match_id() const;
+  private:
+  bool _internal_has_match_id() const;
+  public:
+  void clear_match_id();
+  uint64_t match_id() const;
+  void set_match_id(uint64_t value);
+  private:
+  uint64_t _internal_match_id() const;
+  void _internal_set_match_id(uint64_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CMsgClientToGCSpectateLobby)
  private:
   class _Internal;
@@ -14481,10 +14452,9 @@ class CMsgClientToGCSpectateLobby final :
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     uint64_t lobby_id_;
-    int region_mode_;
     uint32_t client_version_;
-    uint64_t match_id_;
     int client_platform_;
+    uint64_t match_id_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_citadel_5fgcmessages_5fclient_2eproto;
@@ -39264,38 +39234,9 @@ inline void CMsgClientToGCSpectateUser::set_spectate_account_id(uint32_t value) 
   // @@protoc_insertion_point(field_set:CMsgClientToGCSpectateUser.spectate_account_id)
 }
 
-// optional .ECitadelRegionMode region_mode = 2 [default = k_ECitadelRegionMode_ROW];
-inline bool CMsgClientToGCSpectateUser::_internal_has_region_mode() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
-  return value;
-}
-inline bool CMsgClientToGCSpectateUser::has_region_mode() const {
-  return _internal_has_region_mode();
-}
-inline void CMsgClientToGCSpectateUser::clear_region_mode() {
-  _impl_.region_mode_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000002u;
-}
-inline ::ECitadelRegionMode CMsgClientToGCSpectateUser::_internal_region_mode() const {
-  return static_cast< ::ECitadelRegionMode >(_impl_.region_mode_);
-}
-inline ::ECitadelRegionMode CMsgClientToGCSpectateUser::region_mode() const {
-  // @@protoc_insertion_point(field_get:CMsgClientToGCSpectateUser.region_mode)
-  return _internal_region_mode();
-}
-inline void CMsgClientToGCSpectateUser::_internal_set_region_mode(::ECitadelRegionMode value) {
-  assert(::ECitadelRegionMode_IsValid(value));
-  _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.region_mode_ = value;
-}
-inline void CMsgClientToGCSpectateUser::set_region_mode(::ECitadelRegionMode value) {
-  _internal_set_region_mode(value);
-  // @@protoc_insertion_point(field_set:CMsgClientToGCSpectateUser.region_mode)
-}
-
 // optional uint32 client_version = 3;
 inline bool CMsgClientToGCSpectateUser::_internal_has_client_version() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CMsgClientToGCSpectateUser::has_client_version() const {
@@ -39303,7 +39244,7 @@ inline bool CMsgClientToGCSpectateUser::has_client_version() const {
 }
 inline void CMsgClientToGCSpectateUser::clear_client_version() {
   _impl_.client_version_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline uint32_t CMsgClientToGCSpectateUser::_internal_client_version() const {
   return _impl_.client_version_;
@@ -39313,7 +39254,7 @@ inline uint32_t CMsgClientToGCSpectateUser::client_version() const {
   return _internal_client_version();
 }
 inline void CMsgClientToGCSpectateUser::_internal_set_client_version(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.client_version_ = value;
 }
 inline void CMsgClientToGCSpectateUser::set_client_version(uint32_t value) {
@@ -39323,7 +39264,7 @@ inline void CMsgClientToGCSpectateUser::set_client_version(uint32_t value) {
 
 // optional .EGCPlatform client_platform = 4 [default = k_eGCPlatform_None];
 inline bool CMsgClientToGCSpectateUser::_internal_has_client_platform() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CMsgClientToGCSpectateUser::has_client_platform() const {
@@ -39331,7 +39272,7 @@ inline bool CMsgClientToGCSpectateUser::has_client_platform() const {
 }
 inline void CMsgClientToGCSpectateUser::clear_client_platform() {
   _impl_.client_platform_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000008u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline ::EGCPlatform CMsgClientToGCSpectateUser::_internal_client_platform() const {
   return static_cast< ::EGCPlatform >(_impl_.client_platform_);
@@ -39342,7 +39283,7 @@ inline ::EGCPlatform CMsgClientToGCSpectateUser::client_platform() const {
 }
 inline void CMsgClientToGCSpectateUser::_internal_set_client_platform(::EGCPlatform value) {
   assert(::EGCPlatform_IsValid(value));
-  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.client_platform_ = value;
 }
 inline void CMsgClientToGCSpectateUser::set_client_platform(::EGCPlatform value) {
@@ -39663,38 +39604,9 @@ inline void CMsgClientToGCSpectateLobby::set_lobby_id(uint64_t value) {
   // @@protoc_insertion_point(field_set:CMsgClientToGCSpectateLobby.lobby_id)
 }
 
-// optional .ECitadelRegionMode region_mode = 2 [default = k_ECitadelRegionMode_ROW];
-inline bool CMsgClientToGCSpectateLobby::_internal_has_region_mode() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
-  return value;
-}
-inline bool CMsgClientToGCSpectateLobby::has_region_mode() const {
-  return _internal_has_region_mode();
-}
-inline void CMsgClientToGCSpectateLobby::clear_region_mode() {
-  _impl_.region_mode_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000002u;
-}
-inline ::ECitadelRegionMode CMsgClientToGCSpectateLobby::_internal_region_mode() const {
-  return static_cast< ::ECitadelRegionMode >(_impl_.region_mode_);
-}
-inline ::ECitadelRegionMode CMsgClientToGCSpectateLobby::region_mode() const {
-  // @@protoc_insertion_point(field_get:CMsgClientToGCSpectateLobby.region_mode)
-  return _internal_region_mode();
-}
-inline void CMsgClientToGCSpectateLobby::_internal_set_region_mode(::ECitadelRegionMode value) {
-  assert(::ECitadelRegionMode_IsValid(value));
-  _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.region_mode_ = value;
-}
-inline void CMsgClientToGCSpectateLobby::set_region_mode(::ECitadelRegionMode value) {
-  _internal_set_region_mode(value);
-  // @@protoc_insertion_point(field_set:CMsgClientToGCSpectateLobby.region_mode)
-}
-
 // optional uint32 client_version = 3;
 inline bool CMsgClientToGCSpectateLobby::_internal_has_client_version() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
 inline bool CMsgClientToGCSpectateLobby::has_client_version() const {
@@ -39702,7 +39614,7 @@ inline bool CMsgClientToGCSpectateLobby::has_client_version() const {
 }
 inline void CMsgClientToGCSpectateLobby::clear_client_version() {
   _impl_.client_version_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
 }
 inline uint32_t CMsgClientToGCSpectateLobby::_internal_client_version() const {
   return _impl_.client_version_;
@@ -39712,7 +39624,7 @@ inline uint32_t CMsgClientToGCSpectateLobby::client_version() const {
   return _internal_client_version();
 }
 inline void CMsgClientToGCSpectateLobby::_internal_set_client_version(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.client_version_ = value;
 }
 inline void CMsgClientToGCSpectateLobby::set_client_version(uint32_t value) {
@@ -39722,7 +39634,7 @@ inline void CMsgClientToGCSpectateLobby::set_client_version(uint32_t value) {
 
 // optional .EGCPlatform client_platform = 4 [default = k_eGCPlatform_None];
 inline bool CMsgClientToGCSpectateLobby::_internal_has_client_platform() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
 inline bool CMsgClientToGCSpectateLobby::has_client_platform() const {
@@ -39730,7 +39642,7 @@ inline bool CMsgClientToGCSpectateLobby::has_client_platform() const {
 }
 inline void CMsgClientToGCSpectateLobby::clear_client_platform() {
   _impl_.client_platform_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 inline ::EGCPlatform CMsgClientToGCSpectateLobby::_internal_client_platform() const {
   return static_cast< ::EGCPlatform >(_impl_.client_platform_);
@@ -39741,7 +39653,7 @@ inline ::EGCPlatform CMsgClientToGCSpectateLobby::client_platform() const {
 }
 inline void CMsgClientToGCSpectateLobby::_internal_set_client_platform(::EGCPlatform value) {
   assert(::EGCPlatform_IsValid(value));
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.client_platform_ = value;
 }
 inline void CMsgClientToGCSpectateLobby::set_client_platform(::EGCPlatform value) {

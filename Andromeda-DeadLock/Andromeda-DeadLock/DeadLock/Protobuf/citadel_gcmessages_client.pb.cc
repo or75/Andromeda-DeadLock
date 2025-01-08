@@ -898,7 +898,6 @@ PROTOBUF_CONSTEXPR CMsgClientToGCSpectateUser::CMsgClientToGCSpectateUser(
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.spectate_account_id_)*/0u
-  , /*decltype(_impl_.region_mode_)*/0
   , /*decltype(_impl_.client_version_)*/0u
   , /*decltype(_impl_.client_platform_)*/0} {}
 struct CMsgClientToGCSpectateUserDefaultTypeInternal {
@@ -935,10 +934,9 @@ PROTOBUF_CONSTEXPR CMsgClientToGCSpectateLobby::CMsgClientToGCSpectateLobby(
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.lobby_id_)*/uint64_t{0u}
-  , /*decltype(_impl_.region_mode_)*/0
   , /*decltype(_impl_.client_version_)*/0u
-  , /*decltype(_impl_.match_id_)*/uint64_t{0u}
-  , /*decltype(_impl_.client_platform_)*/0} {}
+  , /*decltype(_impl_.client_platform_)*/0
+  , /*decltype(_impl_.match_id_)*/uint64_t{0u}} {}
 struct CMsgClientToGCSpectateLobbyDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CMsgClientToGCSpectateLobbyDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -3067,13 +3065,11 @@ const uint32_t TableStruct_citadel_5fgcmessages_5fclient_2eproto::offsets[] PROT
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::CMsgClientToGCSpectateUser, _impl_.spectate_account_id_),
-  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCSpectateUser, _impl_.region_mode_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientToGCSpectateUser, _impl_.client_version_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientToGCSpectateUser, _impl_.client_platform_),
   0,
   1,
   2,
-  3,
   PROTOBUF_FIELD_OFFSET(::CMsgClientToGCSpectateUserResponse, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientToGCSpectateUserResponse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -3101,14 +3097,12 @@ const uint32_t TableStruct_citadel_5fgcmessages_5fclient_2eproto::offsets[] PROT
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::CMsgClientToGCSpectateLobby, _impl_.lobby_id_),
-  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCSpectateLobby, _impl_.region_mode_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientToGCSpectateLobby, _impl_.client_version_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientToGCSpectateLobby, _impl_.client_platform_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientToGCSpectateLobby, _impl_.match_id_),
   0,
   1,
   2,
-  4,
   3,
   PROTOBUF_FIELD_OFFSET(::CMsgClientToGCSpectateLobbyResponse, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientToGCSpectateLobbyResponse, _internal_metadata_),
@@ -4168,102 +4162,102 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 613, 622, -1, sizeof(::CMsgClientToGCGetMatchHistory)},
   { 625, 651, -1, sizeof(::CMsgClientToGCGetMatchHistoryResponse_Match)},
   { 671, 680, -1, sizeof(::CMsgClientToGCGetMatchHistoryResponse)},
-  { 683, 693, -1, sizeof(::CMsgClientToGCSpectateUser)},
-  { 697, 710, -1, sizeof(::CMsgClientToGCSpectateUserResponse)},
-  { 717, 728, -1, sizeof(::CMsgClientToGCSpectateLobby)},
-  { 733, 740, -1, sizeof(::CMsgClientToGCSpectateLobbyResponse)},
-  { 741, 750, -1, sizeof(::CMsgClientToGCGetProfileCard)},
-  { 753, 761, -1, sizeof(::CMsgCitadelProfileCard_Slot_Stat)},
-  { 763, 772, -1, sizeof(::CMsgCitadelProfileCard_Slot_Hero)},
-  { 775, 784, -1, sizeof(::CMsgCitadelProfileCard_Slot)},
-  { 787, 796, -1, sizeof(::CMsgCitadelProfileCard)},
-  { 799, 808, -1, sizeof(::CMsgClientToGCUpdateRoster)},
-  { 811, 818, -1, sizeof(::CMsgClientToGCUpdateRosterResponse)},
-  { 819, 828, -1, sizeof(::CMsgClientToGCGetAccountStats)},
-  { 831, 839, -1, sizeof(::CMsgClientToGCGetAccountStatsResponse)},
-  { 841, 850, -1, sizeof(::CMsgClientToGCGetMatchMetaData)},
-  { 853, 865, -1, sizeof(::CMsgClientToGCGetMatchMetaDataResponse)},
-  { 871, 884, -1, sizeof(::CMsgGCToClientDevAnnouncements_Announcement)},
-  { 891, -1, -1, sizeof(::CMsgGCToClientDevAnnouncements)},
-  { 898, 911, -1, sizeof(::CMsgClientToGCModifyDevAnnouncements)},
-  { 918, 925, -1, sizeof(::CMsgClientToGCModifyDevAnnouncementsResponse)},
-  { 926, 939, -1, sizeof(::CMsgClientToGCDevAction)},
-  { 946, 953, -1, sizeof(::CMsgClientToGCDevActionResponse)},
-  { 954, 964, -1, sizeof(::CMsgClientToGCRecordClientEvents_Event)},
-  { 968, 976, -1, sizeof(::CMsgClientToGCRecordClientEvents)},
-  { 978, 985, -1, sizeof(::CMsgClientToGCRecordClientEventsResponse)},
-  { 986, 993, -1, sizeof(::CMsgClientToGCSetNewPlayerProgress)},
-  { 994, 1001, -1, sizeof(::CMsgClientToGCSetNewPlayerProgressResponse)},
-  { 1002, -1, -1, sizeof(::CMsgClientToGCUpdateAccountSync)},
-  { 1010, 1017, -1, sizeof(::CMsgClientToGCUpdateAccountSyncResponse)},
-  { 1018, -1, -1, sizeof(::CMsgClientToGCGetHeroChoice)},
-  { 1024, 1031, -1, sizeof(::CMsgClientToGCGetHeroChoiceResponse_Hero)},
-  { 1032, 1042, -1, sizeof(::CMsgClientToGCGetHeroChoiceResponse)},
-  { 1046, 1054, -1, sizeof(::CMsgClientToGCUnlockHero)},
-  { 1056, 1063, -1, sizeof(::CMsgClientToGCUnlockHeroResponse)},
-  { 1064, 1072, -1, sizeof(::CMsgAccountBook_Unlock)},
-  { 1074, 1084, -1, sizeof(::CMsgAccountBook)},
-  { 1088, 1098, -1, sizeof(::CMsgClientToGCBookUnlock)},
-  { 1102, 1110, -1, sizeof(::CMsgClientToGCBookUnlockResponse)},
-  { 1112, 1119, -1, sizeof(::CMsgClientToGCGetBook)},
-  { 1120, 1128, -1, sizeof(::CMsgClientToGCGetBookResponse)},
-  { 1130, 1137, -1, sizeof(::CMsgGCToClientBookUpdated)},
-  { 1138, 1146, -1, sizeof(::CMsgClientToGCSubmitPlaytestUser)},
-  { 1148, 1155, -1, sizeof(::CMsgClientToGCSubmitPlaytestUserResponse)},
-  { 1156, 1164, -1, sizeof(::CMsgHeroBuild_BuildModEntry)},
-  { 1166, 1177, -1, sizeof(::CMsgHeroBuild_BuildModCategory)},
-  { 1182, 1192, -1, sizeof(::CMsgHeroBuild_CurrencyChange)},
-  { 1196, -1, -1, sizeof(::CMsgHeroBuild_AbilityOrder)},
-  { 1203, 1211, -1, sizeof(::CMsgHeroBuild_Details_V0)},
-  { 1213, 1229, -1, sizeof(::CMsgHeroBuild)},
-  { 1239, 1246, -1, sizeof(::CMsgClientToGCUpdateHeroBuild)},
-  { 1247, 1256, -1, sizeof(::CMsgClientToGCUpdateHeroBuildResponse)},
-  { 1259, 1270, -1, sizeof(::CMsgClientToGCFindHeroBuilds)},
-  { 1275, 1284, -1, sizeof(::CMsgHeroBuildPreference)},
-  { 1287, 1301, -1, sizeof(::CMsgClientToGCFindHeroBuildsResponse_HeroBuildResult)},
-  { 1309, 1317, -1, sizeof(::CMsgClientToGCFindHeroBuildsResponse)},
-  { 1319, 1327, -1, sizeof(::CMsgClientToGCUpdateHeroBuildPreference)},
-  { 1329, 1336, -1, sizeof(::CMsgClientToGCUpdateHeroBuildPreferenceResponse)},
-  { 1337, 1344, -1, sizeof(::CMsgClientToGCGetOldHeroBuildData)},
-  { 1345, -1, -1, sizeof(::CMsgClientToGCGetOldHeroBuildDataResponse_OldDetails_V0)},
-  { 1352, 1362, -1, sizeof(::CMsgClientToGCGetOldHeroBuildDataResponse_OldBuild)},
-  { 1366, 1375, -1, sizeof(::CMsgClientToGCGetOldHeroBuildDataResponse)},
-  { 1378, 1388, -1, sizeof(::CMsgClientToGCReportPlayerFromMatch)},
-  { 1392, 1399, -1, sizeof(::CMsgClientToGCReportPlayerFromMatchResponse)},
-  { 1400, 1407, -1, sizeof(::CMsgClientToGCGetAccountMatchReports)},
-  { 1408, 1415, -1, sizeof(::CMsgClientToGCGetAccountMatchReportsResponse_Report)},
-  { 1416, 1423, -1, sizeof(::CMsgClientToGCGetAccountMatchReportsResponse_Commend)},
-  { 1424, 1433, -1, sizeof(::CMsgClientToGCGetAccountMatchReportsResponse)},
-  { 1436, 1444, -1, sizeof(::CMsgClientToGCDeleteHeroBuild)},
-  { 1446, 1454, -1, sizeof(::CMsgClientToGCDeleteHeroBuildResponse)},
-  { 1456, -1, -1, sizeof(::CMsgClientToGCGetActiveMatches)},
-  { 1462, -1, -1, sizeof(::CMsgClientToGCGetActiveMatchesResponse)},
-  { 1469, -1, -1, sizeof(::CMsgClientToGCGetDiscordLink)},
-  { 1475, 1484, -1, sizeof(::CMsgClientToGCGetDiscordLinkResponse)},
-  { 1487, 1494, -1, sizeof(::CMsgClientToGCGrantForumAccess)},
-  { 1495, 1505, -1, sizeof(::CMsgClientToGCGrantForumAccessResponse)},
-  { 1509, 1516, -1, sizeof(::CMsgClientToGCModeratorRequest)},
-  { 1517, 1525, -1, sizeof(::CMsgClientToGCModeratorRequestResponse)},
-  { 1527, 1534, -1, sizeof(::CMsgClientToGCGetFriendGameStatus)},
-  { 1535, 1545, -1, sizeof(::CMsgClientToGCGetFriendGameStatusResponse)},
-  { 1549, 1557, -1, sizeof(::CMsgClientToGCUpdateSpectatorStatus)},
-  { 1559, 1569, -1, sizeof(::CMsgClientToGCCommendPlayerFromMatch)},
-  { 1573, 1580, -1, sizeof(::CMsgClientToGCCommendPlayerFromMatchResponse)},
-  { 1581, 1592, -1, sizeof(::CMsgGCToClientCommendNotification)},
-  { 1597, -1, -1, sizeof(::CMsgClientToGCRequestCheatReports)},
-  { 1603, 1612, -1, sizeof(::CMsgClientToGCRequestCheatReportsResponse_RecentCheatReport)},
-  { 1615, 1623, -1, sizeof(::CMsgClientToGCRequestCheatReportsResponse)},
-  { 1625, 1632, -1, sizeof(::CMsgClientToGCGetHeroMMRRankings)},
-  { 1633, 1641, -1, sizeof(::CMsgClientToGCGetHeroMMRRankingsResponse_Hero)},
-  { 1643, 1651, -1, sizeof(::CMsgClientToGCGetHeroMMRRankingsResponse)},
-  { 1653, 1661, -1, sizeof(::CMsgClientToGCGetLeaderboard)},
-  { 1663, 1673, -1, sizeof(::CMsgClientToGCGetLeaderboardResponse_LeaderboardEntry)},
-  { 1677, 1685, -1, sizeof(::CMsgClientToGCGetLeaderboardResponse)},
-  { 1687, 1694, -1, sizeof(::CMsgClientToGCGetAccountLeaderboards)},
-  { 1695, 1704, -1, sizeof(::CMsgClientToGCGetAccountLeaderboardsResponse_LeaderboardEntry)},
-  { 1707, 1716, -1, sizeof(::CMsgClientToGCGetAccountLeaderboardsResponse)},
-  { 1719, 1726, -1, sizeof(::CMsgClientToGCSetHideHolidayModels)},
-  { 1727, 1734, -1, sizeof(::CMsgClientToGCSetHideHolidayModelsResponse)},
+  { 683, 692, -1, sizeof(::CMsgClientToGCSpectateUser)},
+  { 695, 708, -1, sizeof(::CMsgClientToGCSpectateUserResponse)},
+  { 715, 725, -1, sizeof(::CMsgClientToGCSpectateLobby)},
+  { 729, 736, -1, sizeof(::CMsgClientToGCSpectateLobbyResponse)},
+  { 737, 746, -1, sizeof(::CMsgClientToGCGetProfileCard)},
+  { 749, 757, -1, sizeof(::CMsgCitadelProfileCard_Slot_Stat)},
+  { 759, 768, -1, sizeof(::CMsgCitadelProfileCard_Slot_Hero)},
+  { 771, 780, -1, sizeof(::CMsgCitadelProfileCard_Slot)},
+  { 783, 792, -1, sizeof(::CMsgCitadelProfileCard)},
+  { 795, 804, -1, sizeof(::CMsgClientToGCUpdateRoster)},
+  { 807, 814, -1, sizeof(::CMsgClientToGCUpdateRosterResponse)},
+  { 815, 824, -1, sizeof(::CMsgClientToGCGetAccountStats)},
+  { 827, 835, -1, sizeof(::CMsgClientToGCGetAccountStatsResponse)},
+  { 837, 846, -1, sizeof(::CMsgClientToGCGetMatchMetaData)},
+  { 849, 861, -1, sizeof(::CMsgClientToGCGetMatchMetaDataResponse)},
+  { 867, 880, -1, sizeof(::CMsgGCToClientDevAnnouncements_Announcement)},
+  { 887, -1, -1, sizeof(::CMsgGCToClientDevAnnouncements)},
+  { 894, 907, -1, sizeof(::CMsgClientToGCModifyDevAnnouncements)},
+  { 914, 921, -1, sizeof(::CMsgClientToGCModifyDevAnnouncementsResponse)},
+  { 922, 935, -1, sizeof(::CMsgClientToGCDevAction)},
+  { 942, 949, -1, sizeof(::CMsgClientToGCDevActionResponse)},
+  { 950, 960, -1, sizeof(::CMsgClientToGCRecordClientEvents_Event)},
+  { 964, 972, -1, sizeof(::CMsgClientToGCRecordClientEvents)},
+  { 974, 981, -1, sizeof(::CMsgClientToGCRecordClientEventsResponse)},
+  { 982, 989, -1, sizeof(::CMsgClientToGCSetNewPlayerProgress)},
+  { 990, 997, -1, sizeof(::CMsgClientToGCSetNewPlayerProgressResponse)},
+  { 998, -1, -1, sizeof(::CMsgClientToGCUpdateAccountSync)},
+  { 1006, 1013, -1, sizeof(::CMsgClientToGCUpdateAccountSyncResponse)},
+  { 1014, -1, -1, sizeof(::CMsgClientToGCGetHeroChoice)},
+  { 1020, 1027, -1, sizeof(::CMsgClientToGCGetHeroChoiceResponse_Hero)},
+  { 1028, 1038, -1, sizeof(::CMsgClientToGCGetHeroChoiceResponse)},
+  { 1042, 1050, -1, sizeof(::CMsgClientToGCUnlockHero)},
+  { 1052, 1059, -1, sizeof(::CMsgClientToGCUnlockHeroResponse)},
+  { 1060, 1068, -1, sizeof(::CMsgAccountBook_Unlock)},
+  { 1070, 1080, -1, sizeof(::CMsgAccountBook)},
+  { 1084, 1094, -1, sizeof(::CMsgClientToGCBookUnlock)},
+  { 1098, 1106, -1, sizeof(::CMsgClientToGCBookUnlockResponse)},
+  { 1108, 1115, -1, sizeof(::CMsgClientToGCGetBook)},
+  { 1116, 1124, -1, sizeof(::CMsgClientToGCGetBookResponse)},
+  { 1126, 1133, -1, sizeof(::CMsgGCToClientBookUpdated)},
+  { 1134, 1142, -1, sizeof(::CMsgClientToGCSubmitPlaytestUser)},
+  { 1144, 1151, -1, sizeof(::CMsgClientToGCSubmitPlaytestUserResponse)},
+  { 1152, 1160, -1, sizeof(::CMsgHeroBuild_BuildModEntry)},
+  { 1162, 1173, -1, sizeof(::CMsgHeroBuild_BuildModCategory)},
+  { 1178, 1188, -1, sizeof(::CMsgHeroBuild_CurrencyChange)},
+  { 1192, -1, -1, sizeof(::CMsgHeroBuild_AbilityOrder)},
+  { 1199, 1207, -1, sizeof(::CMsgHeroBuild_Details_V0)},
+  { 1209, 1225, -1, sizeof(::CMsgHeroBuild)},
+  { 1235, 1242, -1, sizeof(::CMsgClientToGCUpdateHeroBuild)},
+  { 1243, 1252, -1, sizeof(::CMsgClientToGCUpdateHeroBuildResponse)},
+  { 1255, 1266, -1, sizeof(::CMsgClientToGCFindHeroBuilds)},
+  { 1271, 1280, -1, sizeof(::CMsgHeroBuildPreference)},
+  { 1283, 1297, -1, sizeof(::CMsgClientToGCFindHeroBuildsResponse_HeroBuildResult)},
+  { 1305, 1313, -1, sizeof(::CMsgClientToGCFindHeroBuildsResponse)},
+  { 1315, 1323, -1, sizeof(::CMsgClientToGCUpdateHeroBuildPreference)},
+  { 1325, 1332, -1, sizeof(::CMsgClientToGCUpdateHeroBuildPreferenceResponse)},
+  { 1333, 1340, -1, sizeof(::CMsgClientToGCGetOldHeroBuildData)},
+  { 1341, -1, -1, sizeof(::CMsgClientToGCGetOldHeroBuildDataResponse_OldDetails_V0)},
+  { 1348, 1358, -1, sizeof(::CMsgClientToGCGetOldHeroBuildDataResponse_OldBuild)},
+  { 1362, 1371, -1, sizeof(::CMsgClientToGCGetOldHeroBuildDataResponse)},
+  { 1374, 1384, -1, sizeof(::CMsgClientToGCReportPlayerFromMatch)},
+  { 1388, 1395, -1, sizeof(::CMsgClientToGCReportPlayerFromMatchResponse)},
+  { 1396, 1403, -1, sizeof(::CMsgClientToGCGetAccountMatchReports)},
+  { 1404, 1411, -1, sizeof(::CMsgClientToGCGetAccountMatchReportsResponse_Report)},
+  { 1412, 1419, -1, sizeof(::CMsgClientToGCGetAccountMatchReportsResponse_Commend)},
+  { 1420, 1429, -1, sizeof(::CMsgClientToGCGetAccountMatchReportsResponse)},
+  { 1432, 1440, -1, sizeof(::CMsgClientToGCDeleteHeroBuild)},
+  { 1442, 1450, -1, sizeof(::CMsgClientToGCDeleteHeroBuildResponse)},
+  { 1452, -1, -1, sizeof(::CMsgClientToGCGetActiveMatches)},
+  { 1458, -1, -1, sizeof(::CMsgClientToGCGetActiveMatchesResponse)},
+  { 1465, -1, -1, sizeof(::CMsgClientToGCGetDiscordLink)},
+  { 1471, 1480, -1, sizeof(::CMsgClientToGCGetDiscordLinkResponse)},
+  { 1483, 1490, -1, sizeof(::CMsgClientToGCGrantForumAccess)},
+  { 1491, 1501, -1, sizeof(::CMsgClientToGCGrantForumAccessResponse)},
+  { 1505, 1512, -1, sizeof(::CMsgClientToGCModeratorRequest)},
+  { 1513, 1521, -1, sizeof(::CMsgClientToGCModeratorRequestResponse)},
+  { 1523, 1530, -1, sizeof(::CMsgClientToGCGetFriendGameStatus)},
+  { 1531, 1541, -1, sizeof(::CMsgClientToGCGetFriendGameStatusResponse)},
+  { 1545, 1553, -1, sizeof(::CMsgClientToGCUpdateSpectatorStatus)},
+  { 1555, 1565, -1, sizeof(::CMsgClientToGCCommendPlayerFromMatch)},
+  { 1569, 1576, -1, sizeof(::CMsgClientToGCCommendPlayerFromMatchResponse)},
+  { 1577, 1588, -1, sizeof(::CMsgGCToClientCommendNotification)},
+  { 1593, -1, -1, sizeof(::CMsgClientToGCRequestCheatReports)},
+  { 1599, 1608, -1, sizeof(::CMsgClientToGCRequestCheatReportsResponse_RecentCheatReport)},
+  { 1611, 1619, -1, sizeof(::CMsgClientToGCRequestCheatReportsResponse)},
+  { 1621, 1628, -1, sizeof(::CMsgClientToGCGetHeroMMRRankings)},
+  { 1629, 1637, -1, sizeof(::CMsgClientToGCGetHeroMMRRankingsResponse_Hero)},
+  { 1639, 1647, -1, sizeof(::CMsgClientToGCGetHeroMMRRankingsResponse)},
+  { 1649, 1657, -1, sizeof(::CMsgClientToGCGetLeaderboard)},
+  { 1659, 1669, -1, sizeof(::CMsgClientToGCGetLeaderboardResponse_LeaderboardEntry)},
+  { 1673, 1681, -1, sizeof(::CMsgClientToGCGetLeaderboardResponse)},
+  { 1683, 1690, -1, sizeof(::CMsgClientToGCGetAccountLeaderboards)},
+  { 1691, 1700, -1, sizeof(::CMsgClientToGCGetAccountLeaderboardsResponse_LeaderboardEntry)},
+  { 1703, 1712, -1, sizeof(::CMsgClientToGCGetAccountLeaderboardsResponse)},
+  { 1715, 1722, -1, sizeof(::CMsgClientToGCSetHideHolidayModels)},
+  { 1723, 1730, -1, sizeof(::CMsgClientToGCSetHideHolidayModelsResponse)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -4752,572 +4746,568 @@ const char descriptor_table_protodef_citadel_5fgcmessages_5fclient_2eproto[] PRO
   "\020\000\022\025\n\021k_eResult_Success\020\001\022\037\n\033k_eResult_I"
   "nvalidPermission\020\002\022!\n\035k_eResult_Temporar"
   "ilyDisabled\020\003\022\025\n\021k_eResult_TooBusy\020\004\022\031\n\025"
-  "k_eResult_RateLimited\020\005\"\320\001\n\032CMsgClientTo"
+  "k_eResult_RateLimited\020\005\"\214\001\n\032CMsgClientTo"
   "GCSpectateUser\022\033\n\023spectate_account_id\030\001 "
-  "\001(\r\022B\n\013region_mode\030\002 \001(\0162\023.ECitadelRegio"
-  "nMode:\030k_ECitadelRegionMode_ROW\022\026\n\016clien"
-  "t_version\030\003 \001(\r\0229\n\017client_platform\030\004 \001(\016"
-  "2\014.EGCPlatform:\022k_eGCPlatform_None\"\252\004\n\"C"
-  "MsgClientToGCSpectateUserResponse\022O\n\006res"
-  "ult\030\001 \001(\0162-.CMsgClientToGCSpectateUserRe"
-  "sponse.EResponse:\020k_eInternalError\022\027\n\017se"
-  "rver_steam_id\030\003 \001(\006\022\017\n\007sdr_key\030\004 \001(\014\022\026\n\016"
-  "udp_connect_ip\030\005 \001(\r\022\030\n\020udp_connect_port"
-  "\030\006 \001(\r\022\020\n\010lobby_id\030\007 \001(\006\022\034\n\024client_broad"
-  "cast_url\030\010 \001(\t\"\246\002\n\tEResponse\022\024\n\020k_eInter"
-  "nalError\020\000\022\016\n\nk_eSuccess\020\001\022\017\n\013k_eDisable"
-  "d\020\002\022\016\n\nk_eTooBusy\020\003\022\022\n\016k_eRateLimited\020\004\022"
-  "\020\n\014k_eNotInGame\020\005\022\026\n\022k_eDisabledForGame\020"
-  "\006\022\021\n\rk_eServerFull\020\007\022\021\n\rk_eNotFriends\020\010\022"
-  "\034\n\030k_eRegionInfoNotProvided\020\t\022\035\n\031k_eDura"
-  "tionControlBlocked\020\n\022\033\n\027k_eInvalidClient"
-  "Version\020\013\022\024\n\020k_eInvalidRegion\020\014\"\330\001\n\033CMsg"
-  "ClientToGCSpectateLobby\022\020\n\010lobby_id\030\001 \001("
-  "\004\022B\n\013region_mode\030\002 \001(\0162\023.ECitadelRegionM"
-  "ode:\030k_ECitadelRegionMode_ROW\022\026\n\016client_"
-  "version\030\003 \001(\r\0229\n\017client_platform\030\004 \001(\0162\014"
-  ".EGCPlatform:\022k_eGCPlatform_None\022\020\n\010matc"
-  "h_id\030\005 \001(\004\"Z\n#CMsgClientToGCSpectateLobb"
-  "yResponse\0223\n\006result\030\001 \001(\0132#.CMsgClientTo"
-  "GCSpectateUserResponse\"g\n\034CMsgClientToGC"
-  "GetProfileCard\022\022\n\naccount_id\030\001 \001(\r\022\027\n\017de"
-  "v_access_hint\030\002 \001(\010\022\032\n\022friend_access_hin"
-  "t\030\003 \001(\010\"\356\003\n\026CMsgCitadelProfileCard\022\022\n\nac"
-  "count_id\030\001 \001(\r\022+\n\005slots\030\002 \003(\0132\034.CMsgCita"
-  "delProfileCard.Slot\022\032\n\022ranked_badge_leve"
-  "l\030\003 \001(\r\032\230\002\n\004Slot\022\017\n\007slot_id\030\001 \001(\r\022/\n\004sta"
-  "t\030\002 \001(\0132!.CMsgCitadelProfileCard.Slot.St"
-  "at\022/\n\004hero\030\003 \001(\0132!.CMsgCitadelProfileCar"
-  "d.Slot.Hero\032]\n\004Stat\022A\n\007stat_id\030\001 \001(\0162\037.C"
-  "MsgCitadelProfileCard.EStatID:\017k_eStat_I"
-  "nvalid\022\022\n\nstat_score\030\002 \001(\r\032>\n\004Hero\022\017\n\007he"
-  "ro_id\030\001 \001(\r\022\021\n\thero_wins\030\002 \001(\r\022\022\n\nhero_k"
-  "ills\030\003 \001(\r\"\\\n\007EStatID\022\023\n\017k_eStat_Invalid"
-  "\020\000\022\020\n\014k_eStat_Wins\020\001\022\021\n\rk_eStat_Kills\020\002\022"
-  "\027\n\023k_eStat_GamesPlayed\020\003\"\320\001\n\032CMsgClientT"
-  "oGCUpdateRoster\022+\n\006heroes\030\001 \001(\0132\033.CMsgHe"
-  "roSelectionMatchInfo\022@\n\tgame_mode\030\002 \001(\0162"
-  "\021.ECitadelGameMode:\032k_ECitadelGameMode_I"
-  "nvalid\022C\n\nmatch_mode\030\003 \001(\0162\022.ECitadelMat"
-  "chMode:\033k_ECitadelMatchMode_Invalid\"\244\002\n\""
-  "CMsgClientToGCUpdateRosterResponse\022O\n\006re"
-  "sult\030\001 \001(\0162-.CMsgClientToGCUpdateRosterR"
-  "esponse.EResponse:\020k_eInternalError\"\254\001\n\t"
-  "EResponse\022\024\n\020k_eInternalError\020\000\022\016\n\nk_eSu"
-  "ccess\020\001\022\017\n\013k_eDisabled\020\002\022\016\n\nk_eTooBusy\020\003"
-  "\022\022\n\016k_eRateLimited\020\004\022\r\n\tk_eMMBusy\020\005\022\033\n\027k"
-  "_eInvalidHeroSelection\020\006\022\030\n\024k_eHeroesNot"
-  "Unlocked\020\007\"h\n\035CMsgClientToGCGetAccountSt"
-  "ats\022\022\n\naccount_id\030\001 \001(\r\022\027\n\017dev_access_hi"
-  "nt\030\002 \001(\010\022\032\n\022friend_access_hint\030\003 \001(\010\"\234\002\n"
-  "%CMsgClientToGCGetAccountStatsResponse\022P"
-  "\n\006result\030\001 \001(\0162..CMsgClientToGCGetAccoun"
-  "tStatsResponse.EResult:\020k_eInternalError"
-  "\022 \n\005stats\030\002 \001(\0132\021.CMsgAccountStats\"\177\n\007ER"
-  "esult\022\024\n\020k_eInternalError\020\000\022\016\n\nk_eSucces"
-  "s\020\001\022\017\n\013k_eDisabled\020\002\022\016\n\nk_eTooBusy\020\003\022\022\n\016"
-  "k_eRateLimited\020\004\022\031\n\025k_eInvalidPermission"
-  "s\020\005\"d\n\036CMsgClientToGCGetMatchMetaData\022\020\n"
-  "\010match_id\030\001 \001(\004\022\025\n\rmetadata_salt\030\003 \001(\r\022\031"
-  "\n\021target_account_id\030\004 \001(\r\"\362\003\n&CMsgClient"
-  "ToGCGetMatchMetaDataResponse\022X\n\006result\030\001"
-  " \001(\0162/.CMsgClientToGCGetMatchMetaDataRes"
-  "ponse.EResult:\027k_eResult_InternalError\022\023"
-  "\n\013replay_salt\030\002 \001(\r\022\025\n\rmetadata_salt\030\003 \001"
-  "(\r\022\034\n\024replay_valid_through\030\004 \001(\r\022\022\n\nclus"
-  "ter_id\030\005 \001(\r\022!\n\031replay_processing_throug"
-  "h\030\006 \001(\r\"\354\001\n\007EResult\022\033\n\027k_eResult_Interna"
-  "lError\020\000\022\025\n\021k_eResult_Success\020\001\022\037\n\033k_eRe"
-  "sult_InvalidPermission\020\002\022!\n\035k_eResult_Te"
-  "mporarilyDisabled\020\003\022\025\n\021k_eResult_TooBusy"
-  "\020\004\022\031\n\025k_eResult_RateLimited\020\005\022\032\n\026k_eResu"
-  "lt_InvalidMatch\020\006\022\033\n\027k_eResult_MatchInFl"
-  "ight\020\007\"\364\001\n\036CMsgGCToClientDevAnnouncement"
-  "s\022C\n\rannouncements\030\001 \003(\0132,.CMsgGCToClien"
-  "tDevAnnouncements.Announcement\032\214\001\n\014Annou"
-  "ncement\022\020\n\010priority\030\001 \001(\r\022\r\n\005title\030\002 \001(\t"
-  "\022\017\n\007message\030\003 \001(\t\022\013\n\003url\030\004 \001(\t\022\021\n\tunique"
-  "_id\030\005 \001(\r\022\023\n\013posted_time\030\006 \001(\r\022\025\n\rpatch_"
-  "version\030\007 \001(\t\"\232\002\n$CMsgClientToGCModifyDe"
-  "vAnnouncements\022N\n\toperation\030\001 \001(\01620.CMsg"
-  "ClientToGCModifyDevAnnouncements.EOperat"
-  "ion:\tk_eCreate\022\021\n\ttarget_id\030\002 \001(\r\022\020\n\010pri"
-  "ority\030\003 \001(\r\022\r\n\005title\030\004 \001(\t\022\017\n\007message\030\005 "
-  "\001(\t\022\013\n\003url\030\006 \001(\t\022\025\n\rpatch_version\030\007 \001(\t\""
-  "9\n\nEOperation\022\r\n\tk_eCreate\020\000\022\r\n\tk_eUpdat"
-  "e\020\001\022\r\n\tk_eDelete\020\002\"\342\001\n,CMsgClientToGCMod"
-  "ifyDevAnnouncementsResponse\022Q\n\006result\030\001 "
-  "\001(\01625.CMsgClientToGCModifyDevAnnouncemen"
-  "tsResponse.EResult:\nk_eSuccess\"_\n\007EResul"
-  "t\022\016\n\nk_eSuccess\020\000\022\030\n\024k_eInvalidPermissio"
-  "n\020\001\022\024\n\020k_eInvalidTarget\020\002\022\024\n\020k_eInternal"
-  "Error\020\003\"\354\003\n\027CMsgClientToGCDevAction\022A\n\006a"
-  "ction\030\001 \001(\0162 .CMsgClientToGCDevAction.EA"
-  "ction:\017k_eSetDeveloper\022\022\n\naccount_id\030\002 \001"
-  "(\r\022\022\n\nuint_value\030\003 \001(\r\022\021\n\tint_value\030\004 \001("
-  "\005\022\022\n\nbool_value\030\005 \001(\010\022\021\n\tstr_value\030\006 \001(\t"
-  "\022\020\n\010match_id\030\007 \001(\004\"\231\002\n\007EAction\022\023\n\017k_eSet"
-  "Developer\020\001\022\r\n\tk_eSetMMR\020\002\022\030\n\024k_eSetMMRU"
-  "ncertainty\020\003\022\024\n\020k_eSetHeroStatus\020\004\022\024\n\020k_"
-  "eSetPermission\020\005\022\033\n\027k_eSetNewPlayerProgr"
-  "ess\020\006\022\032\n\026k_eForceAccountStorage\020\007\022\020\n\014k_e"
-  "BookReset\020\t\022\022\n\016k_eBookXPGrant\020\n\022\021\n\rk_eBa"
-  "nAccount\020\013\022\027\n\023k_eExonerateAccount\020\014\022\031\n\025k"
-  "_eRequireAccountInMM\020\r\"\310\001\n\037CMsgClientToG"
-  "CDevActionResponse\022D\n\006result\030\001 \001(\0162(.CMs"
-  "gClientToGCDevActionResponse.EResult:\nk_"
-  "eSuccess\"_\n\007EResult\022\016\n\nk_eSuccess\020\000\022\030\n\024k"
-  "_eInvalidPermission\020\001\022\024\n\020k_eInvalidTarge"
-  "t\020\002\022\024\n\020k_eInternalError\020\003\"\207\002\n CMsgClient"
-  "ToGCRecordClientEvents\0227\n\006events\030\001 \003(\0132\'"
-  ".CMsgClientToGCRecordClientEvents.Event\022"
-  "\030\n\020client_run_token\030\002 \001(\r\032\217\001\n\005Event\022\022\n\nt"
-  "ime_stamp\030\001 \001(\r\022B\n\010event_id\030\002 \001(\0162\033.ECit"
-  "adelClientAccountEvent:\023k_eLaunchedHeroT"
-  "est\022\022\n\nevent_data\030\003 \001(\004\022\032\n\022client_event_"
-  "index\030\004 \001(\r\";\n(CMsgClientToGCRecordClien"
-  "tEventsResponse\022\017\n\007success\030\001 \001(\010\"w\n\"CMsg"
-  "ClientToGCSetNewPlayerProgress\022Q\n\004flag\030\001"
-  " \001(\0162\036.ECitadelNewPlayerProgressFlag:#k_"
-  "eNewPlayerProgress_GettingStarted\"=\n*CMs"
-  "gClientToGCSetNewPlayerProgressResponse\022"
-  "\017\n\007success\030\001 \001(\010\">\n\037CMsgClientToGCUpdate"
-  "AccountSync\022\013\n\003ids\030\001 \003(\r\022\016\n\006values\030\002 \003(\r"
-  "\"\352\001\n\'CMsgClientToGCUpdateAccountSyncResp"
-  "onse\022T\n\006result\030\001 \001(\01622.CMsgClientToGCUpd"
-  "ateAccountSyncResponse.EResponse:\020k_eInt"
-  "ernalError\"i\n\tEResponse\022\024\n\020k_eInternalEr"
-  "ror\020\000\022\016\n\nk_eSuccess\020\001\022\017\n\013k_eDisabled\020\002\022\016"
-  "\n\nk_eTooBusy\020\003\022\025\n\021k_eInvalidMessage\020\004\"\035\n"
-  "\033CMsgClientToGCGetHeroChoice\"\212\003\n#CMsgCli"
-  "entToGCGetHeroChoiceResponse\022H\n\006result\030\001"
-  " \001(\0162,.CMsgClientToGCGetHeroChoiceRespon"
-  "se.EResult:\nk_eSuccess\022B\n\017hero_selection"
-  "s\030\002 \003(\0132).CMsgClientToGCGetHeroChoiceRes"
-  "ponse.Hero\022\026\n\016hero_choice_id\030\003 \001(\r\022\024\n\014se"
-  "lect_count\030\004 \001(\r\032\027\n\004Hero\022\017\n\007hero_id\030\001 \001("
-  "\r\"\215\001\n\007EResult\022\016\n\nk_eSuccess\020\000\022\020\n\014k_eNoCh"
-  "oices\020\001\022\024\n\020k_eInvalidTarget\020\002\022\024\n\020k_eInte"
-  "rnalError\020\003\022\017\n\013k_eDisabled\020\004\022\016\n\nk_eTooBu"
-  "sy\020\005\022\023\n\017k_eChoiceClosed\020\006\"D\n\030CMsgClientT"
-  "oGCUnlockHero\022\020\n\010hero_ids\030\001 \003(\r\022\026\n\016hero_"
-  "choice_id\030\002 \001(\r\"\341\001\n CMsgClientToGCUnlock"
-  "HeroResponse\022E\n\006result\030\001 \001(\0162).CMsgClien"
-  "tToGCUnlockHeroResponse.EResult:\nk_eSucc"
-  "ess\"v\n\007EResult\022\016\n\nk_eSuccess\020\000\022\024\n\020k_eInt"
-  "ernalError\020\001\022\022\n\016k_eInvalidHero\020\002\022\020\n\014k_eO"
-  "utOfSync\020\003\022\017\n\013k_eDisabled\020\004\022\016\n\nk_eTooBus"
-  "y\020\005\"\233\001\n\017CMsgAccountBook\022\017\n\007book_id\030\001 \001(\r"
-  "\022\017\n\007book_xp\030\002 \001(\r\022\020\n\010spent_xp\030\003 \001(\r\022(\n\007u"
-  "nlocks\030\004 \003(\0132\027.CMsgAccountBook.Unlock\032*\n"
-  "\006Unlock\022\021\n\tunlock_id\030\001 \001(\r\022\r\n\005flags\030\002 \001("
-  "\r\"m\n\030CMsgClientToGCBookUnlock\022\017\n\007book_id"
-  "\030\001 \001(\r\022\021\n\tunlock_id\030\002 \001(\r\022\025\n\rexpected_co"
-  "st\030\003 \001(\r\022\026\n\016client_version\030\004 \001(\r\"\251\002\n CMs"
-  "gClientToGCBookUnlockResponse\022E\n\006result\030"
-  "\001 \001(\0162).CMsgClientToGCBookUnlockResponse"
-  ".EResult:\nk_eSuccess\022&\n\014updated_book\030\002 \001"
-  "(\0132\020.CMsgAccountBook\"\225\001\n\007EResult\022\016\n\nk_eS"
-  "uccess\020\000\022\024\n\020k_eInternalError\020\001\022\026\n\022k_eOut"
-  "OfDateClient\020\002\022\023\n\017k_eInvalidFunds\020\003\022\017\n\013k"
-  "_eDisabled\020\004\022\016\n\nk_eTooBusy\020\005\022\026\n\022k_eAlrea"
-  "dyUnlocked\020\006\"(\n\025CMsgClientToGCGetBook\022\017\n"
-  "\007book_id\030\001 \001(\r\"\351\001\n\035CMsgClientToGCGetBook"
-  "Response\022B\n\006result\030\001 \001(\0162&.CMsgClientToG"
-  "CGetBookResponse.EResult:\nk_eSuccess\022\036\n\004"
-  "book\030\002 \001(\0132\020.CMsgAccountBook\"d\n\007EResult\022"
-  "\016\n\nk_eSuccess\020\000\022\024\n\020k_eInternalError\020\001\022\022\n"
-  "\016k_eInvalidBook\020\002\022\017\n\013k_eDisabled\020\003\022\016\n\nk_"
-  "eTooBusy\020\004\";\n\031CMsgGCToClientBookUpdated\022"
-  "\036\n\004book\030\001 \001(\0132\020.CMsgAccountBook\"O\n CMsgC"
-  "lientToGCSubmitPlaytestUser\022\020\n\010location\030"
-  "\003 \001(\t\022\031\n\021target_account_id\030\004 \001(\r\"\342\002\n(CMs"
-  "gClientToGCSubmitPlaytestUserResponse\022X\n"
-  "\010response\030\001 \001(\01623.CMsgClientToGCSubmitPl"
-  "aytestUserResponse.EResponse:\021eResponse_"
-  "Success\"\333\001\n\tEResponse\022\025\n\021eResponse_Succe"
-  "ss\020\000\022\033\n\027eResponse_InternalError\020\001\022\033\n\027eRe"
-  "sponse_InvalidFriend\020\003\022\"\n\036eResponse_NotF"
-  "riendsLongEnough\020\004\022\034\n\030eResponse_AlreadyH"
-  "asGame\020\005\022\031\n\025eResponse_LimitedUser\020\006\022 \n\034e"
-  "Response_InviteLimitReached\020\007\"\335\005\n\rCMsgHe"
-  "roBuild\022\025\n\rhero_build_id\030\001 \001(\r\022\017\n\007hero_i"
-  "d\030\002 \001(\r\022\031\n\021author_account_id\030\003 \001(\r\022\036\n\026la"
-  "st_updated_timestamp\030\004 \001(\r\022\014\n\004name\030\005 \001(\t"
-  "\022\023\n\013description\030\006 \001(\t\022\020\n\010language\030\007 \001(\r\022"
-  "\017\n\007version\030\010 \001(\r\022\027\n\017origin_build_id\030\t \001("
-  "\r\022*\n\007details\030\n \001(\0132\031.CMsgHeroBuild.Detai"
-  "ls_V0\0327\n\rBuildModEntry\022\022\n\nability_id\030\001 \001"
-  "(\r\022\022\n\nannotation\030\002 \001(\t\032\200\001\n\020BuildModCateg"
-  "ory\022*\n\004mods\030\001 \003(\0132\034.CMsgHeroBuild.BuildM"
-  "odEntry\022\014\n\004name\030\002 \001(\t\022\023\n\013description\030\003 \001"
-  "(\t\022\r\n\005width\030\004 \001(\002\022\016\n\006height\030\005 \001(\002\032^\n\016Cur"
-  "rencyChange\022\022\n\nability_id\030\001 \001(\r\022\025\n\rcurre"
-  "ncy_type\030\002 \001(\005\022\r\n\005delta\030\003 \001(\005\022\022\n\nannotat"
-  "ion\030\004 \001(\t\032G\n\014AbilityOrder\0227\n\020currency_ch"
-  "anges\030\001 \003(\0132\035.CMsgHeroBuild.CurrencyChan"
-  "ge\032y\n\nDetails_V0\0227\n\016mod_categories\030\001 \003(\013"
-  "2\037.CMsgHeroBuild.BuildModCategory\0222\n\rabi"
-  "lity_order\030\002 \001(\0132\033.CMsgHeroBuild.Ability"
-  "Order\"C\n\035CMsgClientToGCUpdateHeroBuild\022\""
-  "\n\nhero_build\030\001 \001(\0132\016.CMsgHeroBuild\"\330\001\n%C"
-  "MsgClientToGCUpdateHeroBuildResponse\022T\n\010"
-  "response\030\001 \001(\01620.CMsgClientToGCUpdateHer"
-  "oBuildResponse.EResponse:\020k_eInternalErr"
-  "or\022\025\n\rhero_build_id\030\002 \001(\r\022\017\n\007version\030\003 \001"
-  "(\r\"1\n\tEResponse\022\024\n\020k_eInternalError\020\000\022\016\n"
-  "\nk_eSuccess\020\001\"\210\001\n\034CMsgClientToGCFindHero"
-  "Builds\022\031\n\021author_account_id\030\001 \001(\r\022\017\n\007her"
-  "o_id\030\002 \001(\r\022\020\n\010language\030\003 \003(\005\022\023\n\013search_t"
-  "ext\030\004 \001(\t\022\025\n\rhero_build_id\030\005 \001(\r\"O\n\027CMsg"
-  "HeroBuildPreference\022\021\n\tfavorited\030\001 \001(\010\022\017"
-  "\n\007ignored\030\002 \001(\010\022\020\n\010reported\030\003 \001(\010\"\201\004\n$CM"
-  "sgClientToGCFindHeroBuildsResponse\022S\n\010re"
-  "sponse\030\001 \001(\0162/.CMsgClientToGCFindHeroBui"
-  "ldsResponse.EResponse:\020k_eInternalError\022"
-  "F\n\007results\030\002 \003(\01325.CMsgClientToGCFindHer"
-  "oBuildsResponse.HeroBuildResult\032\370\001\n\017Hero"
-  "BuildResult\022\"\n\nhero_build\030\001 \001(\0132\016.CMsgHe"
-  "roBuild\022,\n\npreference\030\002 \001(\0132\030.CMsgHeroBu"
-  "ildPreference\022\025\n\rnum_favorites\030\003 \001(\r\022\023\n\013"
-  "num_ignores\030\004 \001(\r\022\023\n\013num_reports\030\005 \001(\r\022\034"
-  "\n\024num_weekly_favorites\030\006 \001(\r\022\033\n\023num_dail"
-  "y_favorites\030\007 \001(\r\022\027\n\017rollup_category\030\010 \001"
-  "(\r\"A\n\tEResponse\022\024\n\020k_eInternalError\020\000\022\016\n"
-  "\nk_eSuccess\020\001\022\016\n\nk_eTooBusy\020\002\"n\n\'CMsgCli"
-  "entToGCUpdateHeroBuildPreference\022\025\n\rhero"
-  "_build_id\030\001 \001(\r\022,\n\npreference\030\002 \001(\0132\030.CM"
-  "sgHeroBuildPreference\"\304\001\n/CMsgClientToGC"
-  "UpdateHeroBuildPreferenceResponse\022^\n\010res"
-  "ponse\030\001 \001(\0162:.CMsgClientToGCUpdateHeroBu"
-  "ildPreferenceResponse.EResponse:\020k_eInte"
-  "rnalError\"1\n\tEResponse\022\024\n\020k_eInternalErr"
-  "or\020\000\022\016\n\nk_eSuccess\020\001\">\n!CMsgClientToGCGe"
-  "tOldHeroBuildData\022\031\n\021author_account_id\030\001"
-  " \001(\r\"\333\003\n)CMsgClientToGCGetOldHeroBuildDa"
-  "taResponse\022X\n\010response\030\001 \001(\01624.CMsgClien"
-  "tToGCGetOldHeroBuildDataResponse.ERespon"
-  "se:\020k_eInternalError\022\031\n\021author_account_i"
-  "d\030\002 \001(\r\022D\n\007results\030\003 \003(\01323.CMsgClientToG"
-  "CGetOldHeroBuildDataResponse.OldBuild\0324\n"
-  "\rOldDetails_V0\022#\n\033recommended_mod_abilit"
-  "y_ids\030\001 \003(\r\032\211\001\n\010OldBuild\022\014\n\004name\030\001 \001(\t\022\017"
-  "\n\007hero_id\030\002 \001(\r\022\023\n\013description\030\003 \001(\t\022I\n\007"
-  "details\030\004 \001(\01328.CMsgClientToGCGetOldHero"
-  "BuildDataResponse.OldDetails_V0\"1\n\tEResp"
-  "onse\022\024\n\020k_eInternalError\020\000\022\016\n\nk_eSuccess"
-  "\020\001\"\337\002\n#CMsgClientToGCReportPlayerFromMat"
-  "ch\022\020\n\010match_id\030\001 \001(\004\022\031\n\021target_account_i"
-  "d\030\002 \001(\r\022U\n\013report_type\030\003 \001(\01620.CMsgClien"
-  "tToGCReportPlayerFromMatch.EReportType:\016"
-  "k_eReport_None\022\023\n\013report_text\030\004 \001(\t\"\236\001\n\013"
-  "EReportType\022\022\n\016k_eReport_None\020\000\022\027\n\023k_eRe"
-  "port_VoiceChat\020\001\022\026\n\022k_eReport_Griefing\020\002"
-  "\022\027\n\023k_eReport_LeftMatch\020\003\022\031\n\025k_eReport_M"
-  "atchmaking\020\004\022\026\n\022k_eReport_Cheating\020\005\"\340\002\n"
-  "+CMsgClientToGCReportPlayerFromMatchResp"
-  "onse\022Z\n\010response\030\001 \001(\01626.CMsgClientToGCR"
-  "eportPlayerFromMatchResponse.EResponse:\020"
-  "k_eInternalError\"\324\001\n\tEResponse\022\024\n\020k_eInt"
-  "ernalError\020\000\022\016\n\nk_eSuccess\020\001\022\022\n\016k_eRateL"
-  "imited\020\002\022\026\n\022k_eAlreadyReported\020\003\022\017\n\013k_eD"
-  "isabled\020\004\022\031\n\025k_eInvalidPermissions\020\005\022\035\n\031"
-  "k_eReportingWindowExpired\020\006\022\016\n\nk_eTooBus"
-  "y\020\007\022\032\n\026k_eBannedFromReporting\020\010\"8\n$CMsgC"
-  "lientToGCGetAccountMatchReports\022\020\n\010match"
-  "_id\030\001 \001(\004\"\254\003\n,CMsgClientToGCGetAccountMa"
-  "tchReportsResponse\022[\n\010response\030\001 \001(\01627.C"
-  "MsgClientToGCGetAccountMatchReportsRespo"
-  "nse.EResponse:\020k_eInternalError\022E\n\007repor"
-  "ts\030\002 \003(\01324.CMsgClientToGCGetAccountMatch"
-  "ReportsResponse.Report\022G\n\010commends\030\003 \003(\013"
-  "25.CMsgClientToGCGetAccountMatchReportsR"
-  "esponse.Commend\032\034\n\006Report\022\022\n\naccount_id\030"
-  "\001 \001(\r\032\035\n\007Commend\022\022\n\naccount_id\030\001 \001(\r\"R\n\t"
-  "EResponse\022\024\n\020k_eInternalError\020\000\022\016\n\nk_eSu"
-  "ccess\020\001\022\017\n\013k_eDisabled\020\004\022\016\n\nk_eTooBusy\020\007"
-  "\"Q\n\035CMsgClientToGCDeleteHeroBuild\022\031\n\021aut"
-  "hor_account_id\030\001 \001(\r\022\025\n\rhero_build_id\030\002 "
-  "\001(\r\"\310\001\n%CMsgClientToGCDeleteHeroBuildRes"
-  "ponse\022T\n\010response\030\001 \001(\01620.CMsgClientToGC"
-  "DeleteHeroBuildResponse.EResponse:\020k_eIn"
-  "ternalError\022\026\n\016builds_deleted\030\002 \001(\r\"1\n\tE"
-  "Response\022\024\n\020k_eInternalError\020\000\022\016\n\nk_eSuc"
-  "cess\020\001\" \n\036CMsgClientToGCGetActiveMatches"
-  "\"S\n&CMsgClientToGCGetActiveMatchesRespon"
-  "se\022)\n\016active_matches\030\001 \003(\0132\021.CMsgDevMatc"
-  "hInfo\"\036\n\034CMsgClientToGCGetDiscordLink\"\230\002"
-  "\n$CMsgClientToGCGetDiscordLinkResponse\022S"
-  "\n\010response\030\001 \001(\0162/.CMsgClientToGCGetDisc"
-  "ordLinkResponse.EResponse:\020k_eInternalEr"
-  "ror\022\024\n\014discord_link\030\002 \001(\t\022\023\n\013valid_hours"
-  "\030\003 \001(\r\"p\n\tEResponse\022\024\n\020k_eInternalError\020"
-  "\000\022\016\n\nk_eSuccess\020\001\022\025\n\021k_eDiscordTooBusy\020\002"
-  "\022\025\n\021k_eAlreadyClaimed\020\003\022\017\n\013k_eDisabled\020\004"
-  "\"/\n\036CMsgClientToGCGrantForumAccess\022\r\n\005em"
-  "ail\030\001 \001(\t\"\245\002\n&CMsgClientToGCGrantForumAc"
-  "cessResponse\022U\n\010response\030\001 \001(\01621.CMsgCli"
-  "entToGCGrantForumAccessResponse.ERespons"
-  "e:\020k_eInternalError\022\r\n\005email\030\002 \001(\t\022\020\n\010us"
-  "ername\030\003 \001(\t\022\026\n\016forum_password\030\004 \001(\t\"k\n\t"
-  "EResponse\022\024\n\020k_eInternalError\020\000\022\016\n\nk_eSu"
-  "ccess\020\001\022\025\n\021k_eAlreadyClaimed\020\002\022\017\n\013k_eDis"
-  "abled\020\003\022\020\n\014k_eEmailUsed\020\004\"4\n\036CMsgClientT"
-  "oGCModeratorRequest\022\022\n\naccount_id\030\001 \001(\r\""
-  "P\n&CMsgClientToGCModeratorRequestRespons"
-  "e\022\017\n\007success\030\001 \001(\010\022\025\n\rresponse_text\030\002 \003("
-  "\t\"<\n!CMsgClientToGCGetFriendGameStatus\022\027"
-  "\n\017include_invited\030\001 \001(\010\"\271\002\n)CMsgClientTo"
-  "GCGetFriendGameStatusResponse\022X\n\010respons"
-  "e\030\001 \001(\01624.CMsgClientToGCGetFriendGameSta"
-  "tusResponse.EResponse:\020k_eInternalError\022"
-  "\037\n\023friends_played_game\030\002 \003(\rB\002\020\001\022\033\n\017frie"
-  "nds_invited\030\003 \003(\rB\002\020\001\022 \n\024friends_invites"
-  "_sent\030\004 \003(\rB\002\020\001\"R\n\tEResponse\022\024\n\020k_eInter"
-  "nalError\020\000\022\016\n\nk_eSuccess\020\001\022\016\n\nk_eTooBusy"
-  "\020\002\022\017\n\013k_eDisabled\020\003\"^\n#CMsgClientToGCUpd"
-  "ateSpectatorStatus\022\033\n\023spectating_lobby_i"
-  "d\030\001 \001(\006\022\032\n\022stopped_spectating\030\002 \001(\010\"\242\001\n$"
-  "CMsgClientToGCCommendPlayerFromMatch\022\020\n\010"
-  "match_id\030\001 \001(\004\022\031\n\021target_account_id\030\002 \001("
-  "\r\022/\n\014commend_type\030\003 \001(\0162\r.ECommendType:\n"
-  "k_eInvalid\022\034\n\024fake_commend_hero_id\030\004 \001(\r"
-  "\"\361\001\n,CMsgClientToGCCommendPlayerFromMatc"
-  "hResponse\022Y\n\006result\030\001 \001(\01627.CMsgClientTo"
-  "GCCommendPlayerFromMatchResponse.ERespon"
-  "se:\020k_eInternalError\"f\n\tEResponse\022\024\n\020k_e"
+  "\001(\r\022\026\n\016client_version\030\003 \001(\r\0229\n\017client_pl"
+  "atform\030\004 \001(\0162\014.EGCPlatform:\022k_eGCPlatfor"
+  "m_None\"\252\004\n\"CMsgClientToGCSpectateUserRes"
+  "ponse\022O\n\006result\030\001 \001(\0162-.CMsgClientToGCSp"
+  "ectateUserResponse.EResponse:\020k_eInterna"
+  "lError\022\027\n\017server_steam_id\030\003 \001(\006\022\017\n\007sdr_k"
+  "ey\030\004 \001(\014\022\026\n\016udp_connect_ip\030\005 \001(\r\022\030\n\020udp_"
+  "connect_port\030\006 \001(\r\022\020\n\010lobby_id\030\007 \001(\006\022\034\n\024"
+  "client_broadcast_url\030\010 \001(\t\"\246\002\n\tEResponse"
+  "\022\024\n\020k_eInternalError\020\000\022\016\n\nk_eSuccess\020\001\022\017"
+  "\n\013k_eDisabled\020\002\022\016\n\nk_eTooBusy\020\003\022\022\n\016k_eRa"
+  "teLimited\020\004\022\020\n\014k_eNotInGame\020\005\022\026\n\022k_eDisa"
+  "bledForGame\020\006\022\021\n\rk_eServerFull\020\007\022\021\n\rk_eN"
+  "otFriends\020\010\022\034\n\030k_eRegionInfoNotProvided\020"
+  "\t\022\035\n\031k_eDurationControlBlocked\020\n\022\033\n\027k_eI"
+  "nvalidClientVersion\020\013\022\024\n\020k_eInvalidRegio"
+  "n\020\014\"\224\001\n\033CMsgClientToGCSpectateLobby\022\020\n\010l"
+  "obby_id\030\001 \001(\004\022\026\n\016client_version\030\003 \001(\r\0229\n"
+  "\017client_platform\030\004 \001(\0162\014.EGCPlatform:\022k_"
+  "eGCPlatform_None\022\020\n\010match_id\030\005 \001(\004\"Z\n#CM"
+  "sgClientToGCSpectateLobbyResponse\0223\n\006res"
+  "ult\030\001 \001(\0132#.CMsgClientToGCSpectateUserRe"
+  "sponse\"g\n\034CMsgClientToGCGetProfileCard\022\022"
+  "\n\naccount_id\030\001 \001(\r\022\027\n\017dev_access_hint\030\002 "
+  "\001(\010\022\032\n\022friend_access_hint\030\003 \001(\010\"\356\003\n\026CMsg"
+  "CitadelProfileCard\022\022\n\naccount_id\030\001 \001(\r\022+"
+  "\n\005slots\030\002 \003(\0132\034.CMsgCitadelProfileCard.S"
+  "lot\022\032\n\022ranked_badge_level\030\003 \001(\r\032\230\002\n\004Slot"
+  "\022\017\n\007slot_id\030\001 \001(\r\022/\n\004stat\030\002 \001(\0132!.CMsgCi"
+  "tadelProfileCard.Slot.Stat\022/\n\004hero\030\003 \001(\013"
+  "2!.CMsgCitadelProfileCard.Slot.Hero\032]\n\004S"
+  "tat\022A\n\007stat_id\030\001 \001(\0162\037.CMsgCitadelProfil"
+  "eCard.EStatID:\017k_eStat_Invalid\022\022\n\nstat_s"
+  "core\030\002 \001(\r\032>\n\004Hero\022\017\n\007hero_id\030\001 \001(\r\022\021\n\th"
+  "ero_wins\030\002 \001(\r\022\022\n\nhero_kills\030\003 \001(\r\"\\\n\007ES"
+  "tatID\022\023\n\017k_eStat_Invalid\020\000\022\020\n\014k_eStat_Wi"
+  "ns\020\001\022\021\n\rk_eStat_Kills\020\002\022\027\n\023k_eStat_Games"
+  "Played\020\003\"\320\001\n\032CMsgClientToGCUpdateRoster\022"
+  "+\n\006heroes\030\001 \001(\0132\033.CMsgHeroSelectionMatch"
+  "Info\022@\n\tgame_mode\030\002 \001(\0162\021.ECitadelGameMo"
+  "de:\032k_ECitadelGameMode_Invalid\022C\n\nmatch_"
+  "mode\030\003 \001(\0162\022.ECitadelMatchMode:\033k_ECitad"
+  "elMatchMode_Invalid\"\244\002\n\"CMsgClientToGCUp"
+  "dateRosterResponse\022O\n\006result\030\001 \001(\0162-.CMs"
+  "gClientToGCUpdateRosterResponse.ERespons"
+  "e:\020k_eInternalError\"\254\001\n\tEResponse\022\024\n\020k_e"
   "InternalError\020\000\022\016\n\nk_eSuccess\020\001\022\017\n\013k_eDi"
   "sabled\020\002\022\016\n\nk_eTooBusy\020\003\022\022\n\016k_eRateLimit"
-  "ed\020\004\"\267\001\n!CMsgGCToClientCommendNotificati"
-  "on\022\034\n\024commender_account_id\030\001 \001(\r\022\026\n\016comm"
-  "ender_name\030\002 \001(\t\022\031\n\021commender_hero_id\030\004 "
-  "\001(\r\022/\n\014commend_type\030\005 \001(\0162\r.ECommendType"
-  ":\nk_eInvalid\022\020\n\010match_id\030\006 \001(\004\"#\n!CMsgCl"
-  "ientToGCRequestCheatReports\"\347\002\n)CMsgClie"
-  "ntToGCRequestCheatReportsResponse\022N\n\006res"
-  "ult\030\001 \001(\01622.CMsgClientToGCRequestCheatRe"
-  "portsResponse.EResult:\nk_eSuccess\022S\n\rche"
-  "at_reports\030\002 \003(\0132<.CMsgClientToGCRequest"
-  "CheatReportsResponse.RecentCheatReport\032J"
-  "\n\021RecentCheatReport\022\022\n\naccount_id\030\001 \001(\r\022"
-  "\020\n\010match_id\030\002 \001(\004\022\017\n\007hero_id\030\003 \001(\r\"I\n\007ER"
-  "esult\022\016\n\nk_eSuccess\020\000\022\030\n\024k_eInvalidPermi"
-  "ssion\020\001\022\024\n\020k_eInternalError\020\002\"=\n CMsgCli"
-  "entToGCGetHeroMMRRankings\022\031\n\021target_acco"
-  "unt_id\030\001 \001(\r\"\303\002\n(CMsgClientToGCGetHeroMM"
-  "RRankingsResponse\022M\n\006result\030\001 \001(\01621.CMsg"
-  "ClientToGCGetHeroMMRRankingsResponse.ERe"
-  "sult:\nk_eSuccess\022>\n\006heroes\030\002 \003(\0132..CMsgC"
-  "lientToGCGetHeroMMRRankingsResponse.Hero"
-  "\032-\n\004Hero\022\017\n\007hero_id\030\001 \001(\r\022\024\n\014relative_mm"
-  "r\030\002 \001(\005\"Y\n\007EResult\022\016\n\nk_eSuccess\020\000\022\030\n\024k_"
-  "eInvalidPermission\020\001\022\024\n\020k_eInternalError"
-  "\020\002\022\016\n\nk_eTooBusy\020\003\"\211\001\n\034CMsgClientToGCGet"
-  "Leaderboard\022X\n\022leaderboard_region\030\001 \001(\0162"
-  "\032.ECitadelLeaderboardRegion: k_ECitadelL"
-  "eaderboardRegion_None\022\017\n\007hero_id\030\002 \001(\r\"\367"
-  "\002\n$CMsgClientToGCGetLeaderboardResponse\022"
-  "I\n\006result\030\001 \001(\0162-.CMsgClientToGCGetLeade"
-  "rboardResponse.EResult:\nk_eSuccess\022G\n\007en"
-  "tries\030\002 \003(\01326.CMsgClientToGCGetLeaderboa"
-  "rdResponse.LeaderboardEntry\032a\n\020Leaderboa"
-  "rdEntry\022\024\n\014account_name\030\001 \001(\t\022\014\n\004rank\030\002 "
-  "\001(\r\022\024\n\014top_hero_ids\030\003 \003(\r\022\023\n\013badge_level"
-  "\030\004 \001(\r\"X\n\007EResult\022\016\n\nk_eSuccess\020\000\022\027\n\023k_e"
-  "InvalidArguments\020\001\022\024\n\020k_eInternalError\020\002"
-  "\022\016\n\nk_eTooBusy\020\003\":\n$CMsgClientToGCGetAcc"
-  "ountLeaderboards\022\022\n\naccount_id\030\001 \001(\r\"\304\003\n"
-  ",CMsgClientToGCGetAccountLeaderboardsRes"
-  "ponse\022Q\n\006result\030\001 \001(\01625.CMsgClientToGCGe"
-  "tAccountLeaderboardsResponse.EResult:\nk_"
-  "eSuccess\022\024\n\014account_name\030\002 \001(\t\022O\n\007entrie"
-  "s\030\003 \003(\0132>.CMsgClientToGCGetAccountLeader"
-  "boardsResponse.LeaderboardEntry\032\177\n\020Leade"
-  "rboardEntry\022L\n\006region\030\001 \001(\0162\032.ECitadelLe"
-  "aderboardRegion: k_ECitadelLeaderboardRe"
-  "gion_None\022\017\n\007hero_id\030\002 \001(\r\022\014\n\004rank\030\003 \001(\r"
-  "\"Y\n\007EResult\022\016\n\nk_eSuccess\020\000\022\030\n\024k_eInvali"
-  "dPermission\020\001\022\024\n\020k_eInternalError\020\002\022\016\n\nk"
-  "_eTooBusy\020\003\"A\n\"CMsgClientToGCSetHideHoli"
-  "dayModels\022\033\n\023hide_holiday_models\030\001 \001(\010\"="
-  "\n*CMsgClientToGCSetHideHolidayModelsResp"
-  "onse\022\017\n\007success\030\001 \001(\010*\237&\n\030EGCCitadelClie"
-  "ntMessages\022%\n k_EMsgClientToGCStartMatch"
-  "making\020\262F\022-\n(k_EMsgClientToGCStartMatchm"
-  "akingResponse\020\263F\022$\n\037k_EMsgClientToGCStop"
-  "Matchmaking\020\264F\022,\n\'k_EMsgClientToGCStopMa"
-  "tchmakingResponse\020\265F\022\'\n\"k_EMsgGCToClient"
-  "MatchmakingStopped\020\266F\022\037\n\032k_EMsgClientToG"
-  "CLeaveLobby\020\267F\022\'\n\"k_EMsgClientToGCLeaveL"
-  "obbyResponse\020\270F\022$\n\037k_EMsgClientToGCIsInM"
-  "atchmaking\020\271F\022,\n\'k_EMsgClientToGCIsInMat"
-  "chmakingResponse\020\272F\022&\n!k_EMsgGCToClientD"
-  "evPlaytestStatus\020\273F\022!\n\034k_EMsgClientToGCD"
-  "evSetMMBias\020\277F\022#\n\036k_EMsgClientToGCGetPro"
-  "fileCard\020\300F\022+\n&k_EMsgClientToGCGetProfil"
-  "eCardResponse\020\301F\022!\n\034k_EMsgClientToGCUpda"
-  "teRoster\020\302F\022)\n$k_EMsgClientToGCUpdateRos"
-  "terResponse\020\303F\022\'\n\"k_EMsgGCToClientProfil"
-  "eCardUpdated\020\304F\022%\n k_EMsgGCToClientDevAn"
-  "nouncements\020\305F\022+\n&k_EMsgClientToGCModify"
-  "DevAnnouncements\020\306F\0223\n.k_EMsgClientToGCM"
-  "odifyDevAnnouncementsResponse\020\307F\022\036\n\031k_EM"
-  "sgGCToClientSDRTicket\020\214G\022)\n$k_EMsgClient"
-  "ToGCReplacementSDRTicket\020\215G\0221\n,k_EMsgCli"
-  "entToGCReplacementSDRTicketResponse\020\216G\022$"
-  "\n\037k_EMsgClientToGCSetServerConVar\020\223G\022,\n\'"
-  "k_EMsgClientToGCSetServerConVarResponse\020"
-  "\224G\022\"\n\035k_EMsgClientToGCSpectateLobby\020\225G\022*"
-  "\n%k_EMsgClientToGCSpectateLobbyResponse\020"
-  "\226G\022,\n\'k_EMsgClientToGCPostMatchSurveyRes"
-  "ponse\020\227G\022$\n\037k_EMsgClientToGCGetMatchHist"
-  "ory\020\230G\022,\n\'k_EMsgClientToGCGetMatchHistor"
-  "yResponse\020\231G\022!\n\034k_EMsgClientToGCSpectate"
-  "User\020\234G\022)\n$k_EMsgClientToGCSpectateUserR"
-  "esponse\020\235G\022 \n\033k_EMsgClientToGCPartyCreat"
-  "e\020\243G\022(\n#k_EMsgClientToGCPartyCreateRespo"
-  "nse\020\244G\022\037\n\032k_EMsgClientToGCPartyLeave\020\245G\022"
-  "\'\n\"k_EMsgClientToGCPartyLeaveResponse\020\246G"
-  "\022\036\n\031k_EMsgClientToGCPartyJoin\020\247G\022&\n!k_EM"
-  "sgClientToGCPartyJoinResponse\020\250G\022 \n\033k_EM"
-  "sgClientToGCPartyAction\020\251G\022(\n#k_EMsgClie"
-  "ntToGCPartyActionResponse\020\252G\022$\n\037k_EMsgCl"
-  "ientToGCPartyStartMatch\020\253G\022,\n\'k_EMsgClie"
-  "ntToGCPartyStartMatchResponse\020\254G\022$\n\037k_EM"
-  "sgClientToGCPartyInviteUser\020\255G\022,\n\'k_EMsg"
-  "ClientToGCPartyInviteUserResponse\020\256G\022\037\n\032"
-  "k_EMsgGCToClientPartyEvent\020\257G\022#\n\036k_EMsgG"
-  "CToClientCanRejoinParty\020\261G\022%\n k_EMsgClie"
-  "ntToGCPartyJoinViaCode\020\262G\022-\n(k_EMsgClien"
-  "tToGCPartyJoinViaCodeResponse\020\263G\022\'\n\"k_EM"
-  "sgClientToGCPartySetReadyState\020\266G\022/\n*k_E"
-  "MsgClientToGCPartySetReadyStateResponse\020"
-  "\267G\022$\n\037k_EMsgClientToGCGetAccountStats\020\314G"
-  "\022,\n\'k_EMsgClientToGCGetAccountStatsRespo"
-  "nse\020\315G\022(\n#k_EMsgGCToClientAccountStatsUp"
-  "dated\020\316G\022%\n k_EMsgClientToGCGetMatchMeta"
-  "Data\020\317G\022-\n(k_EMsgClientToGCGetMatchMetaD"
-  "ataResponse\020\320G\022\036\n\031k_EMsgClientToGCDevAct"
-  "ion\020\324G\022&\n!k_EMsgClientToGCDevActionRespo"
-  "nse\020\325G\022\'\n\"k_EMsgClientToGCRecordClientEv"
-  "ents\020\326G\022/\n*k_EMsgClientToGCRecordClientE"
-  "ventsResponse\020\327G\022)\n$k_EMsgClientToGCSetN"
-  "ewPlayerProgress\020\330G\0221\n,k_EMsgClientToGCS"
-  "etNewPlayerProgressResponse\020\331G\022&\n!k_EMsg"
-  "ClientToGCUpdateAccountSync\020\332G\022.\n)k_EMsg"
-  "ClientToGCUpdateAccountSyncResponse\020\333G\022\""
-  "\n\035k_EMsgClientToGCGetHeroChoice\020\334G\022*\n%k_"
-  "EMsgClientToGCGetHeroChoiceResponse\020\335G\022\037"
-  "\n\032k_EMsgClientToGCUnlockHero\020\336G\022\'\n\"k_EMs"
-  "gClientToGCUnlockHeroResponse\020\337G\022\037\n\032k_EM"
-  "sgClientToGCBookUnlock\020\340G\022\'\n\"k_EMsgClien"
-  "tToGCBookUnlockResponse\020\341G\022\034\n\027k_EMsgClie"
-  "ntToGCGetBook\020\342G\022$\n\037k_EMsgClientToGCGetB"
-  "ookResponse\020\343G\022 \n\033k_EMsgGCToClientBookUp"
-  "dated\020\344G\022\'\n\"k_EMsgClientToGCSubmitPlayte"
-  "stUser\020\345G\022/\n*k_EMsgClientToGCSubmitPlayt"
-  "estUserResponse\020\346G\022$\n\037k_EMsgClientToGCUp"
-  "dateHeroBuild\020\351G\022,\n\'k_EMsgClientToGCUpda"
-  "teHeroBuildResponse\020\352G\022#\n\036k_EMsgClientTo"
-  "GCFindHeroBuilds\020\353G\022+\n&k_EMsgClientToGCF"
-  "indHeroBuildsResponse\020\354G\022*\n%k_EMsgClient"
-  "ToGCReportPlayerFromMatch\020\355G\0222\n-k_EMsgCl"
-  "ientToGCReportPlayerFromMatchResponse\020\356G"
-  "\022+\n&k_EMsgClientToGCGetAccountMatchRepor"
-  "ts\020\357G\0223\n.k_EMsgClientToGCGetAccountMatch"
-  "ReportsResponse\020\360G\022$\n\037k_EMsgClientToGCDe"
-  "leteHeroBuild\020\361G\022,\n\'k_EMsgClientToGCDele"
-  "teHeroBuildResponse\020\362G\022%\n k_EMsgClientTo"
-  "GCGetActiveMatches\020\363G\022-\n(k_EMsgClientToG"
-  "CGetActiveMatchesResponse\020\364G\022#\n\036k_EMsgCl"
-  "ientToGCGetDiscordLink\020\365G\022+\n&k_EMsgClien"
-  "tToGCGetDiscordLinkResponse\020\366G\022!\n\034k_EMsg"
-  "ClientToGCPartySetMode\020\367G\022)\n$k_EMsgClien"
-  "tToGCPartySetModeResponse\020\370G\022%\n k_EMsgCl"
-  "ientToGCGrantForumAccess\020\371G\022-\n(k_EMsgCli"
-  "entToGCGrantForumAccessResponse\020\372G\022%\n k_"
-  "EMsgClientToGCModeratorRequest\020\373G\022-\n(k_E"
-  "MsgClientToGCModeratorRequestResponse\020\374G"
-  "\022(\n#k_EMsgClientToGCGetFriendGameStatus\020"
-  "\375G\0220\n+k_EMsgClientToGCGetFriendGameStatu"
-  "sResponse\020\376G\022.\n)k_EMsgClientToGCUpdateHe"
-  "roBuildPreference\020\377G\0226\n1k_EMsgClientToGC"
-  "UpdateHeroBuildPreferenceResponse\020\200H\022(\n#"
-  "k_EMsgClientToGCGetOldHeroBuildData\020\201H\0220"
-  "\n+k_EMsgClientToGCGetOldHeroBuildDataRes"
-  "ponse\020\202H\022*\n%k_EMsgClientToGCUpdateSpecta"
-  "torStatus\020\203H\022+\n&k_EMsgClientToGCCommendP"
-  "layerFromMatch\020\207H\0223\n.k_EMsgClientToGCCom"
-  "mendPlayerFromMatchResponse\020\210H\022(\n#k_EMsg"
-  "GCToClientCommendNotification\020\211H\022%\n k_EM"
-  "sgGCToClientHeroLabsSchedule\020\214H\022+\n&k_EMs"
-  "gClientToGCDevRequestCheatReports\020\216H\0223\n."
-  "k_EMsgClientToGCDevRequestCheatReportsRe"
-  "sponse\020\217H\022\033\n\026k_EMsgClientToGCDevBan\020\220H\022#"
-  "\n\036k_EMsgClientToGCDevBanResponse\020\221H\022\'\n\"k"
-  "_EMsgClientToGCGetHeroMMRRankings\020\222H\022/\n*"
-  "k_EMsgClientToGCGetHeroMMRRankingsRespon"
-  "se\020\223H\022#\n\036k_EMsgClientToGCGetLeaderboard\020"
-  "\224H\022+\n&k_EMsgClientToGCGetLeaderboardResp"
-  "onse\020\225H\022+\n&k_EMsgClientToGCGetAccountLea"
-  "derboards\020\226H\0223\n.k_EMsgClientToGCGetAccou"
-  "ntLeaderboardsResponse\020\227H\022)\n$k_EMsgClien"
-  "tToGCSetHideHolidayModels\020\230H\0221\n,k_EMsgCl"
-  "ientToGCSetHideHolidayModelsResponse\020\231H*"
-  "@\n\035ECitadelAccountPermissionFlag\022\037\n\033k_eA"
-  "ccountPermission_Ranked\020\001*\226\001\n\035ECitadelNe"
-  "wPlayerProgressFlag\022\'\n#k_eNewPlayerProgr"
-  "ess_GettingStarted\020\001\022%\n!k_eNewPlayerProg"
-  "ress_HeroTraining\020\002\022%\n!k_eNewPlayerProgr"
-  "ess_LaneTraining\020\003*z\n\024EProfileCardSlotTy"
-  "pe\022 \n\034k_EProfileCardSlotType_Empty\020\000\022\037\n\033"
-  "k_EProfileCardSlotType_Stat\020\001\022\037\n\033k_EProf"
-  "ileCardSlotType_Hero\020\002*\225\001\n\rEDevBanReason"
-  "\022\037\n\033k_eDevBanReason_Unspecified\020\000\022\035\n\031k_e"
-  "DevBanReason_AimAssist\020\001\022 \n\034k_eDevBanRea"
-  "son_VisionAssist\020\002\022\"\n\036k_eDevBanReason_Mo"
-  "vementAssist\020\003*\376\013\n\032ECitadelClientAccount"
-  "Event\022\027\n\023k_eLaunchedHeroTest\020\001\022\024\n\020k_eVie"
-  "wedProfile\020\002\022\023\n\017k_eViewedSocial\020\003\022\023\n\017k_e"
-  "ViewedHeroes\020\004\022\030\n\024k_eViewedHeroDetails\020\005"
-  "\022\027\n\023k_eViewedPatchNotes\020\006\022\023\n\017k_eViewedEv"
-  "ents\020\007\022\033\n\027k_eViewedGettingStarted\020\010\022\026\n\022k"
-  "_eViewedGuidePage\020\t\022\025\n\021k_eLaunchedClient"
-  "\020\n\022\021\n\rk_eEditRoster\020\013\022\022\n\016k_eViewedWatch\020"
-  "\014\022\023\n\017k_eCreatedParty\020\r\022\035\n\031k_eCreatedPart"
-  "yWithInvite\020\016\022\030\n\024k_eViewedSelfProfile\020\017\022"
-  "\026\n\022k_eJoinedPartyCode\020\020\022\026\n\022k_eSentPartyI"
-  "nvite\020\021\022\030\n\024k_eAcceptPartyInvite\020\022\022\030\n\024k_e"
-  "RejectPartyInvite\020\023\022\023\n\017k_eSpectateUser\020\024"
-  "\022\024\n\020k_eSpectateMatch\020\025\022\031\n\025k_eEnteredMatc"
-  "hMaking\020\026\022\026\n\022k_eLeftMatchMaking\020\027\022\036\n\032k_e"
-  "EnteredPartyMatchMaking\020\030\022\033\n\027k_eLeftPart"
-  "yMatchMaking\020\031\022\027\n\023k_eDownloadedReplay\020\032\022"
-  "\024\n\020k_eWatchedReplay\020\033\022\027\n\023k_eViewMatchDet"
-  "ails\020\034\022\026\n\022k_eMatchDetailsTab\020\035\022\023\n\017k_eDel"
-  "eteReplay\020\036\022\026\n\022k_eBotMatch_Guided\020\037\022\024\n\020k"
-  "_eBotMatch_Easy\020 \022\024\n\020k_eBotMatch_Hard\020!\022"
-  "\030\n\024k_eLiveUpdatedRoster\020\"\022 \n\034k_eMatchMak"
-  "ingIdle_Displayed\020#\022\036\n\032k_eMatchMakingIdl"
-  "e_Stopped\020$\022\035\n\031k_eConnectReacquireTicket"
-  "\020%\022\036\n\032k_eConnectAttemptReconnect\020&\022 \n\034k_"
-  "eDisconnectPresentedPrompt\020\'\022\032\n\026k_eDisco"
-  "nnectConfirmed\020(\022\035\n\031k_eViewedSettings_Op"
-  "tions\020)\022\033\n\027k_eViewedSettings_Video\020*\022\033\n\027"
-  "k_eViewedSettings_Audio\020+\022\034\n\030k_eViewedSe"
-  "ttings_HotKey\020,\022\037\n\033k_eViewedSettings_Cha"
-  "tWheel\020-\022\033\n\027k_eViewedSettings_About\020.\022\033\n"
-  "\027k_eOpenedSubmitFeedback\020/\022\033\n\027k_eTutoria"
-  "lSkip_Pressed\0200\022\035\n\031k_eTutorialSkip_Confi"
-  "rmed\0201\022\031\n\025k_eViewedGuidePage_5s\0202\022\032\n\026k_e"
-  "ViewedGuidePage_15s\0203\022\032\n\026k_eViewedGuideP"
-  "age_30s\0204\022\032\n\026k_eViewedGuidePage_60s\0205\022\025\n"
-  "\021k_eOpenedBookTest\0206\022\031\n\025k_eSandboxViaHer"
-  "oPage\0207\022 \n\034k_eViewedSettings_SteamInput\020"
-  "8\022\034\n\030k_eViewedSettings_Social\0209*`\n\014EComm"
-  "endType\022\016\n\nk_eInvalid\020\000\022\016\n\nk_eGeneric\020\001\022"
-  "\017\n\013k_eFriendly\020\002\022\017\n\013k_eTeamwork\020\003\022\016\n\nk_e"
-  "Skilled\020\004"
+  "ed\020\004\022\r\n\tk_eMMBusy\020\005\022\033\n\027k_eInvalidHeroSel"
+  "ection\020\006\022\030\n\024k_eHeroesNotUnlocked\020\007\"h\n\035CM"
+  "sgClientToGCGetAccountStats\022\022\n\naccount_i"
+  "d\030\001 \001(\r\022\027\n\017dev_access_hint\030\002 \001(\010\022\032\n\022frie"
+  "nd_access_hint\030\003 \001(\010\"\234\002\n%CMsgClientToGCG"
+  "etAccountStatsResponse\022P\n\006result\030\001 \001(\0162."
+  ".CMsgClientToGCGetAccountStatsResponse.E"
+  "Result:\020k_eInternalError\022 \n\005stats\030\002 \001(\0132"
+  "\021.CMsgAccountStats\"\177\n\007EResult\022\024\n\020k_eInte"
+  "rnalError\020\000\022\016\n\nk_eSuccess\020\001\022\017\n\013k_eDisabl"
+  "ed\020\002\022\016\n\nk_eTooBusy\020\003\022\022\n\016k_eRateLimited\020\004"
+  "\022\031\n\025k_eInvalidPermissions\020\005\"d\n\036CMsgClien"
+  "tToGCGetMatchMetaData\022\020\n\010match_id\030\001 \001(\004\022"
+  "\025\n\rmetadata_salt\030\003 \001(\r\022\031\n\021target_account"
+  "_id\030\004 \001(\r\"\362\003\n&CMsgClientToGCGetMatchMeta"
+  "DataResponse\022X\n\006result\030\001 \001(\0162/.CMsgClien"
+  "tToGCGetMatchMetaDataResponse.EResult:\027k"
+  "_eResult_InternalError\022\023\n\013replay_salt\030\002 "
+  "\001(\r\022\025\n\rmetadata_salt\030\003 \001(\r\022\034\n\024replay_val"
+  "id_through\030\004 \001(\r\022\022\n\ncluster_id\030\005 \001(\r\022!\n\031"
+  "replay_processing_through\030\006 \001(\r\"\354\001\n\007ERes"
+  "ult\022\033\n\027k_eResult_InternalError\020\000\022\025\n\021k_eR"
+  "esult_Success\020\001\022\037\n\033k_eResult_InvalidPerm"
+  "ission\020\002\022!\n\035k_eResult_TemporarilyDisable"
+  "d\020\003\022\025\n\021k_eResult_TooBusy\020\004\022\031\n\025k_eResult_"
+  "RateLimited\020\005\022\032\n\026k_eResult_InvalidMatch\020"
+  "\006\022\033\n\027k_eResult_MatchInFlight\020\007\"\364\001\n\036CMsgG"
+  "CToClientDevAnnouncements\022C\n\rannouncemen"
+  "ts\030\001 \003(\0132,.CMsgGCToClientDevAnnouncement"
+  "s.Announcement\032\214\001\n\014Announcement\022\020\n\010prior"
+  "ity\030\001 \001(\r\022\r\n\005title\030\002 \001(\t\022\017\n\007message\030\003 \001("
+  "\t\022\013\n\003url\030\004 \001(\t\022\021\n\tunique_id\030\005 \001(\r\022\023\n\013pos"
+  "ted_time\030\006 \001(\r\022\025\n\rpatch_version\030\007 \001(\t\"\232\002"
+  "\n$CMsgClientToGCModifyDevAnnouncements\022N"
+  "\n\toperation\030\001 \001(\01620.CMsgClientToGCModify"
+  "DevAnnouncements.EOperation:\tk_eCreate\022\021"
+  "\n\ttarget_id\030\002 \001(\r\022\020\n\010priority\030\003 \001(\r\022\r\n\005t"
+  "itle\030\004 \001(\t\022\017\n\007message\030\005 \001(\t\022\013\n\003url\030\006 \001(\t"
+  "\022\025\n\rpatch_version\030\007 \001(\t\"9\n\nEOperation\022\r\n"
+  "\tk_eCreate\020\000\022\r\n\tk_eUpdate\020\001\022\r\n\tk_eDelete"
+  "\020\002\"\342\001\n,CMsgClientToGCModifyDevAnnounceme"
+  "ntsResponse\022Q\n\006result\030\001 \001(\01625.CMsgClient"
+  "ToGCModifyDevAnnouncementsResponse.EResu"
+  "lt:\nk_eSuccess\"_\n\007EResult\022\016\n\nk_eSuccess\020"
+  "\000\022\030\n\024k_eInvalidPermission\020\001\022\024\n\020k_eInvali"
+  "dTarget\020\002\022\024\n\020k_eInternalError\020\003\"\354\003\n\027CMsg"
+  "ClientToGCDevAction\022A\n\006action\030\001 \001(\0162 .CM"
+  "sgClientToGCDevAction.EAction:\017k_eSetDev"
+  "eloper\022\022\n\naccount_id\030\002 \001(\r\022\022\n\nuint_value"
+  "\030\003 \001(\r\022\021\n\tint_value\030\004 \001(\005\022\022\n\nbool_value\030"
+  "\005 \001(\010\022\021\n\tstr_value\030\006 \001(\t\022\020\n\010match_id\030\007 \001"
+  "(\004\"\231\002\n\007EAction\022\023\n\017k_eSetDeveloper\020\001\022\r\n\tk"
+  "_eSetMMR\020\002\022\030\n\024k_eSetMMRUncertainty\020\003\022\024\n\020"
+  "k_eSetHeroStatus\020\004\022\024\n\020k_eSetPermission\020\005"
+  "\022\033\n\027k_eSetNewPlayerProgress\020\006\022\032\n\026k_eForc"
+  "eAccountStorage\020\007\022\020\n\014k_eBookReset\020\t\022\022\n\016k"
+  "_eBookXPGrant\020\n\022\021\n\rk_eBanAccount\020\013\022\027\n\023k_"
+  "eExonerateAccount\020\014\022\031\n\025k_eRequireAccount"
+  "InMM\020\r\"\310\001\n\037CMsgClientToGCDevActionRespon"
+  "se\022D\n\006result\030\001 \001(\0162(.CMsgClientToGCDevAc"
+  "tionResponse.EResult:\nk_eSuccess\"_\n\007ERes"
+  "ult\022\016\n\nk_eSuccess\020\000\022\030\n\024k_eInvalidPermiss"
+  "ion\020\001\022\024\n\020k_eInvalidTarget\020\002\022\024\n\020k_eIntern"
+  "alError\020\003\"\207\002\n CMsgClientToGCRecordClient"
+  "Events\0227\n\006events\030\001 \003(\0132\'.CMsgClientToGCR"
+  "ecordClientEvents.Event\022\030\n\020client_run_to"
+  "ken\030\002 \001(\r\032\217\001\n\005Event\022\022\n\ntime_stamp\030\001 \001(\r\022"
+  "B\n\010event_id\030\002 \001(\0162\033.ECitadelClientAccoun"
+  "tEvent:\023k_eLaunchedHeroTest\022\022\n\nevent_dat"
+  "a\030\003 \001(\004\022\032\n\022client_event_index\030\004 \001(\r\";\n(C"
+  "MsgClientToGCRecordClientEventsResponse\022"
+  "\017\n\007success\030\001 \001(\010\"w\n\"CMsgClientToGCSetNew"
+  "PlayerProgress\022Q\n\004flag\030\001 \001(\0162\036.ECitadelN"
+  "ewPlayerProgressFlag:#k_eNewPlayerProgre"
+  "ss_GettingStarted\"=\n*CMsgClientToGCSetNe"
+  "wPlayerProgressResponse\022\017\n\007success\030\001 \001(\010"
+  "\">\n\037CMsgClientToGCUpdateAccountSync\022\013\n\003i"
+  "ds\030\001 \003(\r\022\016\n\006values\030\002 \003(\r\"\352\001\n\'CMsgClientT"
+  "oGCUpdateAccountSyncResponse\022T\n\006result\030\001"
+  " \001(\01622.CMsgClientToGCUpdateAccountSyncRe"
+  "sponse.EResponse:\020k_eInternalError\"i\n\tER"
+  "esponse\022\024\n\020k_eInternalError\020\000\022\016\n\nk_eSucc"
+  "ess\020\001\022\017\n\013k_eDisabled\020\002\022\016\n\nk_eTooBusy\020\003\022\025"
+  "\n\021k_eInvalidMessage\020\004\"\035\n\033CMsgClientToGCG"
+  "etHeroChoice\"\212\003\n#CMsgClientToGCGetHeroCh"
+  "oiceResponse\022H\n\006result\030\001 \001(\0162,.CMsgClien"
+  "tToGCGetHeroChoiceResponse.EResult:\nk_eS"
+  "uccess\022B\n\017hero_selections\030\002 \003(\0132).CMsgCl"
+  "ientToGCGetHeroChoiceResponse.Hero\022\026\n\016he"
+  "ro_choice_id\030\003 \001(\r\022\024\n\014select_count\030\004 \001(\r"
+  "\032\027\n\004Hero\022\017\n\007hero_id\030\001 \001(\r\"\215\001\n\007EResult\022\016\n"
+  "\nk_eSuccess\020\000\022\020\n\014k_eNoChoices\020\001\022\024\n\020k_eIn"
+  "validTarget\020\002\022\024\n\020k_eInternalError\020\003\022\017\n\013k"
+  "_eDisabled\020\004\022\016\n\nk_eTooBusy\020\005\022\023\n\017k_eChoic"
+  "eClosed\020\006\"D\n\030CMsgClientToGCUnlockHero\022\020\n"
+  "\010hero_ids\030\001 \003(\r\022\026\n\016hero_choice_id\030\002 \001(\r\""
+  "\341\001\n CMsgClientToGCUnlockHeroResponse\022E\n\006"
+  "result\030\001 \001(\0162).CMsgClientToGCUnlockHeroR"
+  "esponse.EResult:\nk_eSuccess\"v\n\007EResult\022\016"
+  "\n\nk_eSuccess\020\000\022\024\n\020k_eInternalError\020\001\022\022\n\016"
+  "k_eInvalidHero\020\002\022\020\n\014k_eOutOfSync\020\003\022\017\n\013k_"
+  "eDisabled\020\004\022\016\n\nk_eTooBusy\020\005\"\233\001\n\017CMsgAcco"
+  "untBook\022\017\n\007book_id\030\001 \001(\r\022\017\n\007book_xp\030\002 \001("
+  "\r\022\020\n\010spent_xp\030\003 \001(\r\022(\n\007unlocks\030\004 \003(\0132\027.C"
+  "MsgAccountBook.Unlock\032*\n\006Unlock\022\021\n\tunloc"
+  "k_id\030\001 \001(\r\022\r\n\005flags\030\002 \001(\r\"m\n\030CMsgClientT"
+  "oGCBookUnlock\022\017\n\007book_id\030\001 \001(\r\022\021\n\tunlock"
+  "_id\030\002 \001(\r\022\025\n\rexpected_cost\030\003 \001(\r\022\026\n\016clie"
+  "nt_version\030\004 \001(\r\"\251\002\n CMsgClientToGCBookU"
+  "nlockResponse\022E\n\006result\030\001 \001(\0162).CMsgClie"
+  "ntToGCBookUnlockResponse.EResult:\nk_eSuc"
+  "cess\022&\n\014updated_book\030\002 \001(\0132\020.CMsgAccount"
+  "Book\"\225\001\n\007EResult\022\016\n\nk_eSuccess\020\000\022\024\n\020k_eI"
+  "nternalError\020\001\022\026\n\022k_eOutOfDateClient\020\002\022\023"
+  "\n\017k_eInvalidFunds\020\003\022\017\n\013k_eDisabled\020\004\022\016\n\n"
+  "k_eTooBusy\020\005\022\026\n\022k_eAlreadyUnlocked\020\006\"(\n\025"
+  "CMsgClientToGCGetBook\022\017\n\007book_id\030\001 \001(\r\"\351"
+  "\001\n\035CMsgClientToGCGetBookResponse\022B\n\006resu"
+  "lt\030\001 \001(\0162&.CMsgClientToGCGetBookResponse"
+  ".EResult:\nk_eSuccess\022\036\n\004book\030\002 \001(\0132\020.CMs"
+  "gAccountBook\"d\n\007EResult\022\016\n\nk_eSuccess\020\000\022"
+  "\024\n\020k_eInternalError\020\001\022\022\n\016k_eInvalidBook\020"
+  "\002\022\017\n\013k_eDisabled\020\003\022\016\n\nk_eTooBusy\020\004\";\n\031CM"
+  "sgGCToClientBookUpdated\022\036\n\004book\030\001 \001(\0132\020."
+  "CMsgAccountBook\"O\n CMsgClientToGCSubmitP"
+  "laytestUser\022\020\n\010location\030\003 \001(\t\022\031\n\021target_"
+  "account_id\030\004 \001(\r\"\342\002\n(CMsgClientToGCSubmi"
+  "tPlaytestUserResponse\022X\n\010response\030\001 \001(\0162"
+  "3.CMsgClientToGCSubmitPlaytestUserRespon"
+  "se.EResponse:\021eResponse_Success\"\333\001\n\tERes"
+  "ponse\022\025\n\021eResponse_Success\020\000\022\033\n\027eRespons"
+  "e_InternalError\020\001\022\033\n\027eResponse_InvalidFr"
+  "iend\020\003\022\"\n\036eResponse_NotFriendsLongEnough"
+  "\020\004\022\034\n\030eResponse_AlreadyHasGame\020\005\022\031\n\025eRes"
+  "ponse_LimitedUser\020\006\022 \n\034eResponse_InviteL"
+  "imitReached\020\007\"\335\005\n\rCMsgHeroBuild\022\025\n\rhero_"
+  "build_id\030\001 \001(\r\022\017\n\007hero_id\030\002 \001(\r\022\031\n\021autho"
+  "r_account_id\030\003 \001(\r\022\036\n\026last_updated_times"
+  "tamp\030\004 \001(\r\022\014\n\004name\030\005 \001(\t\022\023\n\013description\030"
+  "\006 \001(\t\022\020\n\010language\030\007 \001(\r\022\017\n\007version\030\010 \001(\r"
+  "\022\027\n\017origin_build_id\030\t \001(\r\022*\n\007details\030\n \001"
+  "(\0132\031.CMsgHeroBuild.Details_V0\0327\n\rBuildMo"
+  "dEntry\022\022\n\nability_id\030\001 \001(\r\022\022\n\nannotation"
+  "\030\002 \001(\t\032\200\001\n\020BuildModCategory\022*\n\004mods\030\001 \003("
+  "\0132\034.CMsgHeroBuild.BuildModEntry\022\014\n\004name\030"
+  "\002 \001(\t\022\023\n\013description\030\003 \001(\t\022\r\n\005width\030\004 \001("
+  "\002\022\016\n\006height\030\005 \001(\002\032^\n\016CurrencyChange\022\022\n\na"
+  "bility_id\030\001 \001(\r\022\025\n\rcurrency_type\030\002 \001(\005\022\r"
+  "\n\005delta\030\003 \001(\005\022\022\n\nannotation\030\004 \001(\t\032G\n\014Abi"
+  "lityOrder\0227\n\020currency_changes\030\001 \003(\0132\035.CM"
+  "sgHeroBuild.CurrencyChange\032y\n\nDetails_V0"
+  "\0227\n\016mod_categories\030\001 \003(\0132\037.CMsgHeroBuild"
+  ".BuildModCategory\0222\n\rability_order\030\002 \001(\013"
+  "2\033.CMsgHeroBuild.AbilityOrder\"C\n\035CMsgCli"
+  "entToGCUpdateHeroBuild\022\"\n\nhero_build\030\001 \001"
+  "(\0132\016.CMsgHeroBuild\"\330\001\n%CMsgClientToGCUpd"
+  "ateHeroBuildResponse\022T\n\010response\030\001 \001(\01620"
+  ".CMsgClientToGCUpdateHeroBuildResponse.E"
+  "Response:\020k_eInternalError\022\025\n\rhero_build"
+  "_id\030\002 \001(\r\022\017\n\007version\030\003 \001(\r\"1\n\tEResponse\022"
+  "\024\n\020k_eInternalError\020\000\022\016\n\nk_eSuccess\020\001\"\210\001"
+  "\n\034CMsgClientToGCFindHeroBuilds\022\031\n\021author"
+  "_account_id\030\001 \001(\r\022\017\n\007hero_id\030\002 \001(\r\022\020\n\010la"
+  "nguage\030\003 \003(\005\022\023\n\013search_text\030\004 \001(\t\022\025\n\rher"
+  "o_build_id\030\005 \001(\r\"O\n\027CMsgHeroBuildPrefere"
+  "nce\022\021\n\tfavorited\030\001 \001(\010\022\017\n\007ignored\030\002 \001(\010\022"
+  "\020\n\010reported\030\003 \001(\010\"\201\004\n$CMsgClientToGCFind"
+  "HeroBuildsResponse\022S\n\010response\030\001 \001(\0162/.C"
+  "MsgClientToGCFindHeroBuildsResponse.ERes"
+  "ponse:\020k_eInternalError\022F\n\007results\030\002 \003(\013"
+  "25.CMsgClientToGCFindHeroBuildsResponse."
+  "HeroBuildResult\032\370\001\n\017HeroBuildResult\022\"\n\nh"
+  "ero_build\030\001 \001(\0132\016.CMsgHeroBuild\022,\n\nprefe"
+  "rence\030\002 \001(\0132\030.CMsgHeroBuildPreference\022\025\n"
+  "\rnum_favorites\030\003 \001(\r\022\023\n\013num_ignores\030\004 \001("
+  "\r\022\023\n\013num_reports\030\005 \001(\r\022\034\n\024num_weekly_fav"
+  "orites\030\006 \001(\r\022\033\n\023num_daily_favorites\030\007 \001("
+  "\r\022\027\n\017rollup_category\030\010 \001(\r\"A\n\tEResponse\022"
+  "\024\n\020k_eInternalError\020\000\022\016\n\nk_eSuccess\020\001\022\016\n"
+  "\nk_eTooBusy\020\002\"n\n\'CMsgClientToGCUpdateHer"
+  "oBuildPreference\022\025\n\rhero_build_id\030\001 \001(\r\022"
+  ",\n\npreference\030\002 \001(\0132\030.CMsgHeroBuildPrefe"
+  "rence\"\304\001\n/CMsgClientToGCUpdateHeroBuildP"
+  "referenceResponse\022^\n\010response\030\001 \001(\0162:.CM"
+  "sgClientToGCUpdateHeroBuildPreferenceRes"
+  "ponse.EResponse:\020k_eInternalError\"1\n\tERe"
+  "sponse\022\024\n\020k_eInternalError\020\000\022\016\n\nk_eSucce"
+  "ss\020\001\">\n!CMsgClientToGCGetOldHeroBuildDat"
+  "a\022\031\n\021author_account_id\030\001 \001(\r\"\333\003\n)CMsgCli"
+  "entToGCGetOldHeroBuildDataResponse\022X\n\010re"
+  "sponse\030\001 \001(\01624.CMsgClientToGCGetOldHeroB"
+  "uildDataResponse.EResponse:\020k_eInternalE"
+  "rror\022\031\n\021author_account_id\030\002 \001(\r\022D\n\007resul"
+  "ts\030\003 \003(\01323.CMsgClientToGCGetOldHeroBuild"
+  "DataResponse.OldBuild\0324\n\rOldDetails_V0\022#"
+  "\n\033recommended_mod_ability_ids\030\001 \003(\r\032\211\001\n\010"
+  "OldBuild\022\014\n\004name\030\001 \001(\t\022\017\n\007hero_id\030\002 \001(\r\022"
+  "\023\n\013description\030\003 \001(\t\022I\n\007details\030\004 \001(\01328."
+  "CMsgClientToGCGetOldHeroBuildDataRespons"
+  "e.OldDetails_V0\"1\n\tEResponse\022\024\n\020k_eInter"
+  "nalError\020\000\022\016\n\nk_eSuccess\020\001\"\337\002\n#CMsgClien"
+  "tToGCReportPlayerFromMatch\022\020\n\010match_id\030\001"
+  " \001(\004\022\031\n\021target_account_id\030\002 \001(\r\022U\n\013repor"
+  "t_type\030\003 \001(\01620.CMsgClientToGCReportPlaye"
+  "rFromMatch.EReportType:\016k_eReport_None\022\023"
+  "\n\013report_text\030\004 \001(\t\"\236\001\n\013EReportType\022\022\n\016k"
+  "_eReport_None\020\000\022\027\n\023k_eReport_VoiceChat\020\001"
+  "\022\026\n\022k_eReport_Griefing\020\002\022\027\n\023k_eReport_Le"
+  "ftMatch\020\003\022\031\n\025k_eReport_Matchmaking\020\004\022\026\n\022"
+  "k_eReport_Cheating\020\005\"\340\002\n+CMsgClientToGCR"
+  "eportPlayerFromMatchResponse\022Z\n\010response"
+  "\030\001 \001(\01626.CMsgClientToGCReportPlayerFromM"
+  "atchResponse.EResponse:\020k_eInternalError"
+  "\"\324\001\n\tEResponse\022\024\n\020k_eInternalError\020\000\022\016\n\n"
+  "k_eSuccess\020\001\022\022\n\016k_eRateLimited\020\002\022\026\n\022k_eA"
+  "lreadyReported\020\003\022\017\n\013k_eDisabled\020\004\022\031\n\025k_e"
+  "InvalidPermissions\020\005\022\035\n\031k_eReportingWind"
+  "owExpired\020\006\022\016\n\nk_eTooBusy\020\007\022\032\n\026k_eBanned"
+  "FromReporting\020\010\"8\n$CMsgClientToGCGetAcco"
+  "untMatchReports\022\020\n\010match_id\030\001 \001(\004\"\254\003\n,CM"
+  "sgClientToGCGetAccountMatchReportsRespon"
+  "se\022[\n\010response\030\001 \001(\01627.CMsgClientToGCGet"
+  "AccountMatchReportsResponse.EResponse:\020k"
+  "_eInternalError\022E\n\007reports\030\002 \003(\01324.CMsgC"
+  "lientToGCGetAccountMatchReportsResponse."
+  "Report\022G\n\010commends\030\003 \003(\01325.CMsgClientToG"
+  "CGetAccountMatchReportsResponse.Commend\032"
+  "\034\n\006Report\022\022\n\naccount_id\030\001 \001(\r\032\035\n\007Commend"
+  "\022\022\n\naccount_id\030\001 \001(\r\"R\n\tEResponse\022\024\n\020k_e"
+  "InternalError\020\000\022\016\n\nk_eSuccess\020\001\022\017\n\013k_eDi"
+  "sabled\020\004\022\016\n\nk_eTooBusy\020\007\"Q\n\035CMsgClientTo"
+  "GCDeleteHeroBuild\022\031\n\021author_account_id\030\001"
+  " \001(\r\022\025\n\rhero_build_id\030\002 \001(\r\"\310\001\n%CMsgClie"
+  "ntToGCDeleteHeroBuildResponse\022T\n\010respons"
+  "e\030\001 \001(\01620.CMsgClientToGCDeleteHeroBuildR"
+  "esponse.EResponse:\020k_eInternalError\022\026\n\016b"
+  "uilds_deleted\030\002 \001(\r\"1\n\tEResponse\022\024\n\020k_eI"
+  "nternalError\020\000\022\016\n\nk_eSuccess\020\001\" \n\036CMsgCl"
+  "ientToGCGetActiveMatches\"S\n&CMsgClientTo"
+  "GCGetActiveMatchesResponse\022)\n\016active_mat"
+  "ches\030\001 \003(\0132\021.CMsgDevMatchInfo\"\036\n\034CMsgCli"
+  "entToGCGetDiscordLink\"\230\002\n$CMsgClientToGC"
+  "GetDiscordLinkResponse\022S\n\010response\030\001 \001(\016"
+  "2/.CMsgClientToGCGetDiscordLinkResponse."
+  "EResponse:\020k_eInternalError\022\024\n\014discord_l"
+  "ink\030\002 \001(\t\022\023\n\013valid_hours\030\003 \001(\r\"p\n\tERespo"
+  "nse\022\024\n\020k_eInternalError\020\000\022\016\n\nk_eSuccess\020"
+  "\001\022\025\n\021k_eDiscordTooBusy\020\002\022\025\n\021k_eAlreadyCl"
+  "aimed\020\003\022\017\n\013k_eDisabled\020\004\"/\n\036CMsgClientTo"
+  "GCGrantForumAccess\022\r\n\005email\030\001 \001(\t\"\245\002\n&CM"
+  "sgClientToGCGrantForumAccessResponse\022U\n\010"
+  "response\030\001 \001(\01621.CMsgClientToGCGrantForu"
+  "mAccessResponse.EResponse:\020k_eInternalEr"
+  "ror\022\r\n\005email\030\002 \001(\t\022\020\n\010username\030\003 \001(\t\022\026\n\016"
+  "forum_password\030\004 \001(\t\"k\n\tEResponse\022\024\n\020k_e"
+  "InternalError\020\000\022\016\n\nk_eSuccess\020\001\022\025\n\021k_eAl"
+  "readyClaimed\020\002\022\017\n\013k_eDisabled\020\003\022\020\n\014k_eEm"
+  "ailUsed\020\004\"4\n\036CMsgClientToGCModeratorRequ"
+  "est\022\022\n\naccount_id\030\001 \001(\r\"P\n&CMsgClientToG"
+  "CModeratorRequestResponse\022\017\n\007success\030\001 \001"
+  "(\010\022\025\n\rresponse_text\030\002 \003(\t\"<\n!CMsgClientT"
+  "oGCGetFriendGameStatus\022\027\n\017include_invite"
+  "d\030\001 \001(\010\"\271\002\n)CMsgClientToGCGetFriendGameS"
+  "tatusResponse\022X\n\010response\030\001 \001(\01624.CMsgCl"
+  "ientToGCGetFriendGameStatusResponse.ERes"
+  "ponse:\020k_eInternalError\022\037\n\023friends_playe"
+  "d_game\030\002 \003(\rB\002\020\001\022\033\n\017friends_invited\030\003 \003("
+  "\rB\002\020\001\022 \n\024friends_invites_sent\030\004 \003(\rB\002\020\001\""
+  "R\n\tEResponse\022\024\n\020k_eInternalError\020\000\022\016\n\nk_"
+  "eSuccess\020\001\022\016\n\nk_eTooBusy\020\002\022\017\n\013k_eDisable"
+  "d\020\003\"^\n#CMsgClientToGCUpdateSpectatorStat"
+  "us\022\033\n\023spectating_lobby_id\030\001 \001(\006\022\032\n\022stopp"
+  "ed_spectating\030\002 \001(\010\"\242\001\n$CMsgClientToGCCo"
+  "mmendPlayerFromMatch\022\020\n\010match_id\030\001 \001(\004\022\031"
+  "\n\021target_account_id\030\002 \001(\r\022/\n\014commend_typ"
+  "e\030\003 \001(\0162\r.ECommendType:\nk_eInvalid\022\034\n\024fa"
+  "ke_commend_hero_id\030\004 \001(\r\"\361\001\n,CMsgClientT"
+  "oGCCommendPlayerFromMatchResponse\022Y\n\006res"
+  "ult\030\001 \001(\01627.CMsgClientToGCCommendPlayerF"
+  "romMatchResponse.EResponse:\020k_eInternalE"
+  "rror\"f\n\tEResponse\022\024\n\020k_eInternalError\020\000\022"
+  "\016\n\nk_eSuccess\020\001\022\017\n\013k_eDisabled\020\002\022\016\n\nk_eT"
+  "ooBusy\020\003\022\022\n\016k_eRateLimited\020\004\"\267\001\n!CMsgGCT"
+  "oClientCommendNotification\022\034\n\024commender_"
+  "account_id\030\001 \001(\r\022\026\n\016commender_name\030\002 \001(\t"
+  "\022\031\n\021commender_hero_id\030\004 \001(\r\022/\n\014commend_t"
+  "ype\030\005 \001(\0162\r.ECommendType:\nk_eInvalid\022\020\n\010"
+  "match_id\030\006 \001(\004\"#\n!CMsgClientToGCRequestC"
+  "heatReports\"\347\002\n)CMsgClientToGCRequestChe"
+  "atReportsResponse\022N\n\006result\030\001 \001(\01622.CMsg"
+  "ClientToGCRequestCheatReportsResponse.ER"
+  "esult:\nk_eSuccess\022S\n\rcheat_reports\030\002 \003(\013"
+  "2<.CMsgClientToGCRequestCheatReportsResp"
+  "onse.RecentCheatReport\032J\n\021RecentCheatRep"
+  "ort\022\022\n\naccount_id\030\001 \001(\r\022\020\n\010match_id\030\002 \001("
+  "\004\022\017\n\007hero_id\030\003 \001(\r\"I\n\007EResult\022\016\n\nk_eSucc"
+  "ess\020\000\022\030\n\024k_eInvalidPermission\020\001\022\024\n\020k_eIn"
+  "ternalError\020\002\"=\n CMsgClientToGCGetHeroMM"
+  "RRankings\022\031\n\021target_account_id\030\001 \001(\r\"\303\002\n"
+  "(CMsgClientToGCGetHeroMMRRankingsRespons"
+  "e\022M\n\006result\030\001 \001(\01621.CMsgClientToGCGetHer"
+  "oMMRRankingsResponse.EResult:\nk_eSuccess"
+  "\022>\n\006heroes\030\002 \003(\0132..CMsgClientToGCGetHero"
+  "MMRRankingsResponse.Hero\032-\n\004Hero\022\017\n\007hero"
+  "_id\030\001 \001(\r\022\024\n\014relative_mmr\030\002 \001(\005\"Y\n\007EResu"
+  "lt\022\016\n\nk_eSuccess\020\000\022\030\n\024k_eInvalidPermissi"
+  "on\020\001\022\024\n\020k_eInternalError\020\002\022\016\n\nk_eTooBusy"
+  "\020\003\"\211\001\n\034CMsgClientToGCGetLeaderboard\022X\n\022l"
+  "eaderboard_region\030\001 \001(\0162\032.ECitadelLeader"
+  "boardRegion: k_ECitadelLeaderboardRegion"
+  "_None\022\017\n\007hero_id\030\002 \001(\r\"\367\002\n$CMsgClientToG"
+  "CGetLeaderboardResponse\022I\n\006result\030\001 \001(\0162"
+  "-.CMsgClientToGCGetLeaderboardResponse.E"
+  "Result:\nk_eSuccess\022G\n\007entries\030\002 \003(\01326.CM"
+  "sgClientToGCGetLeaderboardResponse.Leade"
+  "rboardEntry\032a\n\020LeaderboardEntry\022\024\n\014accou"
+  "nt_name\030\001 \001(\t\022\014\n\004rank\030\002 \001(\r\022\024\n\014top_hero_"
+  "ids\030\003 \003(\r\022\023\n\013badge_level\030\004 \001(\r\"X\n\007EResul"
+  "t\022\016\n\nk_eSuccess\020\000\022\027\n\023k_eInvalidArguments"
+  "\020\001\022\024\n\020k_eInternalError\020\002\022\016\n\nk_eTooBusy\020\003"
+  "\":\n$CMsgClientToGCGetAccountLeaderboards"
+  "\022\022\n\naccount_id\030\001 \001(\r\"\304\003\n,CMsgClientToGCG"
+  "etAccountLeaderboardsResponse\022Q\n\006result\030"
+  "\001 \001(\01625.CMsgClientToGCGetAccountLeaderbo"
+  "ardsResponse.EResult:\nk_eSuccess\022\024\n\014acco"
+  "unt_name\030\002 \001(\t\022O\n\007entries\030\003 \003(\0132>.CMsgCl"
+  "ientToGCGetAccountLeaderboardsResponse.L"
+  "eaderboardEntry\032\177\n\020LeaderboardEntry\022L\n\006r"
+  "egion\030\001 \001(\0162\032.ECitadelLeaderboardRegion:"
+  " k_ECitadelLeaderboardRegion_None\022\017\n\007her"
+  "o_id\030\002 \001(\r\022\014\n\004rank\030\003 \001(\r\"Y\n\007EResult\022\016\n\nk"
+  "_eSuccess\020\000\022\030\n\024k_eInvalidPermission\020\001\022\024\n"
+  "\020k_eInternalError\020\002\022\016\n\nk_eTooBusy\020\003\"A\n\"C"
+  "MsgClientToGCSetHideHolidayModels\022\033\n\023hid"
+  "e_holiday_models\030\001 \001(\010\"=\n*CMsgClientToGC"
+  "SetHideHolidayModelsResponse\022\017\n\007success\030"
+  "\001 \001(\010*\237&\n\030EGCCitadelClientMessages\022%\n k_"
+  "EMsgClientToGCStartMatchmaking\020\262F\022-\n(k_E"
+  "MsgClientToGCStartMatchmakingResponse\020\263F"
+  "\022$\n\037k_EMsgClientToGCStopMatchmaking\020\264F\022,"
+  "\n\'k_EMsgClientToGCStopMatchmakingRespons"
+  "e\020\265F\022\'\n\"k_EMsgGCToClientMatchmakingStopp"
+  "ed\020\266F\022\037\n\032k_EMsgClientToGCLeaveLobby\020\267F\022\'"
+  "\n\"k_EMsgClientToGCLeaveLobbyResponse\020\270F\022"
+  "$\n\037k_EMsgClientToGCIsInMatchmaking\020\271F\022,\n"
+  "\'k_EMsgClientToGCIsInMatchmakingResponse"
+  "\020\272F\022&\n!k_EMsgGCToClientDevPlaytestStatus"
+  "\020\273F\022!\n\034k_EMsgClientToGCDevSetMMBias\020\277F\022#"
+  "\n\036k_EMsgClientToGCGetProfileCard\020\300F\022+\n&k"
+  "_EMsgClientToGCGetProfileCardResponse\020\301F"
+  "\022!\n\034k_EMsgClientToGCUpdateRoster\020\302F\022)\n$k"
+  "_EMsgClientToGCUpdateRosterResponse\020\303F\022\'"
+  "\n\"k_EMsgGCToClientProfileCardUpdated\020\304F\022"
+  "%\n k_EMsgGCToClientDevAnnouncements\020\305F\022+"
+  "\n&k_EMsgClientToGCModifyDevAnnouncements"
+  "\020\306F\0223\n.k_EMsgClientToGCModifyDevAnnounce"
+  "mentsResponse\020\307F\022\036\n\031k_EMsgGCToClientSDRT"
+  "icket\020\214G\022)\n$k_EMsgClientToGCReplacementS"
+  "DRTicket\020\215G\0221\n,k_EMsgClientToGCReplaceme"
+  "ntSDRTicketResponse\020\216G\022$\n\037k_EMsgClientTo"
+  "GCSetServerConVar\020\223G\022,\n\'k_EMsgClientToGC"
+  "SetServerConVarResponse\020\224G\022\"\n\035k_EMsgClie"
+  "ntToGCSpectateLobby\020\225G\022*\n%k_EMsgClientTo"
+  "GCSpectateLobbyResponse\020\226G\022,\n\'k_EMsgClie"
+  "ntToGCPostMatchSurveyResponse\020\227G\022$\n\037k_EM"
+  "sgClientToGCGetMatchHistory\020\230G\022,\n\'k_EMsg"
+  "ClientToGCGetMatchHistoryResponse\020\231G\022!\n\034"
+  "k_EMsgClientToGCSpectateUser\020\234G\022)\n$k_EMs"
+  "gClientToGCSpectateUserResponse\020\235G\022 \n\033k_"
+  "EMsgClientToGCPartyCreate\020\243G\022(\n#k_EMsgCl"
+  "ientToGCPartyCreateResponse\020\244G\022\037\n\032k_EMsg"
+  "ClientToGCPartyLeave\020\245G\022\'\n\"k_EMsgClientT"
+  "oGCPartyLeaveResponse\020\246G\022\036\n\031k_EMsgClient"
+  "ToGCPartyJoin\020\247G\022&\n!k_EMsgClientToGCPart"
+  "yJoinResponse\020\250G\022 \n\033k_EMsgClientToGCPart"
+  "yAction\020\251G\022(\n#k_EMsgClientToGCPartyActio"
+  "nResponse\020\252G\022$\n\037k_EMsgClientToGCPartySta"
+  "rtMatch\020\253G\022,\n\'k_EMsgClientToGCPartyStart"
+  "MatchResponse\020\254G\022$\n\037k_EMsgClientToGCPart"
+  "yInviteUser\020\255G\022,\n\'k_EMsgClientToGCPartyI"
+  "nviteUserResponse\020\256G\022\037\n\032k_EMsgGCToClient"
+  "PartyEvent\020\257G\022#\n\036k_EMsgGCToClientCanRejo"
+  "inParty\020\261G\022%\n k_EMsgClientToGCPartyJoinV"
+  "iaCode\020\262G\022-\n(k_EMsgClientToGCPartyJoinVi"
+  "aCodeResponse\020\263G\022\'\n\"k_EMsgClientToGCPart"
+  "ySetReadyState\020\266G\022/\n*k_EMsgClientToGCPar"
+  "tySetReadyStateResponse\020\267G\022$\n\037k_EMsgClie"
+  "ntToGCGetAccountStats\020\314G\022,\n\'k_EMsgClient"
+  "ToGCGetAccountStatsResponse\020\315G\022(\n#k_EMsg"
+  "GCToClientAccountStatsUpdated\020\316G\022%\n k_EM"
+  "sgClientToGCGetMatchMetaData\020\317G\022-\n(k_EMs"
+  "gClientToGCGetMatchMetaDataResponse\020\320G\022\036"
+  "\n\031k_EMsgClientToGCDevAction\020\324G\022&\n!k_EMsg"
+  "ClientToGCDevActionResponse\020\325G\022\'\n\"k_EMsg"
+  "ClientToGCRecordClientEvents\020\326G\022/\n*k_EMs"
+  "gClientToGCRecordClientEventsResponse\020\327G"
+  "\022)\n$k_EMsgClientToGCSetNewPlayerProgress"
+  "\020\330G\0221\n,k_EMsgClientToGCSetNewPlayerProgr"
+  "essResponse\020\331G\022&\n!k_EMsgClientToGCUpdate"
+  "AccountSync\020\332G\022.\n)k_EMsgClientToGCUpdate"
+  "AccountSyncResponse\020\333G\022\"\n\035k_EMsgClientTo"
+  "GCGetHeroChoice\020\334G\022*\n%k_EMsgClientToGCGe"
+  "tHeroChoiceResponse\020\335G\022\037\n\032k_EMsgClientTo"
+  "GCUnlockHero\020\336G\022\'\n\"k_EMsgClientToGCUnloc"
+  "kHeroResponse\020\337G\022\037\n\032k_EMsgClientToGCBook"
+  "Unlock\020\340G\022\'\n\"k_EMsgClientToGCBookUnlockR"
+  "esponse\020\341G\022\034\n\027k_EMsgClientToGCGetBook\020\342G"
+  "\022$\n\037k_EMsgClientToGCGetBookResponse\020\343G\022 "
+  "\n\033k_EMsgGCToClientBookUpdated\020\344G\022\'\n\"k_EM"
+  "sgClientToGCSubmitPlaytestUser\020\345G\022/\n*k_E"
+  "MsgClientToGCSubmitPlaytestUserResponse\020"
+  "\346G\022$\n\037k_EMsgClientToGCUpdateHeroBuild\020\351G"
+  "\022,\n\'k_EMsgClientToGCUpdateHeroBuildRespo"
+  "nse\020\352G\022#\n\036k_EMsgClientToGCFindHeroBuilds"
+  "\020\353G\022+\n&k_EMsgClientToGCFindHeroBuildsRes"
+  "ponse\020\354G\022*\n%k_EMsgClientToGCReportPlayer"
+  "FromMatch\020\355G\0222\n-k_EMsgClientToGCReportPl"
+  "ayerFromMatchResponse\020\356G\022+\n&k_EMsgClient"
+  "ToGCGetAccountMatchReports\020\357G\0223\n.k_EMsgC"
+  "lientToGCGetAccountMatchReportsResponse\020"
+  "\360G\022$\n\037k_EMsgClientToGCDeleteHeroBuild\020\361G"
+  "\022,\n\'k_EMsgClientToGCDeleteHeroBuildRespo"
+  "nse\020\362G\022%\n k_EMsgClientToGCGetActiveMatch"
+  "es\020\363G\022-\n(k_EMsgClientToGCGetActiveMatche"
+  "sResponse\020\364G\022#\n\036k_EMsgClientToGCGetDisco"
+  "rdLink\020\365G\022+\n&k_EMsgClientToGCGetDiscordL"
+  "inkResponse\020\366G\022!\n\034k_EMsgClientToGCPartyS"
+  "etMode\020\367G\022)\n$k_EMsgClientToGCPartySetMod"
+  "eResponse\020\370G\022%\n k_EMsgClientToGCGrantFor"
+  "umAccess\020\371G\022-\n(k_EMsgClientToGCGrantForu"
+  "mAccessResponse\020\372G\022%\n k_EMsgClientToGCMo"
+  "deratorRequest\020\373G\022-\n(k_EMsgClientToGCMod"
+  "eratorRequestResponse\020\374G\022(\n#k_EMsgClient"
+  "ToGCGetFriendGameStatus\020\375G\0220\n+k_EMsgClie"
+  "ntToGCGetFriendGameStatusResponse\020\376G\022.\n)"
+  "k_EMsgClientToGCUpdateHeroBuildPreferenc"
+  "e\020\377G\0226\n1k_EMsgClientToGCUpdateHeroBuildP"
+  "referenceResponse\020\200H\022(\n#k_EMsgClientToGC"
+  "GetOldHeroBuildData\020\201H\0220\n+k_EMsgClientTo"
+  "GCGetOldHeroBuildDataResponse\020\202H\022*\n%k_EM"
+  "sgClientToGCUpdateSpectatorStatus\020\203H\022+\n&"
+  "k_EMsgClientToGCCommendPlayerFromMatch\020\207"
+  "H\0223\n.k_EMsgClientToGCCommendPlayerFromMa"
+  "tchResponse\020\210H\022(\n#k_EMsgGCToClientCommen"
+  "dNotification\020\211H\022%\n k_EMsgGCToClientHero"
+  "LabsSchedule\020\214H\022+\n&k_EMsgClientToGCDevRe"
+  "questCheatReports\020\216H\0223\n.k_EMsgClientToGC"
+  "DevRequestCheatReportsResponse\020\217H\022\033\n\026k_E"
+  "MsgClientToGCDevBan\020\220H\022#\n\036k_EMsgClientTo"
+  "GCDevBanResponse\020\221H\022\'\n\"k_EMsgClientToGCG"
+  "etHeroMMRRankings\020\222H\022/\n*k_EMsgClientToGC"
+  "GetHeroMMRRankingsResponse\020\223H\022#\n\036k_EMsgC"
+  "lientToGCGetLeaderboard\020\224H\022+\n&k_EMsgClie"
+  "ntToGCGetLeaderboardResponse\020\225H\022+\n&k_EMs"
+  "gClientToGCGetAccountLeaderboards\020\226H\0223\n."
+  "k_EMsgClientToGCGetAccountLeaderboardsRe"
+  "sponse\020\227H\022)\n$k_EMsgClientToGCSetHideHoli"
+  "dayModels\020\230H\0221\n,k_EMsgClientToGCSetHideH"
+  "olidayModelsResponse\020\231H*@\n\035ECitadelAccou"
+  "ntPermissionFlag\022\037\n\033k_eAccountPermission"
+  "_Ranked\020\001*\226\001\n\035ECitadelNewPlayerProgressF"
+  "lag\022\'\n#k_eNewPlayerProgress_GettingStart"
+  "ed\020\001\022%\n!k_eNewPlayerProgress_HeroTrainin"
+  "g\020\002\022%\n!k_eNewPlayerProgress_LaneTraining"
+  "\020\003*z\n\024EProfileCardSlotType\022 \n\034k_EProfile"
+  "CardSlotType_Empty\020\000\022\037\n\033k_EProfileCardSl"
+  "otType_Stat\020\001\022\037\n\033k_EProfileCardSlotType_"
+  "Hero\020\002*\225\001\n\rEDevBanReason\022\037\n\033k_eDevBanRea"
+  "son_Unspecified\020\000\022\035\n\031k_eDevBanReason_Aim"
+  "Assist\020\001\022 \n\034k_eDevBanReason_VisionAssist"
+  "\020\002\022\"\n\036k_eDevBanReason_MovementAssist\020\003*\376"
+  "\013\n\032ECitadelClientAccountEvent\022\027\n\023k_eLaun"
+  "chedHeroTest\020\001\022\024\n\020k_eViewedProfile\020\002\022\023\n\017"
+  "k_eViewedSocial\020\003\022\023\n\017k_eViewedHeroes\020\004\022\030"
+  "\n\024k_eViewedHeroDetails\020\005\022\027\n\023k_eViewedPat"
+  "chNotes\020\006\022\023\n\017k_eViewedEvents\020\007\022\033\n\027k_eVie"
+  "wedGettingStarted\020\010\022\026\n\022k_eViewedGuidePag"
+  "e\020\t\022\025\n\021k_eLaunchedClient\020\n\022\021\n\rk_eEditRos"
+  "ter\020\013\022\022\n\016k_eViewedWatch\020\014\022\023\n\017k_eCreatedP"
+  "arty\020\r\022\035\n\031k_eCreatedPartyWithInvite\020\016\022\030\n"
+  "\024k_eViewedSelfProfile\020\017\022\026\n\022k_eJoinedPart"
+  "yCode\020\020\022\026\n\022k_eSentPartyInvite\020\021\022\030\n\024k_eAc"
+  "ceptPartyInvite\020\022\022\030\n\024k_eRejectPartyInvit"
+  "e\020\023\022\023\n\017k_eSpectateUser\020\024\022\024\n\020k_eSpectateM"
+  "atch\020\025\022\031\n\025k_eEnteredMatchMaking\020\026\022\026\n\022k_e"
+  "LeftMatchMaking\020\027\022\036\n\032k_eEnteredPartyMatc"
+  "hMaking\020\030\022\033\n\027k_eLeftPartyMatchMaking\020\031\022\027"
+  "\n\023k_eDownloadedReplay\020\032\022\024\n\020k_eWatchedRep"
+  "lay\020\033\022\027\n\023k_eViewMatchDetails\020\034\022\026\n\022k_eMat"
+  "chDetailsTab\020\035\022\023\n\017k_eDeleteReplay\020\036\022\026\n\022k"
+  "_eBotMatch_Guided\020\037\022\024\n\020k_eBotMatch_Easy\020"
+  " \022\024\n\020k_eBotMatch_Hard\020!\022\030\n\024k_eLiveUpdate"
+  "dRoster\020\"\022 \n\034k_eMatchMakingIdle_Displaye"
+  "d\020#\022\036\n\032k_eMatchMakingIdle_Stopped\020$\022\035\n\031k"
+  "_eConnectReacquireTicket\020%\022\036\n\032k_eConnect"
+  "AttemptReconnect\020&\022 \n\034k_eDisconnectPrese"
+  "ntedPrompt\020\'\022\032\n\026k_eDisconnectConfirmed\020("
+  "\022\035\n\031k_eViewedSettings_Options\020)\022\033\n\027k_eVi"
+  "ewedSettings_Video\020*\022\033\n\027k_eViewedSetting"
+  "s_Audio\020+\022\034\n\030k_eViewedSettings_HotKey\020,\022"
+  "\037\n\033k_eViewedSettings_ChatWheel\020-\022\033\n\027k_eV"
+  "iewedSettings_About\020.\022\033\n\027k_eOpenedSubmit"
+  "Feedback\020/\022\033\n\027k_eTutorialSkip_Pressed\0200\022"
+  "\035\n\031k_eTutorialSkip_Confirmed\0201\022\031\n\025k_eVie"
+  "wedGuidePage_5s\0202\022\032\n\026k_eViewedGuidePage_"
+  "15s\0203\022\032\n\026k_eViewedGuidePage_30s\0204\022\032\n\026k_e"
+  "ViewedGuidePage_60s\0205\022\025\n\021k_eOpenedBookTe"
+  "st\0206\022\031\n\025k_eSandboxViaHeroPage\0207\022 \n\034k_eVi"
+  "ewedSettings_SteamInput\0208\022\034\n\030k_eViewedSe"
+  "ttings_Social\0209*`\n\014ECommendType\022\016\n\nk_eIn"
+  "valid\020\000\022\016\n\nk_eGeneric\020\001\022\017\n\013k_eFriendly\020\002"
+  "\022\017\n\013k_eTeamwork\020\003\022\016\n\nk_eSkilled\020\004"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_citadel_5fgcmessages_5fclient_2eproto_deps[3] = {
   &::descriptor_table_citadel_5fgcmessages_5fcommon_2eproto,
@@ -5326,7 +5316,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_citadel_5fgcmessage
 };
 static ::_pbi::once_flag descriptor_table_citadel_5fgcmessages_5fclient_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_citadel_5fgcmessages_5fclient_2eproto = {
-    false, false, 35889, descriptor_table_protodef_citadel_5fgcmessages_5fclient_2eproto,
+    false, false, 35753, descriptor_table_protodef_citadel_5fgcmessages_5fclient_2eproto,
     "citadel_gcmessages_client.proto",
     &descriptor_table_citadel_5fgcmessages_5fclient_2eproto_once, descriptor_table_citadel_5fgcmessages_5fclient_2eproto_deps, 3, 150,
     schemas, file_default_instances, TableStruct_citadel_5fgcmessages_5fclient_2eproto::offsets,
@@ -21918,14 +21908,11 @@ class CMsgClientToGCSpectateUser::_Internal {
   static void set_has_spectate_account_id(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
-  static void set_has_region_mode(HasBits* has_bits) {
+  static void set_has_client_version(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
   }
-  static void set_has_client_version(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
-  }
   static void set_has_client_platform(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
+    (*has_bits)[0] |= 4u;
   }
 };
 
@@ -21942,7 +21929,6 @@ CMsgClientToGCSpectateUser::CMsgClientToGCSpectateUser(const CMsgClientToGCSpect
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.spectate_account_id_){}
-    , decltype(_impl_.region_mode_){}
     , decltype(_impl_.client_version_){}
     , decltype(_impl_.client_platform_){}};
 
@@ -21961,7 +21947,6 @@ inline void CMsgClientToGCSpectateUser::SharedCtor(
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.spectate_account_id_){0u}
-    , decltype(_impl_.region_mode_){0}
     , decltype(_impl_.client_version_){0u}
     , decltype(_impl_.client_platform_){0}
   };
@@ -21991,7 +21976,7 @@ void CMsgClientToGCSpectateUser::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000000fu) {
+  if (cached_has_bits & 0x00000007u) {
     ::memset(&_impl_.spectate_account_id_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.client_platform_) -
         reinterpret_cast<char*>(&_impl_.spectate_account_id_)) + sizeof(_impl_.client_platform_));
@@ -22013,19 +21998,6 @@ const char* CMsgClientToGCSpectateUser::_InternalParse(const char* ptr, ::_pbi::
           _Internal::set_has_spectate_account_id(&has_bits);
           _impl_.spectate_account_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // optional .ECitadelRegionMode region_mode = 2 [default = k_ECitadelRegionMode_ROW];
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-          if (PROTOBUF_PREDICT_TRUE(::ECitadelRegionMode_IsValid(val))) {
-            _internal_set_region_mode(static_cast<::ECitadelRegionMode>(val));
-          } else {
-            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(2, val, mutable_unknown_fields());
-          }
         } else
           goto handle_unusual;
         continue;
@@ -22088,21 +22060,14 @@ uint8_t* CMsgClientToGCSpectateUser::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_spectate_account_id(), target);
   }
 
-  // optional .ECitadelRegionMode region_mode = 2 [default = k_ECitadelRegionMode_ROW];
-  if (cached_has_bits & 0x00000002u) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteEnumToArray(
-      2, this->_internal_region_mode(), target);
-  }
-
   // optional uint32 client_version = 3;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_client_version(), target);
   }
 
   // optional .EGCPlatform client_platform = 4 [default = k_eGCPlatform_None];
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteEnumToArray(
       4, this->_internal_client_platform(), target);
@@ -22125,25 +22090,19 @@ size_t CMsgClientToGCSpectateUser::ByteSizeLong() const {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000000fu) {
+  if (cached_has_bits & 0x00000007u) {
     // optional uint32 spectate_account_id = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_spectate_account_id());
     }
 
-    // optional .ECitadelRegionMode region_mode = 2 [default = k_ECitadelRegionMode_ROW];
-    if (cached_has_bits & 0x00000002u) {
-      total_size += 1 +
-        ::_pbi::WireFormatLite::EnumSize(this->_internal_region_mode());
-    }
-
     // optional uint32 client_version = 3;
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_client_version());
     }
 
     // optional .EGCPlatform client_platform = 4 [default = k_eGCPlatform_None];
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::_pbi::WireFormatLite::EnumSize(this->_internal_client_platform());
     }
@@ -22168,17 +22127,14 @@ void CMsgClientToGCSpectateUser::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_
   (void) cached_has_bits;
 
   cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000000fu) {
+  if (cached_has_bits & 0x00000007u) {
     if (cached_has_bits & 0x00000001u) {
       _this->_impl_.spectate_account_id_ = from._impl_.spectate_account_id_;
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.region_mode_ = from._impl_.region_mode_;
-    }
-    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.client_version_ = from._impl_.client_version_;
     }
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.client_platform_ = from._impl_.client_platform_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
@@ -22661,14 +22617,11 @@ class CMsgClientToGCSpectateLobby::_Internal {
   static void set_has_lobby_id(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
-  static void set_has_region_mode(HasBits* has_bits) {
+  static void set_has_client_version(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
   }
-  static void set_has_client_version(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
-  }
   static void set_has_client_platform(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
+    (*has_bits)[0] |= 4u;
   }
   static void set_has_match_id(HasBits* has_bits) {
     (*has_bits)[0] |= 8u;
@@ -22688,15 +22641,14 @@ CMsgClientToGCSpectateLobby::CMsgClientToGCSpectateLobby(const CMsgClientToGCSpe
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.lobby_id_){}
-    , decltype(_impl_.region_mode_){}
     , decltype(_impl_.client_version_){}
-    , decltype(_impl_.match_id_){}
-    , decltype(_impl_.client_platform_){}};
+    , decltype(_impl_.client_platform_){}
+    , decltype(_impl_.match_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&_impl_.lobby_id_, &from._impl_.lobby_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.client_platform_) -
-    reinterpret_cast<char*>(&_impl_.lobby_id_)) + sizeof(_impl_.client_platform_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.match_id_) -
+    reinterpret_cast<char*>(&_impl_.lobby_id_)) + sizeof(_impl_.match_id_));
   // @@protoc_insertion_point(copy_constructor:CMsgClientToGCSpectateLobby)
 }
 
@@ -22708,10 +22660,9 @@ inline void CMsgClientToGCSpectateLobby::SharedCtor(
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.lobby_id_){uint64_t{0u}}
-    , decltype(_impl_.region_mode_){0}
     , decltype(_impl_.client_version_){0u}
-    , decltype(_impl_.match_id_){uint64_t{0u}}
     , decltype(_impl_.client_platform_){0}
+    , decltype(_impl_.match_id_){uint64_t{0u}}
   };
 }
 
@@ -22739,10 +22690,10 @@ void CMsgClientToGCSpectateLobby::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000001fu) {
+  if (cached_has_bits & 0x0000000fu) {
     ::memset(&_impl_.lobby_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.client_platform_) -
-        reinterpret_cast<char*>(&_impl_.lobby_id_)) + sizeof(_impl_.client_platform_));
+        reinterpret_cast<char*>(&_impl_.match_id_) -
+        reinterpret_cast<char*>(&_impl_.lobby_id_)) + sizeof(_impl_.match_id_));
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -22761,19 +22712,6 @@ const char* CMsgClientToGCSpectateLobby::_InternalParse(const char* ptr, ::_pbi:
           _Internal::set_has_lobby_id(&has_bits);
           _impl_.lobby_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // optional .ECitadelRegionMode region_mode = 2 [default = k_ECitadelRegionMode_ROW];
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-          if (PROTOBUF_PREDICT_TRUE(::ECitadelRegionMode_IsValid(val))) {
-            _internal_set_region_mode(static_cast<::ECitadelRegionMode>(val));
-          } else {
-            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(2, val, mutable_unknown_fields());
-          }
         } else
           goto handle_unusual;
         continue;
@@ -22845,21 +22783,14 @@ uint8_t* CMsgClientToGCSpectateLobby::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteUInt64ToArray(1, this->_internal_lobby_id(), target);
   }
 
-  // optional .ECitadelRegionMode region_mode = 2 [default = k_ECitadelRegionMode_ROW];
-  if (cached_has_bits & 0x00000002u) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteEnumToArray(
-      2, this->_internal_region_mode(), target);
-  }
-
   // optional uint32 client_version = 3;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_client_version(), target);
   }
 
   // optional .EGCPlatform client_platform = 4 [default = k_eGCPlatform_None];
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteEnumToArray(
       4, this->_internal_client_platform(), target);
@@ -22888,32 +22819,26 @@ size_t CMsgClientToGCSpectateLobby::ByteSizeLong() const {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000001fu) {
+  if (cached_has_bits & 0x0000000fu) {
     // optional uint64 lobby_id = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_lobby_id());
     }
 
-    // optional .ECitadelRegionMode region_mode = 2 [default = k_ECitadelRegionMode_ROW];
+    // optional uint32 client_version = 3;
     if (cached_has_bits & 0x00000002u) {
-      total_size += 1 +
-        ::_pbi::WireFormatLite::EnumSize(this->_internal_region_mode());
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_client_version());
     }
 
-    // optional uint32 client_version = 3;
+    // optional .EGCPlatform client_platform = 4 [default = k_eGCPlatform_None];
     if (cached_has_bits & 0x00000004u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_client_version());
+      total_size += 1 +
+        ::_pbi::WireFormatLite::EnumSize(this->_internal_client_platform());
     }
 
     // optional uint64 match_id = 5;
     if (cached_has_bits & 0x00000008u) {
       total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_match_id());
-    }
-
-    // optional .EGCPlatform client_platform = 4 [default = k_eGCPlatform_None];
-    if (cached_has_bits & 0x00000010u) {
-      total_size += 1 +
-        ::_pbi::WireFormatLite::EnumSize(this->_internal_client_platform());
     }
 
   }
@@ -22936,21 +22861,18 @@ void CMsgClientToGCSpectateLobby::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to
   (void) cached_has_bits;
 
   cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000001fu) {
+  if (cached_has_bits & 0x0000000fu) {
     if (cached_has_bits & 0x00000001u) {
       _this->_impl_.lobby_id_ = from._impl_.lobby_id_;
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.region_mode_ = from._impl_.region_mode_;
+      _this->_impl_.client_version_ = from._impl_.client_version_;
     }
     if (cached_has_bits & 0x00000004u) {
-      _this->_impl_.client_version_ = from._impl_.client_version_;
+      _this->_impl_.client_platform_ = from._impl_.client_platform_;
     }
     if (cached_has_bits & 0x00000008u) {
       _this->_impl_.match_id_ = from._impl_.match_id_;
-    }
-    if (cached_has_bits & 0x00000010u) {
-      _this->_impl_.client_platform_ = from._impl_.client_platform_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -22973,8 +22895,8 @@ void CMsgClientToGCSpectateLobby::InternalSwap(CMsgClientToGCSpectateLobby* othe
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CMsgClientToGCSpectateLobby, _impl_.client_platform_)
-      + sizeof(CMsgClientToGCSpectateLobby::_impl_.client_platform_)
+      PROTOBUF_FIELD_OFFSET(CMsgClientToGCSpectateLobby, _impl_.match_id_)
+      + sizeof(CMsgClientToGCSpectateLobby::_impl_.match_id_)
       - PROTOBUF_FIELD_OFFSET(CMsgClientToGCSpectateLobby, _impl_.lobby_id_)>(
           reinterpret_cast<char*>(&_impl_.lobby_id_),
           reinterpret_cast<char*>(&other->_impl_.lobby_id_));
